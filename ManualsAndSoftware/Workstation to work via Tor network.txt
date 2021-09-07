@@ -1,0 +1,9 @@
+Next (for those who haven't already done so) I suggest to convert the whole workstation to work via Tor network.
+
+In order to do that you will need to configure your OS and Whonix (this is the OS which creates a "secure tunnel to Tor" for you (read more) (90% of the time it will be kali), so here are the instructions.
+
+https://defcon.ru/penetration-testing/405/
+
+After this action I got the problem - Tor over Tor, even though I followed the instructions. So here is a solution which worked for me: https://www.whonix.org/wiki/Other_Operating_Systems#Configure_Tor_Browser_Settings
+
+There you will expand the Expand tab in the same place where you will be thrown.

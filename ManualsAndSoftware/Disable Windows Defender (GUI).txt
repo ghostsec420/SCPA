@@ -1,0 +1,1 @@
+*to disable defender - open gmer or alternatives - disable mspeng process \with it, go to file location, delete the file itself = bravo, you are great

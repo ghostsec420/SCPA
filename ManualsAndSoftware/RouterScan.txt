@@ -1,0 +1,7 @@
+Software for Windows, allows you to brute force routers, cameras, some NAS (depending on the type of authorization), if they have a web interface.
+First it tries to understand what kind of device, then it applies suitable exploits to it (it breaks microtic even if the firmware is lower than 6.12 in a second and gives the password in clear form)
+If there are no exploits for this model, then starts to brute-force. Dictionaries, if necessary, load them into 3 text files, beginning with auth_***.txt, lying in the root of the program. In this form:
+login password
+login password
+But don't indent with spaces, but with Tab
+Setup socket on cob, proxyFier, run it on Windows, set up ranges or specific ip, number of threads (5 is good) and timeout (better increase it to 3000 ms, to avoid skipping). Default ports are already specified, you can add your own if the web is not on the standard. In the Scanning Module check the first one (Router scan main) and HNAP 1.0, you will not need the others. Click start, wait and hope for results

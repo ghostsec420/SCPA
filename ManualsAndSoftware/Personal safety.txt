@@ -1,0 +1,8 @@
+I think everyone here works through a virtual machine. Therefore, I advise you to install the virtual machine on the encrypted volume using VeraCrypt.
+1) download Veracrypt
+2) you will need to allocate space on your disk for a file / or encrypt the entire disk at once
+An important rule is that you will have to install the virtual machine again, because, unfortunately, when you encrypt your old working virtual machine, an insurmountable error will appear in the code and it will no longer start. This is not a big problem, because you can get all your files from the image of your old virtual machine via 7ZIP.
+
+Do not forget to save your passes for entering this chat or Tokyo jaber, because if you lose it, then no one will help you to return.
+
+(if anyone can find a way without installing a new OS, please write down please fix it)

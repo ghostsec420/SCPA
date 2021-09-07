@@ -1,0 +1,6 @@
+raising the rights (default)
+if you see that the bot came with a blue screen, the first thing we check is the rights of our user on the machine ( shell whoami /groups )
+if you see at the very top that we have admin rights ( BUILTIN\Administrators ) then feel free to click on the bot - process - elevate
+next:
+svc-exe ( start a new session on the bot not from the process but from the services, the session will come from the system with a red monitor)
+uac-token-dubl ( start a session from the current user, but with a red monitor)

