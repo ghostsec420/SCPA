@@ -2,6 +2,7 @@
 
 source ~/.zshrc
 
+git clone 'https://github.com/SakuraSamuraii/kick3d'
 git clone 'https://github.com/0x00-0x00/ShellPop'
 git clone 'https://github.com/0x25/useful'
 git clone 'https://github.com/0x4D31/awesome-oscp'
