@@ -1,0 +1,29 @@
+1. Upload aspx shell(same one as in Challenge 6 in the lab), then trigger it in /files/ folder
+2. Priv esc using PrintSpoofer(same way as in the labs and on page 474-478 in PDF)
+3. Disable Defender on the machine, disable LSA protection in mimikatz(same way as in labs)
+4. Enumerate domain(with BloodHound or PowerView) to see that FILE machine have constrained delegation enabled
+5. Use s4u attack to exploit constrained delegation
+6. Find encrypted ssh key on the FILE machine which you crack and then login on the ansible machine
+7. Priv esc using "sudo -l"
+8. Switch to ansiblesvc user and login with the ssh key in home folder on the machine mentioned in /etc/ansible/hosts
+9. Priv esc using "sudo -l" 
+10. Find ccache ticket in /tmp that belongs to dave user and transfer this to your machine.
+11. Set ticket in KRB5CCNAME environment variable
+12. Check in BloodHound what machine dave has a session on, and connect to this machine with Kerberos authentication
+13. Create a SQL binary(same way as in course on page 575-579) and execute the following commands to pwn the SQL links(change name from SQL01 to whatever you have on your SQL link:
+EXECUTE AS LOGIN = 'sa';
+EXEC ('sp_configure ''show advanced options'', 1; reconfigure') AT SQL01
+EXEC ('sp_configure ''xp_cmdshell'', 1; reconfigure') AT SQL01
+EXEC ('xp_cmdshell ''hostname&&whoami'' ') AT SQL01
+
+If you have command execution now, spawn a shell in any way you like(powershell.exe -e encodedHere) for example
+14. Priv esc using PrintSpoofer(same way as in the labs and on page 474-478 in PDF)
+15. Disable AV, dump hashes using mimikatz to find password for zen user
+16. Check BloodHound and see that zen user can read LAPS
+17. Read the LAPS password with any preferrable way on the machine left in the domain(check BH for this)
+18. Enable RDP pass the hash on the SQL machine(after doing step number 15), then RDP into it as admin
+19. From this RDP machine, RDP to the machine you read LAPS on using the LAPS password as user administrator
+20. Disable all firewall completely since there is a firewall rule that blocks SMB which we want to remove so we can connect to the machine from our Kali
+21. Setup socks proxy from your msf shell on the SQL machine (same way as page 511-512 in OSEP PDF)
+22. Connect to the machine(same machine as you found out in step number 17) from your Kali with Impacket
+23. Grab secret.txt
