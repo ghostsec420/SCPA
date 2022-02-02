@@ -14,7 +14,7 @@ Gaining enough reconnaissance about the target's network exploitation will be de
 
 Same exact steps as Information Gathering phrase but performing the network internally with privilege escalation.
 
-CrackMapExec, Responder, Bettercap, Powersploit, Nishang, etc. That is related to phrase 2,3,4 and 5. This 6th phrase is part of the final stage of exploitation that the hacker will use any penetration tools that is needed to breach the security when it's necessary.
+CrackMapExec, Responder, Bettercap, Powersploit, Nishang, etc. That is related to phrase 2, 3, 4 and 5. This 6th phrase is part of the final stage of exploitation that the hacker will use any penetration tools that is needed to breach the security when it's necessary.
 
 ## Post Exploitation, Lateral Movement (Using C2 Frameworks) and Maintaining Access
 
