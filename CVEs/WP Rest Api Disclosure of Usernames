@@ -1,0 +1,8 @@
+By default most Wordpress admin username is set to admin , but if not and your targetted wordpress site is does not restrict users from accessing parts of the site.
+(no 403 protection)
+You can mostly find the author / admin username here .
+https://targeturl/wp-json/wp/v2/users
+then try the names on wp-login.php with invalid password
+if username exist response will be invalid password for the user  
+
+more of a misconfig.
