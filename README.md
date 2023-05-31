@@ -1,6 +1,6 @@
 # SCPA
 
-Sophisticated Cyber Penetration Attacks is a series of advanced techniques, notes and guidance to prepare you in your career as a hacker moving forward.
+Sophisticated cyber penetration attacks is a series of advanced techniques, notes and guidance that will help you to prepare as a hacker on your journey.
 
 ## Information Gathering/External Reconnaissance and Vulnerability Assessment
 
