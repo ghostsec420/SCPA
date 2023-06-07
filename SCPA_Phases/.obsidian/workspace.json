@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting_Phases/Command_and_Control/Sliver/Setup.md",
+                "file": "Pentesting_Phases/Command_Line/Compilers/General.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting_Phases/Command_and_Control/Sliver/Setup.md",
+                "file": "Pentesting_Phases/Command_Line/Compilers/General.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting_Phases/Command_and_Control/Sliver/Setup.md",
+                "file": "Pentesting_Phases/Command_Line/Compilers/General.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,16 +125,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting_Phases/Command_and_Control/Sliver/Setup.md"
+                "file": "Pentesting_Phases/Command_Line/Compilers/General.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,25 +146,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f3eb96d84de0fe8",
+  "active": "6cb70c0e3b79b9bb",
   "lastOpenFiles": [
-    "SCPA_Notes.ctb12783781792.ctb",
+    "Pentesting_Phases/Command_Line/Compilers/Linux.md",
+    "Pentesting_Phases/Command_Line/Compilers/General.md",
+    "Pentesting_Phases/Command_Line/Compilers/Windows.md",
+    "SCPA_Notes.ctb4077947154.ctb",
     "SCPA_Notes.ctb-journal",
-    "SCPA_Notes.ctb12777622170.ctb",
-    "SCPA_Notes.ctb12771218537.ctb",
-    "SCPA_Notes.ctb12751447093.ctb",
-    "SCPA_Notes.ctb12735844721.ctb",
-    "SCPA_Notes.ctb12734941535.ctb",
-    "SCPA_Notes.ctb12700679461.ctb",
     "SCPA_Notes.ctb~~~",
-    "SCPA_Notes.ctb12681511743.ctb",
-    "SCPA_Notes.ctb~~",
-    "Pentesting_Phases/WebApp_Hacking/Forensics/Web_Applications/Gitleaks.md",
+    "SCPA_Notes.ctb4017940747.ctb",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Networking/Firewall_Rules.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Networking/IP_Address.md",
     "Pentesting_Phases/Command_and_Control/Sliver/Setup.md",
-    "Pentesting_Phases/WebApp_Hacking/Forensics/Web_Applications/GitTools.md",
+    "SCPA_Notes.ctb~~",
+    "SCPA_Notes.ctb3344407924.ctb",
     "Pentesting_Phases/Command_and_Control/Webshells/Weevely.md",
-    "Pentesting_Phases/Legends.md",
-    "Pentesting Phases/Command and Control/Webshells/Weevely.md",
-    "Pentesting Phases/Legends.md"
+    "Pentesting_Phases/Command_Line/Linux/Linux_Commands_References.md",
+    "Pentesting_Phases/Command_Line/Windows/Command_Prompt/Windows_Command_Prompt_References.md",
+    "Pentesting_Phases/Command_Line/Linux/Use_Cases/Base64.md",
+    "Pentesting_Phases/Command_Line/Linux/Use_Cases/Networking/Basic.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Terminal_Multiplexer/Tmux.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Terminal_Multiplexer/Screen.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/4.Starts_with_or_ends_with_groups_and_either_or.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/3.Metacharacters_and_repetitions.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/2.Wildcards_and_optional_characters.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/1.Charsets.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/5.Process_Manipulation.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/4.Viewing_and_Editing_Files.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/3.Text_Editor.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/2.File_and_Directory_Manipulation.md",
+    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/1.Navigation_and_Exploration.md",
+    "SCPA_Notes.ctb~",
+    "SCPA_Notes.ctb2188073471.ctb",
+    "Pentesting_Phases/Command_Line/Windows/Powershell/Windows_Powershell_Commands_References.md",
+    "Pentesting_Phases/Command_Line/Compilers/Linux",
+    "Pentesting_Phases/Command_Line/Compilers",
+    "Pentesting_Phases/Command_Line/Windows/Powershell/Use_Cases/Calculate_Size.md",
+    "Pentesting_Phases/Command_Line/Windows/Powershell/2.Process_Manipulation.md",
+    "Pentesting_Phases/Untitled.canvas"
   ]
 }
