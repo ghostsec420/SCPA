@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "d24863d0d4eb2b29",
+        "id": "ce7a1f1de3e57207",
         "type": "tabs",
         "children": [
           {
-            "id": "de13032e47ebd00d",
+            "id": "185498e218915bbd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting_Phases/Command_Line/Compilers/General.md",
+                "file": "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/2.SSL_Server_Test.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting_Phases/Command_Line/Compilers/General.md",
+                "file": "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/2.SSL_Server_Test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting_Phases/Command_Line/Compilers/General.md",
+                "file": "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/2.SSL_Server_Test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting_Phases/Command_Line/Compilers/General.md"
+                "file": "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/2.SSL_Server_Test.md"
               }
             }
           }
@@ -146,43 +146,51 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6cb70c0e3b79b9bb",
+  "active": "185498e218915bbd",
   "lastOpenFiles": [
-    "Pentesting_Phases/Command_Line/Compilers/Linux.md",
-    "Pentesting_Phases/Command_Line/Compilers/General.md",
-    "Pentesting_Phases/Command_Line/Compilers/Windows.md",
-    "SCPA_Notes.ctb4077947154.ctb",
+    "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/1.Certificate_Check.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/2.SSL_Server_Test.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/3.Security_Headers_Scanner.md",
+    "SCPA_Notes.ctb7340113901.ctb",
     "SCPA_Notes.ctb-journal",
-    "SCPA_Notes.ctb~~~",
-    "SCPA_Notes.ctb4017940747.ctb",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Networking/Firewall_Rules.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Networking/IP_Address.md",
-    "Pentesting_Phases/Command_and_Control/Sliver/Setup.md",
-    "SCPA_Notes.ctb~~",
-    "SCPA_Notes.ctb3344407924.ctb",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/DataSurgeon.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/CrossLinked.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Infoga.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/GoMapEnum.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Recon-ng.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/2.Gathering_Emails.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/1.Gathering_URLs.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Identify_Security_Endpoint/Recon-ng.md",
+    "SCPA_Notes.ctb7022942981.ctb",
+    "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency/Untitled",
+    "Pentesting_Phases/Information_Gathering/OSINT/Certificate_Transparency",
+    "SCPA_Notes.ctb6989631807.ctb",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/8.theHarvester.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Identify_Security_Endpoint",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/7.Phonebook.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/6.ASN_ID.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/5.Mail_Exchange_Servers.md",
+    "SCPA_Notes.ctb6560344333.ctb",
+    "SCPA_Notes.ctb6542941895.ctb",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/4.Forge_Repositories.md",
+    "Pentesting_Phases/Information_Gathering/OSINT/Organization_Information_Gathering/Website_Reconnaissance/3.Whois_Enumeration.md",
+    "SCPA_Notes.ctb6417545423.ctb",
     "Pentesting_Phases/Command_and_Control/Webshells/Weevely.md",
-    "Pentesting_Phases/Command_Line/Linux/Linux_Commands_References.md",
-    "Pentesting_Phases/Command_Line/Windows/Command_Prompt/Windows_Command_Prompt_References.md",
-    "Pentesting_Phases/Command_Line/Linux/Use_Cases/Base64.md",
-    "Pentesting_Phases/Command_Line/Linux/Use_Cases/Networking/Basic.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Terminal_Multiplexer/Tmux.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Terminal_Multiplexer/Screen.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/4.Starts_with_or_ends_with_groups_and_either_or.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/3.Metacharacters_and_repetitions.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/2.Wildcards_and_optional_characters.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Regex/1.Charsets.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/5.Process_Manipulation.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/4.Viewing_and_Editing_Files.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/3.Text_Editor.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/2.File_and_Directory_Manipulation.md",
-    "Pentesting_Phases/Command_Line/Linux/Unix_Shell/Basic_Commands/1.Navigation_and_Exploration.md",
-    "SCPA_Notes.ctb~",
-    "SCPA_Notes.ctb2188073471.ctb",
-    "Pentesting_Phases/Command_Line/Windows/Powershell/Windows_Powershell_Commands_References.md",
-    "Pentesting_Phases/Command_Line/Compilers/Linux",
-    "Pentesting_Phases/Command_Line/Compilers",
-    "Pentesting_Phases/Command_Line/Windows/Powershell/Use_Cases/Calculate_Size.md",
-    "Pentesting_Phases/Command_Line/Windows/Powershell/2.Process_Manipulation.md",
+    "Pentesting_Phases/Operation_Security/Offline/Spoof_MAC_Address.md",
+    "Pentesting_Phases/Operation_Security/Offline/Encrypting_Partition/VeraCrypt.md",
+    "Pentesting_Phases/Operation_Security/Offline/Encrypting_Partition/LUKS.md",
+    "Pentesting_Phases/Operation_Security/Online/TOR.md",
+    "Pentesting_Phases/Operation_Security/Online/Terminal_Setup.md",
+    "Pentesting_Phases/Operation_Security/Online/SOCKS5_Proxy_Servers.md",
+    "Pentesting_Phases/Operation_Security/Online/Retrieve_Proxy_Servers.md",
+    "Pentesting_Phases/Operation_Security/Online/Images/Network_Settings/4.Network_Connection_IPv4_Settings_XFCE.png",
+    "Pentesting_Phases/Operation_Security/Online/Images/Network_Settings/3.Network_Connection_Type_XFCE.png",
+    "Pentesting_Phases/Operation_Security/Online/Images/Network_Settings/2.Network_Connections_XFCE.png",
+    "Pentesting_Phases/Operation_Security/Online/Images/Network_Settings/1.Advanced_Network_Configuration_XFCE.png",
+    "Pentesting_Phases/Operation_Security/Online/Images/VirtualBox/3.VM_VirtualBox_Manager_Adapter.png",
+    "Pentesting_Phases/Operation_Security/Online/Images/VirtualBox/1.VM_VirtualBox_Manager_Settings.png",
+    "Pentesting_Phases/Operation_Security/Online/Images/VirtualBox/2.VM_VirtualBox_Manager_Network.png",
+    "Pentesting_Phases--Post_Exploitation--Shell_is_the_beginning--Lateral_Movement--Pivoting--Linux--SOCKS_Proxy--Proxychains_2439.html.md",
     "Pentesting_Phases/Untitled.canvas"
   ]
 }
