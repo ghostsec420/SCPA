@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Command and Control/Sliver/Setup.md",
+                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Command and Control/Sliver/Setup.md",
+                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Command and Control/Sliver/Setup.md",
+                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Command and Control/Sliver/Setup.md"
+                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md"
               }
             }
           }
@@ -148,34 +148,35 @@
   },
   "active": "185498e218915bbd",
   "lastOpenFiles": [
-    "Pentesting Phases/Command and Control/Webshells/Weevely.md",
-    "Pentesting Phases/Command and Control/Sliver/Setup.md",
-    "Pentesting Phases/Command Line/Compilers/General.md",
-    "Pentesting Phases/Command Line/Compilers/Linux.md",
+    "Pentesting Phases/WebApp Hacking/API Keys/API Keys References.md",
+    "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
+    "Pentesting Phases/WebApp Hacking/API Keys/Regular Expressions/Burp Suite.md",
+    "Pentesting Phases/WebApp Hacking/API Keys/Regular Expressions",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/01 - Charsets.md",
     "Pentesting Phases/Command Line/Compilers/Windows.md",
+    "Pentesting Phases/Command Line/Compilers/General.md",
+    "Pentesting Phases/Command Line/Windows/Powershell/Windows Powershell Cmdlet References.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/Windows Command Prompt References.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/01 - Navigation and Exploration.md",
+    "Pentesting Phases/Command Line/Linux/Use Cases/Base64.md",
+    "Pentesting Phases/Command Line/Linux/Use Cases/Networking/Basic.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/IPTables.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/UncomplicatedFirewall (UFW).md",
+    "Pentesting Phases/Command and Control/Sliver/Setup.md",
+    "Pentesting Phases/Command and Control/Webshells/Weevely.md",
+    "Pentesting Phases/Command Line/Compilers/Linux.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/01 - Navigation and Exploration.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/02 - File and Directory Manipulation.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/03 - Text Editor.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/05 - Process Manipulation.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/IP Address.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/UncomplicatedFirewall (UFW).md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/IPTables.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/01 - Charsets.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/02 - Wildcards and optional characters.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/03 - Metacharacters and repetitions.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/04 - Starts with or ends with groups and either or.md",
     "SCPA_Notes.ctb9718678027.ctb",
     "SCPA_Notes.ctb-journal",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Tmux.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Screen.md",
-    "Pentesting Phases/Command Line/Linux/Use Cases/Networking/Basic.md",
-    "Pentesting Phases/Command Line/Linux/Use Cases/Base64.md",
-    "Pentesting Phases/Command Line/Linux/Linux Commands References.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/01 - Navigation and Exploration.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/02 - File and Directory Manipulation.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/03 - Process Manipulation.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/04 - Shortcut Program Path.md",
     "Pentesting Phases/Information Gathering/OSINT/Data Breaches",
     "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/BinaryEdge",
     "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/Censys/Use Cases/IoT",
@@ -183,7 +184,6 @@
     "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/Censys",
     "Pentesting Phases/WebApp Hacking/Broken_Access_Control/Untitled",
     "SCPA_Notes.ctb7645832306.ctb",
-    "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/Shodan/Use Cases",
     "Pentesting Phases/Information Gathering/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/3.VM_VirtualBox_Manager_Adapter 1.png",
