@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
+                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
+                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
+                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/API Keys/cURL.md"
+                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md"
               }
             }
           }
@@ -146,44 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "185498e218915bbd",
+  "active": "6f3eb96d84de0fe8",
   "lastOpenFiles": [
-    "Pentesting Phases/WebApp Hacking/API Keys/API Keys References.md",
-    "Pentesting Phases/WebApp Hacking/API Keys/cURL.md",
-    "Pentesting Phases/WebApp Hacking/API Keys/Regular Expressions/Burp Suite.md",
-    "Pentesting Phases/WebApp Hacking/API Keys/Regular Expressions",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/01 - Charsets.md",
-    "Pentesting Phases/Command Line/Compilers/Windows.md",
-    "Pentesting Phases/Command Line/Compilers/General.md",
-    "Pentesting Phases/Command Line/Windows/Powershell/Windows Powershell Cmdlet References.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/Windows Command Prompt References.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/01 - Navigation and Exploration.md",
-    "Pentesting Phases/Command Line/Linux/Use Cases/Base64.md",
-    "Pentesting Phases/Command Line/Linux/Use Cases/Networking/Basic.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/IPTables.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/UncomplicatedFirewall (UFW).md",
-    "Pentesting Phases/Command and Control/Sliver/Setup.md",
-    "Pentesting Phases/Command and Control/Webshells/Weevely.md",
-    "Pentesting Phases/Command Line/Compilers/Linux.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/01 - Navigation and Exploration.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/02 - File and Directory Manipulation.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/03 - Text Editor.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/05 - Process Manipulation.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/IP Address.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/02 - Wildcards and optional characters.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/03 - Metacharacters and repetitions.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/04 - Starts with or ends with groups and either or.md",
-    "SCPA_Notes.ctb9718678027.ctb",
+    "Pentesting Phases/Information Gathering/Enumeration/MSSQL",
+    "Pentesting Phases/Information Gathering/Enumeration/IMAP",
+    "Pentesting Phases/Information Gathering/Enumeration/Untitled.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
+    "Pentesting Phases/Information Gathering/Enumeration/HTTP",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Amass.md",
+    "SCPA_Notes.ctb~~",
+    "SCPA_Notes.ctb2153438355.ctb",
     "SCPA_Notes.ctb-journal",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Tmux.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches",
-    "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/BinaryEdge",
-    "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/Censys/Use Cases/IoT",
-    "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/Censys/Use Cases",
-    "Pentesting Phases/Information Gathering/OSINT/Security Search Engines/Censys",
-    "Pentesting Phases/WebApp Hacking/Broken_Access_Control/Untitled",
-    "SCPA_Notes.ctb7645832306.ctb",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Nmap.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Sublist3r.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/DNSRecon.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Fierce.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Subfinder.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/theHarvester.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Findomain.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/DNSx.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS/Manual.md",
+    "SCPA_Notes.ctb~",
+    "SCPA_Notes.ctb1178411054.ctb",
+    "Pentesting Phases/Information Gathering/OSINT/Producing Reports/Recon-ng.md",
+    "Pentesting Phases/Information Gathering/Enumeration/DNS",
+    "Pentesting Phases/Information Gathering/Enumeration",
+    "Pentesting Phases/Information Gathering/OSINT/User Information Gathering/Social Media.md",
+    "Pentesting Phases/Information Gathering/OSINT/User Information Gathering/Reverse Number Lookup.md",
+    "Pentesting Phases/Information Gathering/OSINT/Information Gathering Frameworks/Maltego.md",
+    "Pentesting Phases/Information Gathering/OSINT/Producing Reports",
+    "Pentesting Phases/Information Gathering/OSINT/Information Gathering Frameworks/OSINT Framework.md",
+    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Recon-ng.md",
+    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/H8mail.md",
+    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Stack Overflow.md",
+    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Scylla.md",
+    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Pastebin Sites.md",
+    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Hunter.md",
+    "Pentesting Phases/Information Gathering/OSINT/Identify Security Endpoint/Recon-ng.md",
+    "Pentesting Phases/Command Line/Compilers/General.md",
     "Pentesting Phases/Information Gathering/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/3.VM_VirtualBox_Manager_Adapter 1.png",
