@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ce7a1f1de3e57207",
+        "id": "ec85ae2aebbc2c7d",
         "type": "tabs",
         "children": [
           {
-            "id": "185498e218915bbd",
+            "id": "f8e5b4d375c2da9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
+                "file": "Pentesting Phases/Command Line/Linux/Linux Commands References.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
+                "file": "Pentesting Phases/Command Line/Linux/Linux Commands References.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
+                "file": "Pentesting Phases/Command Line/Linux/Linux Commands References.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md"
+                "file": "Pentesting Phases/Command Line/Linux/Linux Commands References.md"
               }
             }
           }
@@ -146,53 +146,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f3eb96d84de0fe8",
+  "active": "f8e5b4d375c2da9e",
   "lastOpenFiles": [
-    "Pentesting Phases/Information Gathering/Enumeration/MSSQL",
-    "Pentesting Phases/Information Gathering/Enumeration/IMAP",
-    "Pentesting Phases/Information Gathering/Enumeration/Untitled.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Metasploit.md",
-    "Pentesting Phases/Information Gathering/Enumeration/HTTP",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Amass.md",
-    "SCPA_Notes.ctb~~",
-    "SCPA_Notes.ctb2153438355.ctb",
-    "SCPA_Notes.ctb-journal",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Nmap.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Sublist3r.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/DNSRecon.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Fierce.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Subfinder.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/theHarvester.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Findomain.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/DNSx.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS/Manual.md",
-    "SCPA_Notes.ctb~",
-    "SCPA_Notes.ctb1178411054.ctb",
-    "Pentesting Phases/Information Gathering/OSINT/Producing Reports/Recon-ng.md",
-    "Pentesting Phases/Information Gathering/Enumeration/DNS",
-    "Pentesting Phases/Information Gathering/Enumeration",
-    "Pentesting Phases/Information Gathering/OSINT/User Information Gathering/Social Media.md",
-    "Pentesting Phases/Information Gathering/OSINT/User Information Gathering/Reverse Number Lookup.md",
-    "Pentesting Phases/Information Gathering/OSINT/Information Gathering Frameworks/Maltego.md",
-    "Pentesting Phases/Information Gathering/OSINT/Producing Reports",
-    "Pentesting Phases/Information Gathering/OSINT/Information Gathering Frameworks/OSINT Framework.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Recon-ng.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/H8mail.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Stack Overflow.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Scylla.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Pastebin Sites.md",
-    "Pentesting Phases/Information Gathering/OSINT/Data Breaches/Hunter.md",
-    "Pentesting Phases/Information Gathering/OSINT/Identify Security Endpoint/Recon-ng.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Screen.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Tmux.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/01 - Navigation and Exploration.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/02 - File and Directory Manipulation.md",
     "Pentesting Phases/Command Line/Compilers/General.md",
-    "Pentesting Phases/Information Gathering/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
+    "Pentesting Phases/Command Line/Compilers/Linux.md",
+    "Pentesting Phases/Command Line/Compilers/Windows.md",
+    "Pentesting Phases/Operation Security/Online/SOCKS5 Proxy Servers.md",
+    "Pentesting Phases/Operation Security/Online/Terminal Setup.md",
+    "Pentesting Phases/Operation Security/Online/Retrieve Proxy Servers.md",
+    "Pentesting Phases/Operation Security/Offline/Encrypting Partition/VeraCrypt.md",
+    "Pentesting Phases/Operation Security/Offline/Encrypting Partition/LUKS.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Infoga.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Recon-ng.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/GoMapEnum.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/DataSurgeon.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/CrossLinked.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/05 - Mail Exchange Servers.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/04 - Forge Repositories.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/03 - Whois Enumeration.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/02 - Gathering Emails.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/01 - Gathering URLs.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Information Gathering Frameworks/OSINT Framework.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Information Gathering Frameworks/Maltego.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Identify Security Endpoint/Recon-ng.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Data Breaches/Stack Overflow.md",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
-    "Pentesting Phases/Operation Security/Online/Images/VirtualBox/3.VM_VirtualBox_Manager_Adapter 1.png",
+    "Pentesting Phases/Operation Security/Online/Images/VirtualBox/02 - VM VirtualBox Manager Network.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/01 - VM VirtualBox Manager Settings.png",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/FTP",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration",
+    "SCPA_Notes.ctb17105526414.ctb",
+    "SCPA_Notes.ctb-journal",
+    "SCPA_Notes.ctb~~~",
+    "SCPA_Notes.ctb16698334860.ctb",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Scan The Internet",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting",
+    "Pentesting Phases/Operation Security/Online/Images/VirtualBox/3.VM_VirtualBox_Manager_Adapter 1.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/04 - Network Connection IPv4 Settings XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/03 - Network Connection Type XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/02 - Network Connections XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/01 - Advanced Network Configuration XFCE.png",
-    "Pentesting Phases/Operation Security/Online/Images/VirtualBox/02 - VM VirtualBox Manager Network.png",
     "Pentesting_Phases/Untitled.canvas"
   ]
 }
