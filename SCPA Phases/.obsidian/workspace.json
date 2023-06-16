@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Wig.md",
+                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Wig.md",
+                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Wig.md",
+                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Wig.md"
+                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md"
               }
             }
           }
@@ -146,32 +146,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e657a975ff4b9450",
+  "active": "6f3eb96d84de0fe8",
   "lastOpenFiles": [
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Vulnerability Scanner/SkipFish.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Vulnerability Scanner/Nuclei.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/SkipFish.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
     "SCPA_Notes.ctb~~~",
     "SCPA_Notes.ctb4804156461.ctb",
     "SCPA_Notes.ctb-journal",
     "SCPA_Notes.ctb~~",
     "SCPA_Notes.ctb4702361123.ctb",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Vulnerability Scanner/Nmap.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Nikto.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Uniscan.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Wig.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Dalfox.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Gxss.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nmap.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Nikto.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Uniscan.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Dalfox.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Gxss.md",
     "SCPA_Notes.ctb~",
     "SCPA_Notes.ctb4272166501.ctb",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/JSScanner.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/QSReplace.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Recon-ng.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/XSSer.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)/XStrike.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/JSScanner.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/QSReplace.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Recon-ng.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/XSSer.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/XStrike.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Certificate Transparency/01 - Certificate Check.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner/Cross Site Scripting (XSS)",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)",
     "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Rustscan.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Web Vulnerability Scanner",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner",
     "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Nmap.md",
     "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Metasploit.md",
     "Pentesting Phases/Command and Control/Sliver/Setup.md",
@@ -182,7 +182,7 @@
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/03 - Text Editor.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/02 - File and Directory Manipulation.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Vulnerability Scanner",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/02 - VM VirtualBox Manager Network.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/01 - VM VirtualBox Manager Settings.png",
