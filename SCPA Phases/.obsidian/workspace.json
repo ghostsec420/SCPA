@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
+                "file": "Pentesting Phases/Command and Control/Sliver/Core Commands.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 540.5
   },
   "right": {
     "id": "b470c215db3d3347",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
+                "file": "Pentesting Phases/Command and Control/Sliver/Core Commands.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
+                "file": "Pentesting Phases/Command and Control/Sliver/Core Commands.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md"
+                "file": "Pentesting Phases/Command and Control/Sliver/Core Commands.md"
               }
             }
           }
@@ -146,43 +146,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f3eb96d84de0fe8",
+  "active": "e657a975ff4b9450",
   "lastOpenFiles": [
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/SkipFish.md",
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
-    "SCPA_Notes.ctb~~~",
-    "SCPA_Notes.ctb4804156461.ctb",
-    "SCPA_Notes.ctb-journal",
-    "SCPA_Notes.ctb~~",
-    "SCPA_Notes.ctb4702361123.ctb",
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nmap.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Nikto.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Uniscan.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Dalfox.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Gxss.md",
     "SCPA_Notes.ctb~",
-    "SCPA_Notes.ctb4272166501.ctb",
+    "SCPA_Notes.ctb5979186428.ctb",
+    "SCPA_Notes.ctb-journal",
+    "Pentesting Phases/Command and Control/Sliver/Setup.md",
+    "Pentesting Phases/Command and Control/Sliver/Core Commands.md",
+    "Pentesting Phases/Command and Control/Cobalt Strike/Usage.md",
+    "Pentesting Phases/Command and Control/Cobalt Strike/Setup.md",
+    "Pentesting Phases/Command and Control/Metasploit/Interactive Shell.md",
+    "Pentesting Phases/Command and Control/Covenant/Setup.md",
+    "Pentesting Phases/Command and Control/Covenant/Usage.md",
+    "Pentesting Phases/Operation Security/Offline/Spoof MAC Address.md",
+    "Pentesting Phases/Operation Security/Offline/Encrypting Partition/VeraCrypt.md",
+    "Pentesting Phases/Operation Security/Offline/Encrypting Partition/LUKS.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nmap.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/SkipFish.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Gxss.md",
     "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/JSScanner.md",
     "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/QSReplace.md",
     "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/Recon-ng.md",
     "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/XSSer.md",
     "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)/XStrike.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Certificate Transparency/01 - Certificate Check.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Cross Site Scripting (XSS)",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Rustscan.md",
-    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Nmap.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Metasploit.md",
-    "Pentesting Phases/Command and Control/Sliver/Setup.md",
-    "Pentesting Phases/Command Line/Compilers/General.md",
-    "Pentesting Phases/Command Line/Compilers/Linux.md",
-    "Pentesting Phases/Command Line/Compilers/Windows.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/05 - Process Manipulation.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/03 - Text Editor.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/02 - File and Directory Manipulation.md",
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Wig.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Nikto.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Uniscan.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/User Information Gathering/Social Media.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/User Information Gathering/Reverse Number Lookup.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Security Search Engines/Zoomeye.md",
+    "Pentesting Phases/Command and Control/Metasploit/MSFConsole",
+    "SCPA_Notes.ctb26978112713.ctb",
+    "SCPA_Notes.ctb25208894804.ctb",
+    "Pentesting Phases/Command and Control/Covenant/Images",
+    "Pentesting Phases/Command and Control/Cobalt Strike/Images",
+    "SCPA_Notes.ctb23050941781.ctb",
+    "Pentesting Phases/Command and Control/Havoc/Images/02 - Qt5 Fonts Configuration.png",
+    "Pentesting Phases/Command and Control/Havoc/Images/01 - Qt5 Settings.png",
+    "Pentesting Phases/Command and Control/Havoc/Images",
+    "SCPA_Notes.ctb22199895980.ctb",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/02 - VM VirtualBox Manager Network.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/01 - VM VirtualBox Manager Settings.png",
@@ -191,7 +194,6 @@
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/04 - Network Connection IPv4 Settings XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/03 - Network Connection Type XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/02 - Network Connections XFCE.png",
-    "Pentesting Phases/Operation Security/Online/Images/Network Settings/01 - Advanced Network Configuration XFCE.png",
     "Pentesting_Phases/Untitled.canvas"
   ]
 }
