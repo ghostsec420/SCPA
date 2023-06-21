@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md",
+                "file": "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md",
+                "file": "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md",
+                "file": "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md"
+                "file": "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md"
               }
             }
           }
@@ -148,44 +148,44 @@
   },
   "active": "e657a975ff4b9450",
   "lastOpenFiles": [
-    "SCPA_Notes.ctb2501059644.ctb",
+    "SCPA_Notes.ctb8472935407.ctb",
     "SCPA_Notes.ctb-journal",
-    "SCPA_Notes.ctb1996639097.ctb",
-    "SCPA_Notes.ctb1991348049.ctb",
-    "SCPA_Notes.ctb712684969.ctb",
-    "SCPA_Notes.ctb637718047.ctb",
-    "SCPA_Notes.ctb631381582.ctb",
-    "SCPA_Notes.ctb622941349.ctb",
-    "SCPA_Notes.ctb357760059.ctb",
+    "SCPA_Notes.ctb8458868673.ctb",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Wifite.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/EAPMD5Pass.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Cowpatty.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Reaver.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Bully.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/PixieWPS.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Airgeddon.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Bettercap.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Aircrack-ng.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Software Defined Radio.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/RFID and NFC Tools.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Other Wireless Tools.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Bluetooth Tools.md",
+    "Pentesting Phases/Initial Access/Callback Shells/Webshells.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools",
+    "Pentesting Phases/Initial Access/Wireless Attacks",
+    "SCPA_Notes.ctb8203703085.ctb",
+    "SCPA_Notes.ctb8176713127.ctb",
+    "SCPA_Notes.ctb8019654093.ctb",
+    "Pentesting Phases/Initial Access/Callback Shells/Shellcode Formatting.md",
+    "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md",
+    "SCPA_Notes.ctb6581878864.ctb",
+    "SCPA_Notes.ctb6318941550.ctb",
+    "SCPA_Notes.ctb6255061940.ctb",
     "Pentesting Phases/Initial Access/Callback Shells/Shell Handler.md",
     "Pentesting Phases/Initial Access/Callback Shells/OneLiners.md",
-    "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Security Search Engines/Netcraft.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Data Breaches/Recon-ng.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Data Breaches/Scylla.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Data Breaches/Pastebin Sites.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Data Breaches/Hunter.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Data Breaches/H8mail.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Certificate Transparency/03 - Security Headers Scanner.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Certificate Transparency/02 - SSL Server Test.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Certificate Transparency/01 - Certificate Check.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/MSSQL/Shodan.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/IMAP/Shodan.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/Whatweb.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/Spiderfoot.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/ParamSpider.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/Gospider.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Ping Hosts.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Active Enumeration References.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/Metasploit.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/HTTPx.md",
-    "Pentesting Phases/Command Line/Windows/Powershell/Windows Powershell Cmdlet References.md",
-    "Pentesting Phases/Command Line/Windows/Powershell/03 - Alternate Data Streams.md",
-    "Pentesting Phases/Command Line/Windows/Powershell/02 - Process Manipulation.md",
-    "Pentesting Phases/Initial Access/Callback Shells",
     "Pentesting Phases/Command and Control/Havoc/Images/02 - Qt5 Fonts Configuration.png",
     "Pentesting Phases/Command and Control/Havoc/Images/01 - Qt5 Settings.png",
-    "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/02 - VM VirtualBox Manager Network.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/01 - VM VirtualBox Manager Settings.png",
