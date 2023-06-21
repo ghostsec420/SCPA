@@ -2,5 +2,6 @@
   "readableLineLength": false,
   "strictLineBreaks": false,
   "showLineNumber": true,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": false
 }

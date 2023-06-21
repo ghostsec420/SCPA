@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Spear Phishing Social Engineering References.md",
+                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Spear Phishing Social Engineering References.md",
+                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Spear Phishing Social Engineering References.md",
+                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Spear Phishing Social Engineering References.md"
+                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md"
               }
             }
           }
@@ -146,54 +146,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e657a975ff4b9450",
+  "active": "6f3eb96d84de0fe8",
   "lastOpenFiles": [
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Excel.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Spear Phishing Social Engineering References.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/LibreOffice",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros/Payload Delivery Macro.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Word.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/PowerPoint.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros/Untitled.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros/Payload Inside Document Properties Macro.md",
-    "SCPA_Notes.ctb14893117069.ctb",
-    "SCPA_Notes.ctb-journal",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Phishing/Setting up a Phishing Page.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Phishing/Sending Email.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros/Harvest SMB Credentials.md",
-    "SCPA_Notes.ctb14536286747.ctb",
-    "SCPA_Notes.ctb14412286471.ctb",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros/Templates.md",
-    "SCPA_Notes.ctb13561696867.ctb",
-    "Pentesting Phases/Initial Access/Callback Shells/MSFVenom.md",
-    "Pentesting Phases/Initial Access/Callback Shells/Shellcode Formatting.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/ISO File.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office/Macros",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Microsoft Office",
-    "SCPA_Notes.ctb12169944376.ctb",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/02 - Manage app execution aliases.png",
+    "Pentesting Phases/Initial Access/Delivery/Web Drive-by/CrackMapExec.md",
+    "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Metasploit.md",
+    "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Cobalt Strike.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Wordlist.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Identify Hash.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/TCPDump.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Wireshark.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Sipdump.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Responder.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Responder.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/SSLStrip.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Pretender.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Metasploit.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Initial Setup.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Impacket.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Ettercap.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Dsniff.md",
+    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Bettercap.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Software Defined Radio.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/RFID and NFC Tools.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Other Wireless Tools.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Bluetooth Tools.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Wifite.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Reaver.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/PixieWPS.md",
+    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/01 - Windows Search Bar.png",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Beef XSS.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/HTML Smuggling.md",
-    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Shortcut Link.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/Metasploit.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/09 - WebDAV.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/08 - Web Crawlers and Directory Bruteforce.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/07 - Screenshots.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/06 - WAF Detection.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/05 - Detecting HTTP Methods.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/04 - SSL Certificate.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/03 - Robots.md",
-    "Pentesting Phases/Command and Control/Havoc/Images/02 - Qt5 Fonts Configuration.png",
-    "Pentesting Phases/Command and Control/Havoc/Images/01 - Qt5 Settings.png",
+    "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/02 - Manage app execution aliases.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/02 - VM VirtualBox Manager Network.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/01 - VM VirtualBox Manager Settings.png",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
-    "Pentesting Phases/Operation Security/Online/Images/VirtualBox/3.VM_VirtualBox_Manager_Adapter 1.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/04 - Network Connection IPv4 Settings XFCE.png",
+    "Pentesting Phases/Operation Security/Online/Images/Network Settings/03 - Network Connection Type XFCE.png",
+    "Pentesting Phases/Operation Security/Online/Images/Network Settings/02 - Network Connections XFCE.png",
+    "Pentesting Phases/Operation Security/Online/Images/Network Settings/01 - Advanced Network Configuration XFCE.png",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
+    "Pentesting Phases/Initial Access/Password Cracking/Offline",
+    "Pentesting Phases/Initial Access/Password Cracking/Online",
+    "SCPA_Notes.ctb4726073229.ctb",
+    "SCPA_Notes.ctb-journal",
+    "Pentesting Phases/Initial Access/Password Cracking",
+    "SCPA_Notes.ctb2911946643.ctb",
+    "SCPA_Notes.ctb2828782738.ctb",
+    "SCPA_Notes.ctb2602963372.ctb",
+    "Pentesting Phases/Initial Access/Delivery/Physical Penetration/USB Delivery",
+    "Pentesting Phases/Initial Access/Delivery/Physical Penetration",
     "Pentesting_Phases/Untitled.canvas"
   ]
 }
