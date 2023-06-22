@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md",
+                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
                 "mode": "source",
                 "source": false
               }
@@ -49,7 +49,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": false,
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md",
+                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md",
+                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Crafting Manually.md"
+                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md"
               }
             }
           }
@@ -146,34 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f3eb96d84de0fe8",
+  "active": "e657a975ff4b9450",
   "lastOpenFiles": [
-    "Pentesting Phases/Initial Access/Delivery/Web Drive-by/CrackMapExec.md",
-    "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Metasploit.md",
-    "Pentesting Phases/Initial Access/Delivery/Web Drive-by/Cobalt Strike.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Wordlist.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Identify Hash.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/TCPDump.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Wireshark.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Offline/JTR.md",
+    "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
+    "Pentesting Phases/Initial Access/Internet of Things (IoT)",
+    "Pentesting Phases/Initial Access/Password Cracking/Offline/Hashcat.md",
+    "SCPA_Notes.ctb8493846246.ctb",
+    "SCPA_Notes.ctb-journal",
+    "SCPA_Notes.ctb8487490318.ctb",
+    "Pentesting Phases/Initial Access/Password Cracking/Offline/Sipcrack.md",
     "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Sipdump.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Responder.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Responder.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/SSLStrip.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Pretender.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Metasploit.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Initial Setup.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Impacket.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Ettercap.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Dsniff.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Active/Bettercap.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Software Defined Radio.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/RFID and NFC Tools.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Other Wireless Tools.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Bluetooth Tools.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Wifite.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Reaver.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/PixieWPS.md",
-    "Pentesting Phases/Initial Access/Wireless Attacks/Wireless Tools/Fluxion.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Patator.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Medusa.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Hydra.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Crowbar.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/MySQL.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SMB & NETBIOS.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/WinRM.md",
+    "SCPA_Notes.ctb6977786807.ctb",
+    "SCPA_Notes.ctb6954868197.ctb",
+    "SCPA_Notes.ctb6875144631.ctb",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/PostgreSQL.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/VNC.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SSH.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SOCKS.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SNMP.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SMTP.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/RDP.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/POP3.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/MSSQL.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/LDAP.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/Kerberos.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/HTTP.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/FTP.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/VoIP.md",
+    "SCPA_Notes.ctb6267904215.ctb",
+    "SCPA_Notes.ctb6252941285.ctb",
+    "SCPA_Notes.ctb6137921532.ctb",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/01 - Windows Search Bar.png",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/02 - Manage app execution aliases.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
@@ -184,16 +194,6 @@
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/02 - Network Connections XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/01 - Advanced Network Configuration XFCE.png",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
-    "Pentesting Phases/Initial Access/Password Cracking/Offline",
-    "Pentesting Phases/Initial Access/Password Cracking/Online",
-    "SCPA_Notes.ctb4726073229.ctb",
-    "SCPA_Notes.ctb-journal",
-    "Pentesting Phases/Initial Access/Password Cracking",
-    "SCPA_Notes.ctb2911946643.ctb",
-    "SCPA_Notes.ctb2828782738.ctb",
-    "SCPA_Notes.ctb2602963372.ctb",
-    "Pentesting Phases/Initial Access/Delivery/Physical Penetration/USB Delivery",
-    "Pentesting Phases/Initial Access/Delivery/Physical Penetration",
     "Pentesting_Phases/Untitled.canvas"
   ]
 }
