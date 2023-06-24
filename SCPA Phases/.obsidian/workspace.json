@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
+                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
+                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
+                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md"
+                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md"
               }
             }
           }
@@ -148,13 +148,35 @@
   },
   "active": "e657a975ff4b9450",
   "lastOpenFiles": [
-    "Pentesting Phases/Initial Access/Password Cracking/Offline/JTR.md",
-    "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
-    "Pentesting Phases/Initial Access/Internet of Things (IoT)",
-    "Pentesting Phases/Initial Access/Password Cracking/Offline/Hashcat.md",
-    "SCPA_Notes.ctb8493846246.ctb",
+    "SCPA_Notes.ctb3359246245.ctb",
     "SCPA_Notes.ctb-journal",
-    "SCPA_Notes.ctb8487490318.ctb",
+    "SCPA_Notes.ctb3344131476.ctb",
+    "SCPA_Notes.ctb3325363939.ctb",
+    "SCPA_Notes.ctb3315679884.ctb",
+    "SCPA_Notes.ctb3284678802.ctb",
+    "SCPA_Notes.ctb3273417869.ctb",
+    "SCPA_Notes.ctb3262351941.ctb",
+    "SCPA_Notes.ctb3250465820.ctb",
+    "SCPA_Notes.ctb3238599892.ctb",
+    "SCPA_Notes.ctb~~~",
+    "Pentesting Phases/WebApp Hacking/SQL Injection/SQL Injection.md",
+    "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
+    "Pentesting Phases/Legends.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Naabu.md",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Rustscan.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/SkipFish.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/SQL Injection.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/Robots.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/Login Pages.md",
+    "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Uncover.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/theHarvester.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Recon-ng.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Metasploit.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/Content Management System (CMS).md",
+    "Pentesting Phases/Initial Access/Password Cracking/Offline/JTR.md",
+    "Pentesting Phases/Initial Access/Password Cracking/Offline/Hashcat.md",
     "Pentesting Phases/Initial Access/Password Cracking/Offline/Sipcrack.md",
     "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Sipdump.md",
     "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Patator.md",
@@ -162,28 +184,6 @@
     "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Hydra.md",
     "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Crowbar.md",
     "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/MySQL.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SMB & NETBIOS.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/WinRM.md",
-    "SCPA_Notes.ctb6977786807.ctb",
-    "SCPA_Notes.ctb6954868197.ctb",
-    "SCPA_Notes.ctb6875144631.ctb",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/PostgreSQL.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/VNC.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SSH.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SOCKS.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SNMP.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/SMTP.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/RDP.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/POP3.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/MSSQL.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/LDAP.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/Kerberos.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/HTTP.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/FTP.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/VoIP.md",
-    "SCPA_Notes.ctb6267904215.ctb",
-    "SCPA_Notes.ctb6252941285.ctb",
-    "SCPA_Notes.ctb6137921532.ctb",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/01 - Windows Search Bar.png",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/02 - Manage app execution aliases.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
