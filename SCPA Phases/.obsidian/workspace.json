@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "6b0b0dcc6da3858a",
+        "id": "418b05af25f8f938",
         "type": "tabs",
         "children": [
           {
-            "id": "cf0c5f982cc9a688",
+            "id": "d572322481489b21",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md",
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Kernel Exploits.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md",
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Kernel Exploits.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md",
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Kernel Exploits.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md"
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Kernel Exploits.md"
               }
             }
           }
@@ -146,44 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cf0c5f982cc9a688",
+  "active": "6f3eb96d84de0fe8",
   "lastOpenFiles": [
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Capabilities.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md",
-    "SCPA_Notes.ctb3005529494.ctb",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Active Directory Privilege Escalation",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Outdated Software.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Kernel Exploits.md",
+    "Auditing.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Service Exploits/PostgreSQL.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Service Exploits/MySQL.md",
+    "SCPA_Notes.ctb~~~",
+    "SCPA_Notes.ctb7808966463.ctb",
     "SCPA_Notes.ctb-journal",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Service Exploits",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/MySQL.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Weak File Permissions.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/NFS.md",
+    "SCPA_Notes.ctb~~",
+    "SCPA_Notes.ctb6779837442.ctb",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Credentials.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/PATH.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md",
+    "SCPA_Notes.ctb~",
+    "SCPA_Notes.ctb4503894786.ctb",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Capabilities.md",
+    "SCPA_Notes.ctb3005529494.ctb",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/SUID and SGID.md",
-    "SCPA_Notes.ctb2795940839.ctb",
-    "SCPA_Notes.ctb2759296831.ctb",
-    "SCPA_Notes.ctb2438273685.ctb",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Sudo.md",
-    "SCPA_Notes.ctb1955941405.ctb",
-    "SCPA_Notes.ctb1824712419.ctb",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Hijack Multiplexer Shell Sessions.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/Metasploit.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/Unix Privesc Check.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/BSD/Auditing Tools/Unix Privesc Check.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/PostEnum.md",
-    "SCPA_Notes.ctb776718970.ctb",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/LinuxPrivChecker.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/Linux Smart Enumeration.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/LES (Linux Exploit Suggester).md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/LinEnum.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools/LinPEAS.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Auditing Tools",
-    "SCPA_Notes.ctb349112825.ctb",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/BSD/Doas.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Cross-platform/Timestomp.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Disable Logs.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Delete Logs.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Delete Users.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Timestomps.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Secure Delete Files.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Remove Certifications.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Cleanup Malware.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Windows/Clear Hosts.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Anti-Forensics References.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics/Linux/Disable Logs.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Images/AMSITrigger/AMSITrigger.AssemblyInfo Comment Lines.png",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Images/ThreatCheck/ThreatCheck.AssemblyInfo Comment Lines.png",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/01 - Windows Search Bar.png",
