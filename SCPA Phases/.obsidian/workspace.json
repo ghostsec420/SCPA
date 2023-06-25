@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Operation Security/Online/TOR.md",
+                "file": "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Operation Security/Online/TOR.md",
+                "file": "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Operation Security/Online/TOR.md",
+                "file": "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Operation Security/Online/TOR.md"
+                "file": "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md"
               }
             }
           }
@@ -148,11 +148,20 @@
   },
   "active": "38e406125a1dfa58",
   "lastOpenFiles": [
-    "Pentesting Phases/Operation Security/Online/Terminal Setup.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/05 - Process Manipulation.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/04 - Viewing and Editing Files.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/03 - Text Editor.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/02 - File and Directory Manipulation.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Basic Commands/01 - Navigation and Exploration.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/UncomplicatedFirewall (UFW).md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/IPTables.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/02 - Wildcards and optional characters.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Regex/01 - Charsets.md",
+    "Pentesting Phases/Command Line/Linux/Use Cases/Networking/Basic.md",
     "Pentesting Phases/Operation Security/Online/TOR.md",
+    "Pentesting Phases/Operation Security/Online/Terminal Setup.md",
     "Pentesting Phases/Operation Security/Online/SOCKS5 Proxy Servers.md",
     "Pentesting Phases/Operation Security/Online/Retrieve Proxy Servers.md",
-    "Pentesting Phases/Command Line/Linux/Use Cases/Networking/Basic.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Living off the Land (LotL)/Linux.md",
     "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/IP Address.md",
     "[.md",
@@ -165,15 +174,6 @@
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Artifacts.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Hide Artifacts.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Sign Binary.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/01 - Manual.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/02 - Metasploit.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Networking/Firewall Rules/IPTables.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/01 - Gathering URLs.md",
-    "Pentesting Phases/Initial Access/Callback Shells/OneLiners.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/DNS/Manual.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Hydra.md",
-    "Pentesting Phases/Command and Control/Metasploit/Interactive Shell.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/IDS",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Firewalls",
