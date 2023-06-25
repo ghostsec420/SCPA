@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/01 - Manual.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 435.5
+    "width": 376.5
   },
   "right": {
     "id": "b470c215db3d3347",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/01 - Manual.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/01 - Manual.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md"
+                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/01 - Manual.md"
               }
             }
           }
@@ -146,44 +146,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e657a975ff4b9450",
+  "active": "6f3eb96d84de0fe8",
   "lastOpenFiles": [
-    "SCPA_Notes.ctb3359246245.ctb",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Anti-Forensics",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/IDS",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Firewalls",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/02 - Metasploit.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Security Solutions/Windows/01 - Manual.md",
+    "Pentesting Phases/Post Exploitation/Post Exploitation References.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Internal Reconnaissance/Users.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Internal Reconnaissance/Hidden Files and Directories.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Internal Reconnaissance/Geolocation.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Networking/Port Scan.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Networking/IP Address.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Networking/Configuration.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/CheckVM.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/Discover Programs.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/List Processes.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/Scheduled Tasks.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/Windows Services.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Registry/Registry Table Key Values.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Registry/Windows AutoLogin.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/System and Kernel Version/Kernel.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/System and Kernel Version/Hardware.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Windows Enumeration and Discovery References.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/BSD.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/AMSI Bypass.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/AMSITrigger.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Artifacts.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/ThreatCheck.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Software Packing.md",
+    "SCPA_Notes.ctb25956153932.ctb",
     "SCPA_Notes.ctb-journal",
-    "SCPA_Notes.ctb3344131476.ctb",
-    "SCPA_Notes.ctb3325363939.ctb",
-    "SCPA_Notes.ctb3315679884.ctb",
-    "SCPA_Notes.ctb3284678802.ctb",
-    "SCPA_Notes.ctb3273417869.ctb",
-    "SCPA_Notes.ctb3262351941.ctb",
-    "SCPA_Notes.ctb3250465820.ctb",
-    "SCPA_Notes.ctb3238599892.ctb",
-    "SCPA_Notes.ctb~~~",
-    "Pentesting Phases/WebApp Hacking/SQL Injection/SQL Injection.md",
-    "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
-    "Pentesting Phases/Legends.md",
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Naabu.md",
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Port Scanners/Rustscan.md",
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/SkipFish.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/SQL Injection.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/Robots.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/Login Pages.md",
-    "Pentesting Phases/Initial Access/Internet of Things (IoT)/Printers.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Uncover.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/theHarvester.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Recon-ng.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Metasploit.md",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/Content Management System (CMS).md",
-    "Pentesting Phases/Initial Access/Password Cracking/Offline/JTR.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Offline/Hashcat.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Offline/Sipcrack.md",
-    "Pentesting Phases/Initial Access/Sniffing and Spoofing/Passive/Sipdump.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Patator.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Medusa.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Hydra.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Tools/Crowbar.md",
-    "Pentesting Phases/Initial Access/Password Cracking/Online/Protocols/MySQL.md",
+    "SCPA_Notes.ctb25691391231.ctb",
+    "SCPA_Notes.ctb24914170713.ctb",
+    "SCPA_Notes.ctb24904061478.ctb",
+    "SCPA_Notes.ctb24899941526.ctb",
+    "SCPA_Notes.ctb24381890011.ctb",
+    "SCPA_Notes.ctb24325832716.ctb",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Images/AMSITrigger/AMSITrigger.AssemblyInfo Comment Lines.png",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Defense Evasion/Images/ThreatCheck/ThreatCheck.AssemblyInfo Comment Lines.png",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/01 - Windows Search Bar.png",
     "Pentesting Phases/Initial Access/Delivery/Social Engineering/Spear Phishing/Images/ISO File/02 - Manage app execution aliases.png",
     "Pentesting Phases/Operation Security/Online/Images/VirtualBox/03 - VM VirtualBox Manager Adapter.png",
@@ -192,8 +194,6 @@
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/04 - Network Connection IPv4 Settings XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/03 - Network Connection Type XFCE.png",
     "Pentesting Phases/Operation Security/Online/Images/Network Settings/02 - Network Connections XFCE.png",
-    "Pentesting Phases/Operation Security/Online/Images/Network Settings/01 - Advanced Network Configuration XFCE.png",
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Github Dorking/Images/Github Dorking References.png",
     "Pentesting_Phases/Untitled.canvas"
   ]
 }
