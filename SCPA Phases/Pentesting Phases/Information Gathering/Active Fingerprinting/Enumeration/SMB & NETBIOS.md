@@ -1,0 +1,399 @@
+# SMB & NETBIOS
+
+## 01 - Manual
+
+### 1.1 - NETBIOS
+
+#### 1.1.1 - Usage
+
+- **Scanning for NetBIOS hosts**
+
+`$ nmblookup -A <IP>`
+
+`$ nbtscan <IP>/<CIDR>`
+
+- **Authenticating with NetBIOS protocol**
+
+`$ rpcclient -U <username>%<password> <IP>`
+
+#### 1.1.2 - Enumeration
+
+##### 1.1.2.1 - Anonymous Login
+
+- **Check for anonymous login**
+
+`$ rpcclient -U "" -N <IP>`
+
+##### 1.1.2.2 - Basic Information
+
+- **Retrieve user domain password information**
+
+`rpcclient $> getusrdompwinfo <RID>`
+
+##### 1.1.2.3 - Domain Users
+
+- **Enumerate Domain Users**
+
+`rpcclient $> enumdomusers`
+
+`rpcclient $> enumalsgroups builtin`
+
+`rpcclient $> queryuser <username>`
+
+`rpcclient $> queryusersgroups <rid>`
+
+- **Display Query Information**
+
+`rpcclient $> querydispinfo`
+
+- **Enumerate Privileges**
+
+`rpcclient $> enumprivs`
+
+##### 1.1.2.4 - LSA Query
+
+- **Enumerate SID From LSA**
+
+`rpcclient $> lsaquery`
+
+`rpcclient $> dsroledominfo`
+
+- **SAM Lookup**
+
+`rpcclient $> samlookupnames domain <username>`
+
+`rpcclient $> samlookuprids domain <rid>`
+
+- **Enumerating LSA Group Privileges**
+
+`rpcclient $> lsaenumsid`
+
+`rpcclient $> lookupsids <SID>`
+
+`rpcclient $> lookupsids S-1-1-0`
+
+`rpcclient $> lsaenumacctrights <SID>`
+
+`rpcclient $> lsaenumacctrights S-1-1-0`
+
+`rpcclient $> lsalookupprivvalue SeCreateTokenPrivilege`
+
+- **LSA Query Security Objects**
+
+`rpcclient $> lsaquerysecobj`
+
+##### 1.1.2.5 - Domain Groups
+
+- **Enumerate Domain Groups**
+
+`rpcclient $> enumdomgroups`
+
+`rpcclient $> querygroup <rid>`
+
+`rpcclient $> querygroupmem <rid>`
+
+- **Domain Information**
+
+`rpcclient $> querydominfo`
+
+`rpcclient $> enumdomains`
+
+- **Domain Password Information**
+
+`rpcclient $> getdompwinfo`
+
+- **Retrieve information of SMB shares**
+
+`rpcclient $> netshareenum`
+
+`rpcclient $> netshareenumall`
+
+`rpcclient $> netsharegetinto <share_name>`
+
+#### 1.1.3 - Create Accounts
+
+- **Create domain user account**
+
+`rpcclient $> createdomuser <username>`
+
+`rpcclient $> setuserinfo2 <username> 24 <password>`
+
+`rpcclient $> enumdomusers`
+
+- **LSA create account**
+
+`rpcclient $> lsaenumsid`
+
+`rpcclient $> lookupsids S-1-1-0`
+
+Lookup username accounts
+
+`rpcclient $> lookupnames <username>`
+
+`rpcclient $> lsacreateaccount S-1-1-0`
+
+`rpcclient $> lsaaddpriv S-1-1-0 SeCreateTokenPrivilege`
+
+`rpcclient $> lsaenumprivsaccount S-1-1-0`
+
+#### 1.1.4 - Change Passwod Accounts
+
+`rpcclient $> chgpasswd <username> <old_password> <new_password>`
+
+#### 1.1.5 - Delete Accounts
+
+- **Delete user account**
+
+`rpcclient $> deletedomuser <username>`
+
+- **Delete domain group**
+
+`rpcclient $> deletedomgroup <group_name>`
+
+`rpcclient $> enumdomgroups`
+
+- **Delete LSA account privileges**
+
+`rpcclient $> lsadelpriv S-1-1-0`
+
+`rpcclient $> lsaenumprivsaccount S-1-1-0`
+
+### 1.2 - SMB
+
+#### 1.2.1 - Usage
+
+##### 1.2.1.1 - SMBClient
+
+`$ smbclient -U "<username>%<password>" -L //<IP>`
+
+`$ smbclient -U "<username>" --pw-nt-hash <ntlm_hash> -L //<IP>`
+
+`$ smbclient --option="client min protocol=core" -U "" //<IP>/<share>`
+
+##### 1.2.1.2 - Enum4Linux
+
+`$ enum4linux -a -u "<username>" -p "<password>" <IP>`
+
+##### 1.2.1.3 - SMBMap
+
+`$ smbmap -u "<username>" -p "<password>" -H "<ntlm_hash>" <IP> [-P <PORT>]`
+
+`$ smbmap -u "<username>" -p "<NT>:<LM>" -H "<ntlm_hash>" <IP> [-P <PORT>]`
+
+##### 1.2.1.4 - CrackMapExec
+
+- **Password**
+
+`$ crackmapexec smb <IP> -u "<username>" -p "<password>" --groups --local-groups --loggedon-users --rid-brute --sessions --users --shares --pass-pol`
+
+- **Pass The Hash**
+
+`$ crackmapexec smb <IP> -u "<username>" -H "<ntlm_hash>" --groups --local-groups --loggedon-users --rid-brute --sessions --users --shares --pass-pol`
+
+##### 1.2.1.5 - Mount Share
+
+`$ sudo mkdir /mnt/smb`
+
+`$ sudo mount -t cifs //<IP>/<share_name> /mnt/smb`
+
+`$ sudo mount -t cifs -o "port=<PORT> username=<username>,password=<password>" //<IP>/<share_name> /mnt/smb`
+
+#### 1.2.2 - Anonymous Login
+
+##### 1.2.2.1 - SMBClient
+
+`$ smbclient -N -L //<IP>`
+
+`$ smbclient -N -L //<IP> -mSMB2`
+
+`$ smbclient -N -L //<IP> -mSMB3`
+
+##### 1.2.2.2 - SMBMap
+
+`$ smbmap -H <IP> [-P <PORT>]`
+
+##### 1.2.2.3 - Enum4Linux
+
+`$ enum4linux -a -u "" -p "" <IP>`
+
+##### 1.2.2.4 - CrackMapExec
+
+`$ crackmapexec smb <IP> -u "" -p "" --shares`
+
+#### 1.2.3 - System Volume Information
+
+##### 1.2.3.1 - SMBClient
+
+```
+$ smbclient -U "<username>%<password>" //<domain_name/SYSVOL
+
+smb: \> ls
+```
+
+## 02 - Nmap
+
+### 2.1 - NETBIOS
+
+- **NetBIOS enumeration via Nmap**
+
+`$ sudo nmap -p U:137,T:139 <IP>`
+
+`$ sudo nmap -p 137 -sUV -Pn -n -T4 --script nbstat <IP>`
+
+### 2.2 - SMB
+
+- **NetBIOS enumeration via Nmap**
+
+`$ nmap -p 445 --script "safe or smb-enum-*" <IP>`
+
+`$ nmap -p 445 --script smb-os-discovery --script-args unsafe=1 <IP>`
+
+`$ nmap -p 445 --script smb-security-mode <IP>`
+
+`$ nmap -p 445 --script smb2-security-mode,smb2-capabilities.nse <IP>`
+
+`$ nmap -p 445 --script smb-server-stats <IP>`
+
+`$ nmap -p 445 --script smb-system-info <IP>`
+
+`$ nmap -p 445 --script smb-protocols <IP>`
+
+## 03 - Responder
+
+`$ ./RunFinger.py -i <IP>/<CIDR>`
+
+## 04 - Metasploit
+
+### 4.1 - NETBIOS
+
+- **Metasploit auxiliary module to enumerate NetBIOS**
+
+```
+msf > use auxiliary/scanner/netbios/nbname
+
+msf auxiliary(scanner/netbios/nbname) > options
+
+Module options (auxiliary/scanner/netbios/nbname):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   BATCHSIZE  256              yes       The number of hosts to probe in each set
+   RHOSTS                      yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT      137              yes       The target port (UDP)
+   THREADS    10               yes       The number of concurrent threads
+
+msf auxiliary(scanner/netbios/nbname) > set rhosts <IP>
+
+msf auxiliary(scanner/netbios/nbname) > run -j
+```
+
+### 4.2 - SMB
+
+#### 4.2.1 - Banner Grab
+
+```
+msf > use auxiliary/scanner/smb/smb_version
+
+msf auxiliary(scanner/smb/smb_version) > options
+
+Module options (auxiliary/scanner/smb/smb_version):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   RHOSTS                    yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   THREADS  1                yes       The number of concurrent threads (max one per host)
+
+msf auxiliary(scanner/smb/smb_version) > set rhosts <IP>
+
+msf auxiliary(scanner/smb/smb_version) > set threads 5
+
+msf auxiliary(scanner/smb/smb_version) > run -j
+```
+
+#### 4.2.2 - Shares
+
+```
+msf > use auxiliary/scanner/smb/smb_enumshares
+
+msf auxiliary(scanner/smb/smb_enumshares) > options
+
+Module options (auxiliary/scanner/smb/smb_enumshares):
+
+   Name            Current Setting  Required  Description
+   ----            ---------------  --------  -----------
+   LogSpider       3                no        0 = disabled, 1 = CSV, 2 = table (txt), 3 = one liner (txt) (Accepted: 0, 1, 2, 3)
+   MaxDepth        999              yes       Max number of subdirectories to spider
+   RHOSTS                           yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   SMBDomain       .                no        The Windows domain to use for authentication
+   SMBPass                          no        The password for the specified username
+   SMBUser                          no        The username to authenticate as
+   ShowFiles       false            yes       Show detailed information when spidering
+   SpiderProfiles  true             no        Spider only user profiles when share is a disk share
+   SpiderShares    false            no        Spider shares recursively
+   THREADS         1                yes       The number of concurrent threads (max one per host)
+
+msf auxiliary(scanner/smb/smb_enumshares) > set smbuser <username>
+
+msf auxiliary(scanner/smb/smb_enumshares) > set smbpass <password>
+
+msf auxiliary(scanner/smb/smb_enumshares) > set rhosts <IP>
+
+msf auxiliary(scanner/smb/smb_enumshares) > set smbdomain [domain_name]
+
+msf auxiliary(scanner/smb/smb_enumshares) > set showfiles <true | false>
+
+msf auxiliary(scanner/smb/smb_enumshares) > set spidershares [true | false]
+
+msf auxiliary(scanner/smb/smb_enumshares) > set threads 4
+
+msf auxiliary(scanner/smb/smb_enumshares) > set logspider <0 | 1 | 2 | 3>
+
+msf auxiliary(scanner/smb/smb_enumshares) > run
+```
+
+#### 4.2.3 - Users
+
+```
+msf > use auxiliary/scanner/smb/smb_enumusers
+
+msf auxiliary(scanner/smb/smb_enumusers) > options
+
+Module options (auxiliary/scanner/smb/smb_enumusers):
+
+   Name          Current Setting  Required  Description
+   ----          ---------------  --------  -----------
+   DB_ALL_USERS  false            no        Add all enumerated usernames to the database
+   RHOSTS                         yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   SMBDomain     .                no        The Windows domain to use for authentication
+   SMBPass                        no        The password for the specified username
+   SMBUser                        no        The username to authenticate as
+   THREADS       1                yes       The number of concurrent threads (max one per host)
+
+msf auxiliary(scanner/smb/smb_enumusers) > set smbuser <username>
+
+msf auxiliary(scanner/smb/smb_enumusers) > set smbpass <password>
+
+msf auxiliary(scanner/smb/smb_enumusers) > set rhosts <IP>
+
+msf auxiliary(scanner/smb/smb_enumusers) > set smbdomain [domain_name]
+
+msf auxiliary(scanner/smb/smb_enumusers) > set threads 4
+
+msf auxiliary(scanner/smb/smb_enumusers) > run
+```
+
+## References
+
+- [Active Directory Enumeration RPCClient](https://www.hackingarticles.in/active-directory-enumeration-rpcclient/)
+
+- [Pentesting SMB](https://book.hacktricks.xyz/pentesting/pentesting-smb)
+
+- [SMB Protocol Negotiation Failed](https://0xffsec.com/handbook/notes/smb-protocol-negotiation-failed/)
+
+- [How to Configure Samba to Use SMBv2 and Disable SMBv1 on Linux or Unix](https://www.cyberciti.biz/faq/how-to-configure-samba-to-use-smbv2-and-disable-smbv1-on-linux-or-unix/)
+
+- [Kali Samba Configuration](https://www.kali.org/docs/general-use/samba-configuration/)
+
+- [Extracting Password Policy from Domain Machines](https://infinitelogins.com/2020/12/09/extracting-password-policy-from-domain-machines/)
+
+- [Enumerating with Nmap](https://materials.rangeforce.com/tutorial/2020/01/30/Enumerating-with-Nmap/)

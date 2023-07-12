@@ -1,0 +1,46 @@
+# Basic
+
+## Retrieve private IPv4 address
+
+```
+$ ifconfig | grep "inet" | grep "broadcast" | awk '{print $2}'
+
+$ ifconfig -a | awk '/(inet)(.*)broadcast/ {print $2}'
+
+$ ifconfig | grep -v 127.0.0.1 | grep -Eo "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" | awk '{print $2}'
+
+$ while read -r line; do ping -c 1 $line | grep "bytes from" | grep -Eo "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"; done < ips.txt | tee output.txt
+```
+
+`$ ip -4 -o address | awk '{print $4}' | cut -d "/" -f 1`
+
+`$ ip -f inet address | awk '/inet / { print $2 }'`
+
+`$ ip address | awk '$1 == "inet" && $3 == "brd" { sub (/\/.*/,""); print $2 }'`
+
+`$ ip address | awk -- '$1 == "inet" && $3 == "brd" { split($2,a,"/"); print a[1]; }'`
+
+`$ ip address | egrep '^ *inet' | grep brd | awk -- '{ print $2; }' | sed -e 's:/[0-9]*$::'`
+
+## Retrieve MAC Address
+
+`$ ip address | awk '/ether/{print $2}'`
+
+## IP/CIDR Formatting
+
+`$ cat ip-cidr-range-format.sh`
+
+---
+
+```bash
+#!/bin/sh
+
+xargs -I {} ipcalc -b {}/"$mask" < $1 |
+awk -F ':' '$1 ~ /^Network/ && !seen[$2]++ { gsub(" ","",$2); print $2 }'
+```
+
+## References
+
+- [Regex Find IP Addresses File Grep](https://www.shellhacks.com/regex-find-ip-addresses-file-grep/)
+
+- [Convert List of IP Into Fixed CIDR Form](https://unix.stackexchange.com/questions/671839/convert-list-of-ip-into-fixed-cidr-form)

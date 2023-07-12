@@ -1,0 +1,45 @@
+# 01 - Certificate Check
+
+## 1.1 - DNSRecon
+
+`$ dnsrecon -d <domain> -t crt`
+
+## 1.2 - Recon-ng
+
+- **`certificate_transparency` recon-ng module**
+
+```
+[recon-ng][default] > marketplace install recon/domains-hosts/certificate_transparency
+
+[recon-ng][default] > modules load recon/domains-hosts/certificate_transparency
+
+[recon-ng][default][certificate_transparency] > options set SOURCE <domain.com>
+
+[recon-ng][default][certificate_transparency] > run
+
+[recon-ng][default][certificate_transparency] > back
+```
+
+- **`resolve` recon-ng module**
+
+```
+[recon-ng][default] > marketplace install recon/hosts-hosts/resolve
+
+[recon-ng][default] > modules load recon/hosts-hosts/resolve
+
+[recon-ng][default][resolve] > run
+
+[recon-ng][default][resolve] > back
+```
+
+- **`reverse_resolve` recon-ng module**
+
+```
+[recon-ng][default] > modules load recon/netblocks-hosts/reverse_resolve
+
+[recon-ng][default][reverse_resolve] > run
+```
+
+## References
+
+- [Crt.sh](https://crt.sh)
