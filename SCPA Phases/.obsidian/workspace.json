@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
+                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
+                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
+                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md"
+                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md"
               }
             }
           }
@@ -148,6 +148,7 @@
   },
   "active": "5cc33bfe0e122b3b",
   "lastOpenFiles": [
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/01 - Gathering URLs.md",
     "Pentesting Phases/WebApp Hacking/API Keys/Description.md",
     "Pentesting Phases/WebApp Hacking/API Keys/API Keys References.md",
@@ -173,7 +174,6 @@
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Insecure GUI Apps.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Service Exploits/DLL Hijacking.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets/02 - Rubeus.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Hashdump/01 - Manual.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Dump Credentials",
     "SCPA_Notes.ctb~",
