@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md",
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md",
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md",
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md"
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md"
               }
             }
           }
@@ -146,44 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f3eb96d84de0fe8",
+  "active": "5cc33bfe0e122b3b",
   "lastOpenFiles": [
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Dump Credentials.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/01 - Gathering URLs.md",
+    "Pentesting Phases/WebApp Hacking/API Keys/Description.md",
+    "Pentesting Phases/WebApp Hacking/API Keys/API Keys References.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Go-Dork.md",
+    "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Tmux.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/SQL Injection.md",
+    "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server/Sliver.md",
+    "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server/Cobalt Strike.md",
     "Pentesting Phases/Command Line/Windows/Command Prompt/Windows Command Prompt References.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/05 - Services.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/04 - Shortcut Program Path.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/03 - Process Manipulation.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/02 - File and Directory Manipulation.md",
+    "Pentesting Phases/Command Line/Windows/Command Prompt/01 - Navigation and Exploration.md",
+    "Pentesting Phases/Command Line/Compilers/Windows.md",
+    "Pentesting Phases/Command Line/Compilers/Linux.md",
+    "Pentesting Phases/Command Line/Compilers/General.md",
+    "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server/Brute Ratel C4.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Dump Credentials.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/List Processes.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Insecure GUI Apps.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Service Exploits/DLL Hijacking.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/03 - Process Manipulation.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets/02 - Rubeus.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Hashdump/01 - Manual.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Hashdump/02 - Mimikatz.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Hashdump/03 - Metasploit.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets/01 - Mimikatz.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Dump Credentials/01 - Mimikatz.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Dump Credentials",
     "SCPA_Notes.ctb~",
     "SCPA_Notes.ctb28628698582.ctb",
     "SCPA_Notes.ctb-journal",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Volume Shadow Copy.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Linux/Web Browsers.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Linux/IRC.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Linux/Hashdump.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/AIX/Hashdump.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/FreeBSD/Hashdump.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Mac OSX/Hashdump.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Hashdump",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/AIX",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/FreeBSD",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Mac OSX",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/VNC.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/SNMP.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Putty and SSH.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Passwords.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/LaZagne.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Active Directory Privilege Escalation/Kerberoasting/ServicePrincipalName (SPN).md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Images/Insecure GUI Apps/Manual/02 - Open Command Prompt.png",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Images/Insecure GUI Apps/Manual/01 - MSPaint Shortcut Properties.png",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Images/Service Exploits/DLL Hijacking/Manual/06 - Procmon Potential Vulnerability.png",
