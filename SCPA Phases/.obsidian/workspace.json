@@ -146,10 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5cc33bfe0e122b3b",
+  "active": "6f3eb96d84de0fe8",
   "lastOpenFiles": [
-    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/ParamSpider.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/01 - Gathering URLs.md",
+    "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
     "Pentesting Phases/WebApp Hacking/API Keys/Description.md",
     "Pentesting Phases/WebApp Hacking/API Keys/API Keys References.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Go-Dork.md",
@@ -172,8 +174,6 @@
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Dump Credentials.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/List Processes.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Insecure GUI Apps.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Service Exploits/DLL Hijacking.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets/02 - Rubeus.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Dump Credentials",
     "SCPA_Notes.ctb~",
