@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/HTTPx.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 388.5
+    "width": 269.5
   },
   "right": {
     "id": "b470c215db3d3347",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/HTTPx.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/HTTPx.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md"
+                "file": "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/HTTP/Tools/HTTPx.md"
               }
             }
           }
@@ -146,34 +146,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6f3eb96d84de0fe8",
+  "active": "5cc33bfe0e122b3b",
   "lastOpenFiles": [
-    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/ParamSpider.md",
-    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Organization Information Gathering/Website Reconnaissance/01 - Gathering URLs.md",
+    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Tmux.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Hijack Multiplexer Shell Sessions.md",
+    "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
+    "Pentesting Phases/Vulnerability Assessment/Web Vulnerability Scanner/Nikto.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Cron Jobs.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/SUID and SGID.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Sudo.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/PATH.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/Outdated Software.md",
+    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Linux/NFS.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/ParamSpider.md",
+    "Pentesting Phases/Operation Security/Online/SOCKS Proxy Servers.md",
+    "Pentesting Phases/Command Line/Linux/Use Cases/Networking/Basic.md",
+    "Pentesting Phases/Information Gathering/Passive Fingerprinting/Enumeration/HTTP/Gospider.md",
+    "Pentesting Phases/Vulnerability Assessment/Vulnerability Scanner/Nuclei.md",
     "Pentesting Phases/Information Gathering/Active Fingerprinting/Enumeration/DNS.md",
     "Pentesting Phases/WebApp Hacking/API Keys/Description.md",
     "Pentesting Phases/WebApp Hacking/API Keys/API Keys References.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Go-Dork.md",
-    "Pentesting Phases/WebApp Hacking/SQL Injection/Sqlmap.md",
-    "Pentesting Phases/Command Line/Linux/Unix Shell/Terminal Multiplexer/Tmux.md",
     "Pentesting Phases/Information Gathering/Passive Fingerprinting/OSINT/Search Engines Dorking/Google Dorking/Dorks/Web Enumeration/SQL Injection.md",
     "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server/Sliver.md",
     "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server/Cobalt Strike.md",
     "Pentesting Phases/Command Line/Windows/Command Prompt/Windows Command Prompt References.md",
     "Pentesting Phases/Command Line/Windows/Command Prompt/05 - Services.md",
     "Pentesting Phases/Command Line/Windows/Command Prompt/04 - Shortcut Program Path.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/03 - Process Manipulation.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/02 - File and Directory Manipulation.md",
-    "Pentesting Phases/Command Line/Windows/Command Prompt/01 - Navigation and Exploration.md",
-    "Pentesting Phases/Command Line/Compilers/Windows.md",
-    "Pentesting Phases/Command Line/Compilers/Linux.md",
-    "Pentesting Phases/Command Line/Compilers/General.md",
-    "Pentesting Phases/Red Team Infrastructure/Hardening C2 Server/Brute Ratel C4.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Tickets.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Active Directory/Dump Credentials.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Enumeration and Discovery/Windows/Host/Processes AND Services AND Software/List Processes.md",
-    "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Privilege Escalation/Windows/Host Privilege Escalation/Insecure GUI Apps.md",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Tickets",
     "Pentesting Phases/Post Exploitation/Shell Is The Beginning/Credential Access & Dumping/Windows/Host/Registry/Dump Credentials",
     "SCPA_Notes.ctb~",
