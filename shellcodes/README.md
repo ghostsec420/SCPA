@@ -6,8 +6,8 @@ Shellcodes are a sequence of bytes that includes a payload (a command, a shell, 
 
 Shellcodes is composed as follows :
 
-- Recon of the target (if it uses `NX Mitigation` or the old rights `RWX`)
-- If it uses `NX Mitigation`, use `mprotect` or `mmap` to find a `RWX` rights area (ROP, fouling of `ebp`, and `eip`)
+- Recon of the target (if it uses `NX` or the old rights `RWX`)
+- To uses a `NX Mitigation`, use `mprotect` or `mmap` to find a `RWX` rights area (ROP, fouling of `ebp`, and `eip`)
 - Development in Assembly (architecture to define)
 - At least one section (`.text`)
 - Reduce the number of instructions to be quiet
