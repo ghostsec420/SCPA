@@ -60,6 +60,7 @@ git sparse-checkout set Notebook
 
 - [Hacktricks](https://book.hacktricks.xyz/)
 
+- [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - Open source (GPL-3.0) autonomous AI penetration testing platform covering web, API, Active Directory and Kubernetes, orchestrating 80+ offensive tools as an MCP host with proof of exploitation and a local privacy gateway (the LLM never sees real IPs or credentials).
 - [Payloads All The Things](https://swisskyrepo.github.io/PayloadsAllTheThings/)
 
 - [Internal All The Things](https://swisskyrepo.github.io/InternalAllTheThings/)
